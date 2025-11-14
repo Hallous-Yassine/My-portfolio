@@ -38,9 +38,9 @@ const Projects = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            Featured <span className="text-primary text-glow">Projects</span>
+            My <span className="text-primary text-glow">Projects</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             A showcase of my technical projects spanning AI, cybersecurity, backend development, and IoT solutions.
           </p>
@@ -63,56 +63,69 @@ const Projects = () => {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group overflow-hidden"
+              className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 group overflow-hidden"
             >
-              <div className="relative h-48 overflow-hidden bg-muted/30">
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <div className="text-center p-4">
-                    <div className="text-4xl font-mono text-primary/50 mb-2">{"</>"}</div>
-                    <div className="font-mono text-xs">{project.category}</div>
+              {/* Project Image/Placeholder */}
+              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent">
+                <div className="absolute top-4 left-4">
+                  <Badge className="bg-primary/90 text-primary-foreground border-0 px-3 py-1">
+                    {project.category}
+                  </Badge>
+                </div>
+                <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="text-center">
+                    <div className="text-6xl font-mono text-primary/40 mb-3 group-hover:text-primary/60 transition-colors">
+                      {"</>"}
+                    </div>
                   </div>
                 </div>
               </div>
 
-              <CardHeader>
-                <div className="flex items-start justify-between mb-2">
-                  <h3 className="text-xl font-bold group-hover:text-primary transition-colors">
-                    {project.title}
-                  </h3>
-                  <Badge variant="secondary" className="text-xs">
-                    {project.date.split(" ")[0]} {project.date.split(" ")[1]}
-                  </Badge>
-                </div>
-                <p className="text-muted-foreground text-sm">{project.description}</p>
+              <CardHeader className="pb-3">
+                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                  {project.title}
+                </h3>
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {project.description}
+                </p>
               </CardHeader>
 
-              <CardContent>
-                <div className="space-y-4">
-                  <div className="flex flex-wrap gap-2">
-                    {project.technologies.slice(0, 4).map((tech) => (
-                      <span
-                        key={tech}
-                        className="px-2 py-1 bg-muted/50 border border-border/50 rounded text-xs text-foreground/80"
-                      >
-                        {tech}
-                      </span>
-                    ))}
-                    {project.technologies.length > 4 && (
-                      <span className="px-2 py-1 bg-muted/50 border border-border/50 rounded text-xs text-foreground/80">
-                        +{project.technologies.length - 4} more
-                      </span>
-                    )}
-                  </div>
+              <CardContent className="space-y-4">
+                {/* Technologies */}
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies.slice(0, 4).map((tech) => (
+                    <span
+                      key={tech}
+                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-primary/50 transition-colors"
+                    >
+                      {tech}
+                    </span>
+                  ))}
+                  {project.technologies.length > 4 && (
+                    <span className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90">
+                      +{project.technologies.length - 4}
+                    </span>
+                  )}
+                </div>
 
-                  <div className="flex gap-2">
+                {/* Metadata & Actions */}
+                <div className="pt-2 border-t border-border/30">
+                  <div className="flex items-center justify-between mb-3 text-xs text-muted-foreground">
+                    <span className="flex items-center gap-1">
+                      <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                      {project.date}
+                    </span>
+                  </div>
+                  
+                  <div className="flex gap-3">
                     <Button
                       size="sm"
                       variant="outline"
-                      className="flex-1 border-border/50 hover:border-primary/50"
+                      className="flex-1 border-border/50 hover:border-primary/50 hover:bg-primary/5"
                       onClick={() => window.open(project.github, "_blank")}
                     >
                       <Github className="w-4 h-4 mr-2" />
@@ -120,11 +133,11 @@ const Projects = () => {
                     </Button>
                     <Button
                       size="sm"
-                      className="flex-1 bg-primary hover:bg-primary/90"
+                      className="flex-1 bg-primary hover:bg-primary/90 group"
                       onClick={() => window.open(project.github, "_blank")}
                     >
-                      <ExternalLink className="w-4 h-4 mr-2" />
-                      View
+                      View Project
+                      <ExternalLink className="w-3 h-3 ml-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     </Button>
                   </div>
                 </div>

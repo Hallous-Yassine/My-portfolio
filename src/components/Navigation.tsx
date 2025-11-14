@@ -40,9 +40,14 @@ const Navigation = () => {
     >
       <div className="container mx-auto px-4">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center gap-2 cursor-pointer" onClick={() => scrollToSection("home")}>
-            <Terminal className="w-6 h-6 text-primary" />
-            <span className="text-xl font-bold text-glow">Yassine Hallous</span>
+          <div className="flex items-center gap-3 cursor-pointer group" onClick={() => scrollToSection("home")}>
+            <div className="relative">
+              <Terminal className="w-8 h-8 text-primary group-hover:text-primary/80 transition-colors" />
+              <div className="absolute -inset-1 bg-primary/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
+            </div>
+            <span className="text-xl font-bold bg-gradient-to-r from-primary to-secondary bg-clip-text text-transparent">
+              Yassine Hallous
+            </span>
           </div>
 
           {/* Desktop Navigation */}

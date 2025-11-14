@@ -29,56 +29,74 @@ const Certifications = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            <span className="text-primary text-glow">Certifications</span> & Achievements
+            My <span className="text-secondary text-glow-purple">Certifications</span>
           </h2>
-          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
+          <div className="w-20 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             Professional certifications and credentials demonstrating expertise across multiple domains.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
           {certifications.map((cert) => (
             <Card
               key={cert.id}
-              className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group"
+              className="bg-card/80 backdrop-blur border-border/50 hover:border-secondary/30 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-300 group"
             >
-              <div className="relative h-40 overflow-hidden bg-gradient-to-br from-primary/10 to-secondary/10 flex items-center justify-center">
-                <Award className="w-20 h-20 text-primary/30 group-hover:text-primary/50 transition-colors" />
+              {/* Certification Badge Area */}
+              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-secondary/20 via-primary/10 to-transparent flex items-center justify-center border-b border-border/30">
+                <Award className="w-24 h-24 text-secondary/40 group-hover:text-secondary/60 group-hover:scale-110 transition-all duration-300" />
+                <div className="absolute top-4 left-4">
+                  <div className="w-3 h-3 rounded-full bg-secondary animate-pulse"></div>
+                </div>
               </div>
 
-              <CardHeader>
-                <h3 className="text-xl font-bold group-hover:text-primary transition-colors mb-2">
+              <CardHeader className="pb-3">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors mb-3">
                   {cert.title}
                 </h3>
-                <div className="flex items-center justify-between text-sm">
-                  <span className="text-secondary font-semibold">{cert.issuer}</span>
-                  <span className="text-muted-foreground">{cert.date}</span>
+                <div className="flex items-center justify-between text-sm mb-2">
+                  <span className="text-secondary font-semibold flex items-center gap-2">
+                    <Award className="w-3.5 h-3.5" />
+                    {cert.issuer}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <span className="flex items-center gap-1">
+                    <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    {cert.date}
+                  </span>
                 </div>
               </CardHeader>
 
-              <CardContent>
-                <p className="text-muted-foreground text-sm mb-4">{cert.description}</p>
+              <CardContent className="space-y-4">
+                <p className="text-muted-foreground text-sm leading-relaxed">
+                  {cert.description}
+                </p>
 
-                <div className="flex flex-wrap gap-2 mb-4">
+                {/* Skills Tags */}
+                <div className="flex flex-wrap gap-2">
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-2 py-1 bg-muted/50 border border-border/50 rounded text-xs text-foreground/80"
+                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-secondary/50 transition-colors"
                     >
                       {skill}
                     </span>
                   ))}
                 </div>
 
-                <Button
-                  size="sm"
-                  variant="outline"
-                  className="w-full border-border/50 hover:border-primary/50"
-                >
-                  <ExternalLink className="w-4 h-4 mr-2" />
-                  View Credential
-                </Button>
+                {/* View Credential Button */}
+                <div className="pt-2">
+                  <Button
+                    size="sm"
+                    variant="outline"
+                    className="w-full border-border/50 hover:border-secondary/50 hover:bg-secondary/5 group"
+                  >
+                    <ExternalLink className="w-4 h-4 mr-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                    View Credential
+                  </Button>
+                </div>
               </CardContent>
             </Card>
           ))}
