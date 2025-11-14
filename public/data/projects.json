@@ -1,0 +1,88 @@
+{
+  "projects": [
+    {
+      "id": 1,
+      "title": "MNIST Digit Recognition",
+      "description": "Handwritten Digit Classifier using CNN achieving 99.5% accuracy",
+      "date": "October 2025",
+      "category": "AI & Machine Learning",
+      "technologies": ["Python", "TensorFlow/Keras", "Flask", "React", "TypeScript", "Tailwind CSS"],
+      "highlights": [
+        "Trained a Convolutional Neural Network (CNN) achieving 99.5% accuracy on MNIST dataset",
+        "Built an interactive web application with React frontend and Flask API for real-time digit prediction"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/mnist.jpg"
+    },
+    {
+      "id": 2,
+      "title": "CineMatch",
+      "description": "An intelligent movie recommendation system using ML algorithms",
+      "date": "October 2025",
+      "category": "AI & Machine Learning",
+      "technologies": ["Python", "Flask", "Scikit-learn", "React", "TypeScript", "Tailwind CSS"],
+      "highlights": [
+        "Built a recommendation system using machine learning algorithms to suggest movies based on user interests",
+        "Developed a modern web platform using React and TypeScript"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/cinematch.jpg"
+    },
+    {
+      "id": 3,
+      "title": "Nexova",
+      "description": "Intelligent platform automating industrial processes with IoT integration",
+      "date": "November 2024 – Present",
+      "category": "Backend & IoT",
+      "technologies": ["Node.js", "TypeScript", "PostgreSQL", "Electron"],
+      "highlights": [
+        "Developed a backend system with TypeScript, Node.js, and PostgreSQL to process real-time IoT sensor data",
+        "Designed RESTful APIs enabling seamless integration with frontend and IoT devices"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/nexova.jpg"
+    },
+    {
+      "id": 4,
+      "title": "RuleGuard",
+      "description": "Python-based code verification tool for C source files",
+      "date": "July 2025 - August 2025",
+      "category": "DevTools & Automation",
+      "technologies": ["Python", "Tkinter", "C"],
+      "highlights": [
+        "Automates code verification for C source and header files against SOFIOS guidelines",
+        "Reduced manual code review time by 70% through precise violation tracking and automated fix suggestions"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/ruleguard.jpg"
+    },
+    {
+      "id": 5,
+      "title": "ExpenseTracker Mobile App",
+      "description": "Secure expense tracking application for Android",
+      "date": "April 2025",
+      "category": "Mobile Development",
+      "technologies": ["Java", "XML", "SQLite"],
+      "highlights": [
+        "Built a mobile application for secure expense tracking using Java",
+        "Integrated SQLite for offline data storage and efficient management"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/expense.jpg"
+    },
+    {
+      "id": 6,
+      "title": "QuizNight",
+      "description": "Full-stack quiz game platform with dynamic user interaction",
+      "date": "March 2025",
+      "category": "Web Development",
+      "technologies": ["Node.js", "TypeScript", "HTML", "CSS", "JavaScript"],
+      "highlights": [
+        "Developed a full-stack quiz game platform with dynamic user interaction",
+        "Implemented user management, scoring system, leaderboards, and custom quiz creation"
+      ],
+      "github": "https://github.com/Hallous-Yassine",
+      "image": "/assets/projects/quiznight.jpg"
+    }
+  ]
+}
