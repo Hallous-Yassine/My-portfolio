@@ -1,0 +1,236 @@
+{
+  "posts": [
+    {
+      "id": 1,
+      "image": "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.51.jpeg",
+      "title": "🏆 1st Place - IAS TAM Technical Challenge",
+      "location": "Tunis, Tunisia",
+      "date": "October 2025",
+      "caption": "First place at IAS TAM Technical Challenge! Our startup Defensys won with an AI-powered security platform that provides proactive application protection. Proud of what we built in 48 hours!",
+      "hashtags": ["AI", "Security", "Innovation", "FirstPlace", "Hackathon"],
+      "likes": 127,
+      "comments": 23,
+      "shares": 12,
+      "year": 2025,
+      "category": "Awards",
+      "album": "ias tam",
+      "albumImages": [
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.51.jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (1).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (2).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (3).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (4).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (5).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.53 (6).jpeg",
+        "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.54 (1).jpeg"
+      ]
+    },
+    {
+      "id": 2,
+      "image": "/assets/gdg/480821202_618396030941814_3776731707426923263_n.jpg",
+      "title": "🎖️ Best Android Project - GDG TechDays",
+      "location": "Sousse, Tunisia",
+      "date": "April 2025",
+      "caption": "Best Android Project at GDG TechDays! Incredible learning experience focusing on Kotlin development and modern Android architecture. Thanks to GDG Sousse for this amazing bootcamp!",
+      "hashtags": ["Android", "Kotlin", "GDG", "TechDays"],
+      "likes": 94,
+      "comments": 15,
+      "shares": 8,
+      "year": 2025,
+      "category": "Awards",
+      "album": "gdg",
+      "albumImages": [
+        "/assets/gdg/480821202_618396030941814_3776731707426923263_n.jpg",
+        "/assets/gdg/481115015_618391814275569_787215684124057880_n.jpg",
+        "/assets/gdg/481300746_618396014275149_3934027331353653492_n.jpg",
+        "/assets/gdg/481682914_618392300942187_3383433597719504903_n.jpg",
+        "/assets/gdg/482103766_618390937608990_787791274612719452_n.jpg"
+      ]
+    },
+    {
+      "id": 3,
+      "image": "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (1).jpeg",
+      "title": "🥉 Raksha Pentest Hackathon",
+      "location": "Tunisia",
+      "date": "2025",
+      "caption": "Great experience at Raksha Pentest Hackathon! Testing security vulnerabilities and learning advanced penetration testing techniques. Cybersecurity is all about thinking like an attacker to defend better! 🔐",
+      "hashtags": ["Cybersecurity", "Pentest", "Hackathon", "Raksha"],
+      "likes": 156,
+      "comments": 31,
+      "shares": 19,
+      "year": 2025,
+      "category": "Hackathons",
+      "album": "raksha pentest",
+      "albumImages": [
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (1).jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (2).jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (3).jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (4).jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (5).jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.16.jpeg",
+        "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.17.jpeg"
+      ]
+    },
+    {
+      "id": 4,
+      "image": "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
+      "title": "💻 Participate in IEEEXtreme 18.0 & 19.0",
+      "location": "Online",
+      "date": "October 2024 & 2025",
+      "caption": "24 hours of non-stop competitive programming at IEEEXtreme! Solving algorithms, debugging at 3 AM, and pushing our limits. Two years of intense coding challenges!",
+      "hashtags": ["Programming", "Competition", "IEEE", "IEEEXtreme"],
+      "likes": 189,
+      "comments": 34,
+      "shares": 18,
+      "year": 2024,
+      "category": "Competitions",
+      "album": "IEEEXtreme",
+      "albumImages": [
+        "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
+        "/assets/IEEEXtreme/567150764_1528773374784617_1968757727561530436_n.jpg"
+      ]
+    },
+    {
+      "id": 5,
+      "image": "/assets/redroom/486366252_974796501491731_6274390641205272597_n.jpg",
+      "title": "🔴 RedRoom Hackathon",
+      "location": "Tunisia",
+      "date": "March 2025",
+      "caption": "3rd place overall and 2nd in CTF at RedRoom Hackathon by Securinets! 26 hours of intensive cybersecurity challenges. Sleep is overrated when you're cracking codes! 💪",
+      "hashtags": ["Cybersecurity", "CTF", "Hackathon", "RedRoom"],
+      "likes": 156,
+      "comments": 31,
+      "shares": 19,
+      "year": 2025,
+      "category": "Hackathons",
+      "album": "redroom",
+      "albumImages": [
+        "/assets/redroom/486366252_974796501491731_6274390641205272597_n.jpg",
+        "/assets/redroom/486186582_974797568158291_2200430395457497776_n.jpg",
+        "/assets/redroom/486523122_974799294824785_1241988055555756727_n.jpg"
+      ]
+    },
+    {
+      "id": 6,
+      "image": "/assets/sdc/IMG_7982-DeNoiseAI-low-light.jpg",
+      "title": "🌟 Sight Day Congress",
+      "location": "ISITCOM, Tunisia",
+      "date": "2024",
+      "caption": "Successfully organized Sight Day Congress as part of IEEE ESSTHS! Bringing together students and industry professionals to discuss technology's impact on society.",
+      "hashtags": ["IEEE", "Leadership", "TechForGood", "SightDay"],
+      "likes": 203,
+      "comments": 42,
+      "shares": 25,
+      "year": 2024,
+      "category": "IEEE Events",
+      "album": "sdc",
+      "albumImages": [
+        "/assets/sdc/IMG_7982-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7990-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7993-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7001-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7028-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7030-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7044-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7048-DeNoiseAI-low-light.jpg",
+        "/assets/sdc/IMG_7060-DeNoiseAI-low-light.jpg"
+      ]
+    },
+    {
+      "id": 7,
+      "image": "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
+      "title": "📍 Lead the Booth at IEEE IAS 60th Anniversary Conference",
+      "location": "Tunisia",
+      "date": "2024",
+      "caption": "Leading the booth at the IEEE IAS 60th Anniversary Conference! Connecting with industry leaders and showcasing our chapter's activities. Great networking and learning experience!",
+      "hashtags": ["IEEE", "IAS", "Conference", "Leadership"],
+      "likes": 178,
+      "comments": 29,
+      "shares": 14,
+      "year": 2024,
+      "category": "IEEE Events",
+      "album": "IAC",
+      "albumImages": [
+        "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
+        "/assets/IAC/490612873_122131141958739282_8234925052212975654_n.jpg",
+        "/assets/IAC/491789604_122131882238739282_1579140040570172138_n.jpg"
+      ]
+    },
+    {
+      "id": 8,
+      "image": "/assets/tsyp 11/received_1528609294627429.jpeg",
+      "title": "🌐 TSYP 11 Congress",
+      "location": "Tunisia",
+      "date": "2023",
+      "caption": "Part of the TSYP 11 Organizing Committee! Working with talented young professionals across regions to create impactful technical programs.",
+      "hashtags": ["IEEE", "TSYP", "Leadership", "Networking"],
+      "likes": 142,
+      "comments": 28,
+      "shares": 16,
+      "year": 2023,
+      "category": "IEEE Events",
+      "album": "tsyp 11",
+      "albumImages": [
+        "/assets/tsyp 11/received_1528609294627429.jpeg",
+        "/assets/tsyp 11/WhatsApp Image 2025-11-11 at 00.42.18.jpeg"
+      ]
+    },
+    {
+      "id": 9,
+      "image": "assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
+      "title": "🌐 TSYP 12 Congress",
+      "location": "Tunisia",
+      "date": "2024",
+      "caption": "Another successful year with TSYP 12! Continuing to build bridges between young professionals and creating opportunities for technical growth and collaboration.",
+      "hashtags": ["IEEE", "TSYP", "Leadership", "Networking"],
+      "likes": 165,
+      "comments": 32,
+      "shares": 18,
+      "year": 2024,
+      "category": "IEEE Events",
+      "album": "tsyp 12",
+      "albumImages": [
+        "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
+        "/assets/tsyp 12/WhatsApp Image 2025-11-11 at 00.42.17 (2).jpeg"
+      ]
+    },
+    {
+      "id": 10,
+      "image": "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
+      "title": "🏭 Organize Industrial Visit to Leoni Wiring System Factory",
+      "location": "Tunisia",
+      "date": "2025",
+      "caption": "Organized an industrial visit to Leoni Wiring System factory! Great opportunity for students to see real-world engineering applications and understand automotive wiring systems manufacturing.",
+      "hashtags": ["Industrial", "Engineering", "Factory", "Learning"],
+      "likes": 112,
+      "comments": 19,
+      "shares": 9,
+      "year": 2025,
+      "category": "Industry",
+      "album": "leoni",
+      "albumImages": [
+        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
+        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.10 (2).jpeg"
+      ]
+    },
+    {
+      "id": 11,
+      "image": "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
+      "title": "🚀 Participate in Competition with Nexova Project",
+      "location": "Tunisia",
+      "date": "2025",
+      "caption": "Competing with our Nexova project! Innovative solutions and creative problem-solving with an amazing team. Every competition is a learning opportunity!",
+      "hashtags": ["Innovation", "Competition", "Nexova", "Teamwork"],
+      "likes": 98,
+      "comments": 17,
+      "shares": 11,
+      "year": 2025,
+      "category": "Competitions",
+      "album": "nexova",
+      "albumImages": [
+        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
+        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (4).jpeg"
+      ]
+    }
+  ]
+}
