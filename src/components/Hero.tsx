@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import Terminal from "./Terminal";
 
 const Hero = () => {
   const [displayText, setDisplayText] = useState("");
@@ -45,7 +46,7 @@ const Hero = () => {
   };
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center px-4">
+    <section id="home" className="relative min-h-screen flex items-center justify-center px-4 py-20">
       <div className="container mx-auto text-center z-10">
         <div className="mb-8 inline-block">
           <div className="font-mono text-primary text-sm mb-2">$ whoami</div>
@@ -66,6 +67,11 @@ const Hero = () => {
           Computer Engineering Student specializing in Embedded Systems & IoT.
           Building secure, intelligent systems and pushing the boundaries of technology.
         </p>
+
+        {/* Terminal Component */}
+        <div className="mb-12">
+          <Terminal />
+        </div>
 
         <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
           <Button
