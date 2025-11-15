@@ -67,11 +67,11 @@ const About = () => {
     <section id="about" className="py-20 px-4 relative">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-share-tech">
             About <span className="text-primary text-glow">Me</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
             A third-year Computer Engineering student specializing in Embedded Systems and IoT. Proven experience in app development, backend system design, and building automated, data-driven solutions. Actively involved in IEEE, where I developed strong leadership, teamwork, and project coordination skills.
           </p>
         </div>

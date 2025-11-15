@@ -13,6 +13,7 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
+import emailjs from "@emailjs/browser";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
@@ -38,8 +39,19 @@ const Contact = () => {
     try {
       const validated = contactSchema.parse(formData);
 
-      // Simulate form submission
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+      // Send email using EmailJS
+      await emailjs.send(
+        'service_4nphbyk',
+        'YOUR_TEMPLATE_ID', // You need to provide your EmailJS template ID
+        {
+          from_name: validated.name,
+          from_email: validated.email,
+          topic: validated.topic,
+          message: validated.message,
+          to_name: 'Yassine Hallous',
+        },
+        'YOUR_PUBLIC_KEY' // You need to provide your EmailJS public key
+      );
 
       toast({
         title: "Message Sent!",
@@ -96,11 +108,11 @@ const Contact = () => {
     <section id="contact" className="py-20 px-4 relative bg-muted/20">
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-share-tech">
             Get In <span className="text-primary text-glow">Touch</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
             Have a project in mind or want to collaborate? Feel free to reach out!
           </p>
         </div>

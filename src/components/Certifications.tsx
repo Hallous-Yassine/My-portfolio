@@ -28,11 +28,11 @@ const Certifications = () => {
     <section id="certifications" className="py-20 px-4 relative bg-muted/20">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-share-tech">
             My <span className="text-primary text-glow">Certifications</span>
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
             Professional certifications and credentials demonstrating expertise across multiple domains.
           </p>
         </div>
