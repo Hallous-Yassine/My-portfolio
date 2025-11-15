@@ -18,22 +18,22 @@ const Footer = () => {
           <div>
             <div className="flex items-center gap-2 mb-4">
               <Terminal className="w-6 h-6 text-primary" />
-              <span className="text-xl font-bold text-glow">Yassine Hallous</span>
+              <span className="text-xl font-bold text-glow font-share-tech">Yassine Hallous</span>
             </div>
-            <p className="text-muted-foreground text-sm">
+            <p className="text-muted-foreground text-sm font-fira-code">
               Computer Engineering Student passionate about cybersecurity, AI, and building
               innovative technological solutions.
             </p>
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-primary">Quick Links</h3>
+            <h3 className="font-semibold mb-4 text-primary font-share-tech">Quick Links</h3>
             <div className="space-y-2">
-              {["Home", "About", "Projects", "Certifications", "Journey", "Contact"].map((link) => (
+              {["Home", "About", "Experience", "Projects", "Certifications", "Journey", "Contact"].map((link) => (
                 <button
                   key={link}
                   onClick={() => scrollToSection(link.toLowerCase())}
-                  className="block text-muted-foreground hover:text-primary transition-colors text-sm"
+                  className="block text-muted-foreground hover:text-primary transition-colors text-sm font-fira-code"
                 >
                   {link}
                 </button>
@@ -42,7 +42,7 @@ const Footer = () => {
           </div>
 
           <div>
-            <h3 className="font-semibold mb-4 text-primary">Connect</h3>
+            <h3 className="font-semibold mb-4 text-primary font-share-tech">Connect</h3>
             <div className="flex gap-3">
               <Button
                 variant="outline"
@@ -69,7 +69,7 @@ const Footer = () => {
                 <Mail className="w-5 h-5" />
               </Button>
             </div>
-            <p className="text-muted-foreground text-sm mt-4">
+            <p className="text-muted-foreground text-sm mt-4 font-fira-code">
               <a
                 href="mailto:yassine_hallous@ieee.org"
                 className="hover:text-primary transition-colors"
@@ -81,7 +81,7 @@ const Footer = () => {
         </div>
 
         <div className="border-t border-border/50 pt-8 text-center">
-          <p className="text-muted-foreground text-sm">
+          <p className="text-muted-foreground text-sm font-fira-code">
             © {currentYear} Yassine Hallous. Built with{" "}
             <span className="text-primary">React</span> and{" "}
             <span className="text-secondary">passion</span>.
