@@ -32,9 +32,9 @@ const Terminal = () => {
       case "shield":
         return <Shield className={`${iconClass} text-primary`} />;
       case "network":
-        return <Network className={`${iconClass} text-secondary`} />;
+        return <Network className={`${iconClass} text-primary`} />;
       case "alert":
-        return <AlertTriangle className={`${iconClass} text-cyber-terminal`} />;
+        return <AlertTriangle className={`${iconClass} text-yellow-400`} />;
       case "lock":
         return <Lock className={`${iconClass} text-primary`} />;
       case "check":

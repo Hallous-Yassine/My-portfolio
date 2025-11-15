@@ -88,9 +88,9 @@ const About = () => {
                 className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group"
               >
                 <CardContent className="p-6">
-                  <interest.icon className="w-12 h-12 text-primary mb-4 group-hover:text-secondary transition-colors" />
-                  <h4 className="text-xl font-semibold mb-3">{interest.title}</h4>
-                  <p className="text-muted-foreground text-sm leading-relaxed">{interest.description}</p>
+                  <interest.icon className="w-12 h-12 text-primary mb-4 group-hover:scale-110 transition-transform" />
+                  <h4 className="text-xl font-semibold mb-3 font-share-tech">{interest.title}</h4>
+                  <p className="text-muted-foreground text-sm leading-relaxed font-fira-code">{interest.description}</p>
                 </CardContent>
               </Card>
             ))}
