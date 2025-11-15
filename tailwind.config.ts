@@ -13,6 +13,11 @@ export default {
       },
     },
     extend: {
+      fontFamily: {
+        'share-tech': ['"Share Tech Mono"', 'Consolas', 'monospace'],
+        'fira-code': ['"Fira Code"', 'monospace'],
+        'terminal': ['Consolas', '"Courier New"', 'monospace'],
+      },
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",

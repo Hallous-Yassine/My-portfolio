@@ -37,11 +37,11 @@ const Projects = () => {
     <section id="projects" className="py-20 px-4 relative">
       <div className="container mx-auto">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-4">
+          <h2 className="text-4xl md:text-5xl font-bold mb-4 font-share-tech">
             My <span className="text-primary text-glow">Projects</span>
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
-          <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
+          <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
             A showcase of my technical projects spanning AI, cybersecurity, backend development, and IoT solutions.
           </p>
         </div>

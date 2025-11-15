@@ -24,10 +24,11 @@ const Navigation = () => {
   };
 
   const navLinks = [
-    { label: "Home", id: "home" },
+            { label: "Home", id: "home" },
     { label: "About", id: "about" },
     { label: "Projects", id: "projects" },
     { label: "Certifications", id: "certifications" },
+    { label: "Experience", id: "experience" },
     { label: "Journey", id: "journey" },
     { label: "Contact", id: "contact" },
   ];
@@ -45,7 +46,7 @@ const Navigation = () => {
               <Terminal className="w-8 h-8 text-white group-hover:text-primary transition-colors" />
               <div className="absolute -inset-1 bg-white/20 blur-md rounded-full opacity-0 group-hover:opacity-100 transition-opacity"></div>
             </div>
-            <span className="text-xl font-bold text-white font-mono tracking-wider group-hover:text-primary transition-colors" style={{textShadow: '0 0 10px rgba(255,255,255,0.5)'}}>
+            <span className="text-xl font-bold text-white font-share-tech tracking-wider group-hover:text-primary transition-colors" style={{textShadow: '0 0 10px rgba(255,255,255,0.5)'}}>
               {'<'}Yassine Hallous{'/>'}
             </span>
           </div>

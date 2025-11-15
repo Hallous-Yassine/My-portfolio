@@ -54,13 +54,13 @@ const Terminal = () => {
             <div className="w-3 h-3 rounded-full bg-yellow-500"></div>
             <div className="w-3 h-3 rounded-full bg-green-500"></div>
           </div>
-          <span className="text-sm text-muted-foreground font-mono ml-2">
+          <span className="text-sm text-muted-foreground font-terminal ml-2">
             portfolio_terminal
           </span>
         </div>
 
         {/* Terminal Content */}
-        <div className="p-6 font-mono text-sm space-y-3 min-h-[200px]">
+        <div className="p-6 font-terminal text-sm space-y-3 min-h-[200px]">
           {lines.slice(0, visibleLines).map((line, index) => (
             <div
               key={index}

@@ -54,18 +54,18 @@ const Hero = () => {
             <div className="font-mono text-primary text-sm mb-2">$ whoami</div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in font-share-tech" style={{ animationDelay: '0.1s' }}>
             <span className="text-glow">Yassine Hallous</span>
           </h1>
 
           <div className="h-20 mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
-            <p className="text-3xl md:text-4xl text-muted-foreground font-mono">
+            <p className="text-3xl md:text-4xl text-muted-foreground font-fira-code">
               <span className="text-secondary text-glow-purple">{displayText}</span>
               <span className="animate-pulse text-primary">|</span>
             </p>
           </div>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 animate-fade-in" style={{ animationDelay: '0.3s' }}>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 animate-fade-in font-fira-code" style={{ animationDelay: '0.3s' }}>
             Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.
           </p>
 
