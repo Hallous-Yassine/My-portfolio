@@ -67,21 +67,19 @@ const Projects = () => {
           {filteredProjects.map((project) => (
             <Card
               key={project.id}
-              className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 group overflow-hidden"
+              className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 group overflow-hidden flex flex-col h-full"
             >
-              {/* Project Image/Placeholder */}
-              <div className="relative h-56 overflow-hidden bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent">
+              {/* Project Image */}
+              <div className="relative w-full aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent overflow-hidden">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-muted/50"
+                />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-primary/90 text-primary-foreground border-0 px-3 py-1">
                     {project.category}
                   </Badge>
-                </div>
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="text-6xl font-mono text-primary/40 mb-3 group-hover:text-primary/60 transition-colors">
-                      {"</>"}
-                    </div>
-                  </div>
                 </div>
               </div>
 

@@ -2,53 +2,63 @@
   "certifications": [
     {
       "id": 1,
-      "title": "Google AI Essentials",
-      "issuer": "Google",
-      "date": "September 2025",
+      "title": "Python Essentials 2",
+      "issuer": "Cisco Networking Academy",
+      "date": "July 2025",
       "credentialId": "Available upon request",
-      "description": "Comprehensive training in AI fundamentals and practical applications",
-      "skills": ["Artificial Intelligence", "Machine Learning", "AI Ethics"],
-      "image": "/assets/certifications/google-ai.jpg"
+      "description": "Advanced Python programming concepts including OOP, modules, file handling, and real-world applications.",
+      "skills": ["Python", "OOP", "Scripting", "Problem Solving"],
+      "image": "/assets/certifications/python-essentials-2.png"
     },
     {
       "id": 2,
-      "title": "Problem Solving (Intermediate)",
-      "issuer": "HackerRank",
-      "date": "September 2025",
+      "title": "Python Essentials 1",
+      "issuer": "Cisco Networking Academy",
+      "date": "June 2025",
       "credentialId": "Available upon request",
-      "description": "Advanced problem-solving skills in algorithms and data structures",
-      "skills": ["Algorithms", "Data Structures", "Problem Solving"],
-      "image": "/assets/certifications/hackerrank.jpg"
+      "description": "Fundamentals of Python programming including variables, loops, functions, and basic problem-solving.",
+      "skills": ["Python", "Programming Basics", "Logic", "Scripting"],
+      "image": "/assets/certifications/python-essentials-1.png"
     },
     {
       "id": 3,
-      "title": "Cybersecurity Essentials",
-      "issuer": "Cisco",
-      "date": "October 2024",
+      "title": "Pre-Security Learning Path",
+      "issuer": "TryHackMe",
+      "date": "July 2025",
       "credentialId": "Available upon request",
-      "description": "Foundation in cybersecurity principles and practices",
-      "skills": ["Cybersecurity", "Network Security", "Threat Analysis"],
-      "image": "/assets/certifications/cisco.jpg"
+      "description": "Hands-on introduction to cybersecurity covering OS basics, networking, security fundamentals, and practical labs.",
+      "skills": ["Networking", "Linux Basics", "Threat Fundamentals"],
+      "image": "/assets/certifications/tryhackme-presecurity.png"
     },
     {
       "id": 4,
-      "title": "Python Programming",
-      "issuer": "Kaggle",
-      "date": "August 2024",
+      "title": "Introduction à la cybersécurité",
+      "issuer": "Cisco Networking Academy",
+      "date": "June 2025",
       "credentialId": "Available upon request",
-      "description": "Advanced Python programming techniques and best practices",
-      "skills": ["Python", "Programming", "Data Analysis"],
-      "image": "/assets/certifications/kaggle-python.jpg"
+      "description": "Introduction to cybersecurity concepts, digital risks, attack types, and protection strategies.",
+      "skills": ["Cybersecurity", "Threat Awareness", "Risk Management"],
+      "image": "/assets/certifications/cisco-cybersecurity.png"
     },
     {
       "id": 5,
-      "title": "SQL (Advanced)",
-      "issuer": "HackerRank",
-      "date": "September 2024",
+      "title": "Notions de base sur les réseaux",
+      "issuer": "Cisco Networking Academy",
+      "date": "April 2025",
       "credentialId": "Available upon request",
-      "description": "Advanced SQL querying and database management",
-      "skills": ["SQL", "Database Management", "Query Optimization"],
-      "image": "/assets/certifications/hackerrank-sql.jpg"
+      "description": "Fundamentals of computer networking including IP addressing, routing, and network communication concepts.",
+      "skills": ["IP Addressing", "Routing", "Network Fundamentals"],
+      "image": "/assets/certifications/cisco-networking.png"
+    },
+    {
+      "id": 6,
+      "title": "IEEEXtreme 18.0 Programming Competition",
+      "issuer": "IEEE",
+      "date": "October 2024",
+      "credentialId": "Available upon request",
+      "description": "Global competitive programming contest testing algorithmic thinking, time-efficient problem solving, and coding skills.",
+      "skills": ["Algorithms" , "Problem Solving"],
+      "image": "/assets/certifications/ieeextreme.png"
     }
   ]
 }

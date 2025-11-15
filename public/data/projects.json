@@ -3,21 +3,21 @@
     {
       "id": 1,
       "title": "MNIST Digit Recognition",
-      "description": "Handwritten Digit Classifier using CNN achieving 99.5% accuracy",
+      "description": "Handwritten digit classifier using a high-accuracy CNN model",
       "date": "October 2025",
       "category": "AI & Machine Learning",
       "technologies": ["Python", "TensorFlow/Keras", "Flask", "React", "TypeScript", "Tailwind CSS"],
       "highlights": [
-        "Trained a Convolutional Neural Network (CNN) achieving 99.5% accuracy on MNIST dataset",
-        "Built an interactive web application with React frontend and Flask API for real-time digit prediction"
+        "Trained a Convolutional Neural Network (CNN) achieving 99.5% accuracy on the MNIST dataset",
+        "Built an interactive web application with a React frontend and Flask API for real-time digit prediction"
       ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/mnist.jpg"
+      "github": "https://github.com/Hallous-Yassine/MNIST-Digit-Recognition",
+      "image": "/assets/projects/mnist.png"
     },
     {
       "id": 2,
       "title": "CineMatch",
-      "description": "An intelligent movie recommendation system using ML algorithms",
+      "description": "Intelligent movie recommendation system powered by ML",
       "date": "October 2025",
       "category": "AI & Machine Learning",
       "technologies": ["Python", "Flask", "Scikit-learn", "React", "TypeScript", "Tailwind CSS"],
@@ -25,13 +25,13 @@
         "Built a recommendation system using machine learning algorithms to suggest movies based on user interests",
         "Developed a modern web platform using React and TypeScript"
       ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/cinematch.jpg"
+      "github": "https://github.com/Hallous-Yassine/CineMatch-Movies_Recommendation_System",
+      "image": "/assets/projects/cinematch.png"
     },
     {
       "id": 3,
       "title": "Nexova",
-      "description": "Intelligent platform automating industrial processes with IoT integration",
+      "description": "Intelligent IoT-powered platform automating industrial processes",
       "date": "November 2024 – Present",
       "category": "Backend & IoT",
       "technologies": ["Node.js", "TypeScript", "PostgreSQL", "Electron"],
@@ -39,41 +39,27 @@
         "Developed a backend system with TypeScript, Node.js, and PostgreSQL to process real-time IoT sensor data",
         "Designed RESTful APIs enabling seamless integration with frontend and IoT devices"
       ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/nexova.jpg"
+      "github": "https://github.com/Hallous-Yassine/Nexova-Backend-System",
+      "image": "/assets/projects/nexova.png"
     },
     {
       "id": 4,
-      "title": "RuleGuard",
-      "description": "Python-based code verification tool for C source files",
-      "date": "July 2025 - August 2025",
-      "category": "DevTools & Automation",
-      "technologies": ["Python", "Tkinter", "C"],
-      "highlights": [
-        "Automates code verification for C source and header files against SOFIOS guidelines",
-        "Reduced manual code review time by 70% through precise violation tracking and automated fix suggestions"
-      ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/ruleguard.jpg"
-    },
-    {
-      "id": 5,
       "title": "ExpenseTracker Mobile App",
-      "description": "Secure expense tracking application for Android",
+      "description": "Android application for secure personal expense tracking",
       "date": "April 2025",
       "category": "Mobile Development",
       "technologies": ["Java", "XML", "SQLite"],
       "highlights": [
-        "Built a mobile application for secure expense tracking using Java",
-        "Integrated SQLite for offline data storage and efficient management"
+        "Developed a mobile application for secure expense tracking using Java",
+        "Integrated SQLite for offline data storage and efficient data management"
       ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/expense.jpg"
+      "github": "https://github.com/Hallous-Yassine/Expense-Tracker-Mobile-App",
+      "image": "/assets/projects/expense.png"
     },
     {
-      "id": 6,
+      "id": 5,
       "title": "QuizNight",
-      "description": "Full-stack quiz game platform with dynamic user interaction",
+      "description": "Full-stack quiz game platform with real-time interaction",
       "date": "March 2025",
       "category": "Web Development",
       "technologies": ["Node.js", "TypeScript", "HTML", "CSS", "JavaScript"],
@@ -81,8 +67,34 @@
         "Developed a full-stack quiz game platform with dynamic user interaction",
         "Implemented user management, scoring system, leaderboards, and custom quiz creation"
       ],
-      "github": "https://github.com/Hallous-Yassine",
-      "image": "/assets/projects/quiznight.jpg"
+      "github": "https://github.com/Hallous-Yassine/QuizNight-App",
+      "image": "/assets/projects/quiznight.png"
+    },
+    {
+      "id": 6,
+      "title": "Journal App",
+      "description": "Mobile journal app for managing personal entries",
+      "date": "February 2025",
+      "category": "Mobile Development",
+      "technologies": ["Kotlin"],
+      "highlights": [
+        "Created a mobile journal app allowing users to add, view, and edit personal entries"
+      ],
+      "github": "https://github.com/Hallous-Yassine/Journal_App",
+      "image": "/assets/projects/journal.png"
+    },
+    {
+      "id": 7,
+      "title": "Messaging System",
+      "description": "Linux-based messaging server built in C",
+      "date": "March 2024",
+      "category": "Systems Programming",
+      "technologies": ["Linux", "C"],
+      "highlights": [
+        "Built a messaging server in C enabling users to create accounts and exchange messages"
+      ],
+      "github": "https://github.com/Hallous-Yassine/Messaging_System",
+      "image": "/assets/projects/messaging.png"
     }
   ]
 }

@@ -45,7 +45,7 @@ const Terminal = () => {
   };
 
   return (
-    <div className="w-full max-w-2xl mx-auto">
+    <div className="w-full">
       <div className="bg-card/80 backdrop-blur-lg border border-border/50 rounded-lg overflow-hidden shadow-2xl card-glow">
         {/* Terminal Header */}
         <div className="bg-muted/50 px-4 py-3 flex items-center gap-2 border-b border-border/50">

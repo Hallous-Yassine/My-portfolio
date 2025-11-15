@@ -106,12 +106,11 @@ const Journey = () => {
               }}
             >
               <div className="relative h-64 overflow-hidden bg-muted/30">
-                <div className="absolute inset-0 flex items-center justify-center text-muted-foreground">
-                  <div className="text-center p-4">
-                    <Calendar className="w-12 h-12 text-primary/50 mx-auto mb-2" />
-                    <div className="font-mono text-sm">{post.date}</div>
-                  </div>
-                </div>
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
                 <Badge
                   className="absolute top-4 right-4 bg-secondary/90 text-secondary-foreground"
                 >
@@ -164,7 +163,7 @@ const Journey = () => {
         </div>
 
         <Dialog open={!!selectedPost} onOpenChange={() => setSelectedPost(null)}>
-          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto">
+          <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto scrollbar-cyber">
             <DialogHeader>
               <DialogTitle className="text-2xl">{selectedPost?.title}</DialogTitle>
             </DialogHeader>
@@ -172,12 +171,14 @@ const Journey = () => {
             {selectedPost && (
               <div className="space-y-6">
                 <div className="relative">
-                  <div className="relative h-96 bg-muted/30 rounded-lg overflow-hidden flex items-center justify-center">
-                    <div className="text-center p-8">
-                      <div className="text-6xl font-mono text-primary/50 mb-4">
-                        {currentImageIndex + 1}/{selectedPost.albumImages.length}
-                      </div>
-                      <div className="font-mono text-muted-foreground">{selectedPost.album}</div>
+                  <div className="relative w-full aspect-video bg-muted/30 rounded-lg overflow-hidden flex items-center justify-center">
+                    <img
+                      src={selectedPost.albumImages[currentImageIndex]}
+                      alt={`${selectedPost.title} - Image ${currentImageIndex + 1}`}
+                      className="w-full h-full object-contain"
+                    />
+                    <div className="absolute bottom-4 right-4 px-3 py-1 bg-background/80 backdrop-blur rounded-full text-sm font-mono">
+                      {currentImageIndex + 1}/{selectedPost.albumImages.length}
                     </div>
                   </div>
 

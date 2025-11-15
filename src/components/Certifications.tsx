@@ -29,9 +29,9 @@ const Certifications = () => {
       <div className="container mx-auto">
         <div className="text-center mb-16">
           <h2 className="text-4xl md:text-5xl font-bold mb-4">
-            My <span className="text-secondary text-glow-purple">Certifications</span>
+            My <span className="text-primary text-glow">Certifications</span>
           </h2>
-          <div className="w-20 h-1 bg-secondary mx-auto mb-6 rounded-full"></div>
+          <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto">
             Professional certifications and credentials demonstrating expertise across multiple domains.
           </p>
@@ -41,29 +41,30 @@ const Certifications = () => {
           {certifications.map((cert) => (
             <Card
               key={cert.id}
-              className="bg-card/80 backdrop-blur border-border/50 hover:border-secondary/30 hover:shadow-[0_0_30px_rgba(168,85,247,0.3)] transition-all duration-300 group"
+              className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group flex flex-col h-full"
             >
-              {/* Certification Badge Area */}
-              <div className="relative h-48 overflow-hidden bg-gradient-to-br from-secondary/20 via-primary/10 to-transparent flex items-center justify-center border-b border-border/30">
-                <Award className="w-24 h-24 text-secondary/40 group-hover:text-secondary/60 group-hover:scale-110 transition-all duration-300" />
-                <div className="absolute top-4 left-4">
-                  <div className="w-3 h-3 rounded-full bg-secondary animate-pulse"></div>
-                </div>
+              {/* Certification Image Area */}
+              <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-transparent flex items-center justify-center border-b border-border/30">
+                <img
+                  src={cert.image}
+                  alt={cert.title}
+                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 p-4 bg-muted/30"
+                />
               </div>
 
-              <CardHeader className="pb-3">
-                <h3 className="text-xl font-bold text-foreground group-hover:text-secondary transition-colors mb-3">
+              <CardHeader className="pb-3 flex-1 flex flex-col">
+                <h3 className="text-xl font-bold text-foreground group-hover:text-primary transition-colors mb-3">
                   {cert.title}
                 </h3>
                 <div className="flex items-center justify-between text-sm mb-2">
-                  <span className="text-secondary font-semibold flex items-center gap-2">
+                  <span className="text-primary font-semibold flex items-center gap-2">
                     <Award className="w-3.5 h-3.5" />
                     {cert.issuer}
                   </span>
                 </div>
                 <div className="flex items-center gap-2 text-xs text-muted-foreground">
                   <span className="flex items-center gap-1">
-                    <span className="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
                     {cert.date}
                   </span>
                 </div>
@@ -79,7 +80,7 @@ const Certifications = () => {
                   {cert.skills.map((skill) => (
                     <span
                       key={skill}
-                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-secondary/50 transition-colors"
+                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-primary/50 transition-colors"
                     >
                       {skill}
                     </span>
@@ -91,7 +92,7 @@ const Certifications = () => {
                   <Button
                     size="sm"
                     variant="outline"
-                    className="w-full border-border/50 hover:border-secondary/50 hover:bg-secondary/5 group"
+                    className="w-full border-border/50 hover:border-primary/50 hover:bg-primary/5 group"
                   >
                     <ExternalLink className="w-4 h-4 mr-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
                     View Credential
