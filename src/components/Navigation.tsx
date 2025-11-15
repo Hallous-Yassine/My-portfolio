@@ -24,11 +24,11 @@ const Navigation = () => {
   };
 
   const navLinks = [
-            { label: "Home", id: "home" },
+    { label: "Home", id: "home" },
     { label: "About", id: "about" },
+    { label: "Experience", id: "experience" },
     { label: "Projects", id: "projects" },
     { label: "Certifications", id: "certifications" },
-    { label: "Experience", id: "experience" },
     { label: "Journey", id: "journey" },
     { label: "Contact", id: "contact" },
   ];
@@ -58,7 +58,7 @@ const Navigation = () => {
                 key={link.id}
                 variant="ghost"
                 onClick={() => scrollToSection(link.id)}
-                className="text-foreground/80 hover:text-primary hover:bg-muted/50 transition-all"
+                className="text-foreground/80 hover:text-primary hover:bg-muted/50 transition-all font-fira-code"
               >
                 {link.label}
               </Button>
@@ -84,7 +84,7 @@ const Navigation = () => {
                 key={link.id}
                 variant="ghost"
                 onClick={() => scrollToSection(link.id)}
-                className="w-full justify-start text-foreground/80 hover:text-primary hover:bg-muted/50"
+                className="w-full justify-start text-foreground/80 hover:text-primary hover:bg-muted/50 font-fira-code"
               >
                 {link.label}
               </Button>
