@@ -112,7 +112,7 @@ const Journey = () => {
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
                 />
                 <Badge
-                  className="absolute top-4 right-4 bg-secondary/90 text-secondary-foreground"
+                  className="absolute top-4 right-4 bg-primary/90 text-primary-foreground font-fira-code"
                 >
                   {post.category}
                 </Badge>
