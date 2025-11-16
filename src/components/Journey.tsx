@@ -108,9 +108,10 @@ const Journey = () => {
             >
               <div className="relative h-64 overflow-hidden bg-muted/30">
                 <img
-                  src={post.image}
+                  src={getAssetPath(post.image)}
                   alt={post.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  loading="lazy"
                 />
                 <Badge
                   className="absolute top-4 right-4 bg-primary/90 text-primary-foreground font-fira-code"
@@ -174,7 +175,7 @@ const Journey = () => {
                 <div className="relative">
                   <div className="relative w-full aspect-video bg-muted/30 rounded-lg overflow-hidden flex items-center justify-center">
                     <img
-                      src={selectedPost.albumImages[currentImageIndex]}
+                      src={getAssetPath(selectedPost.albumImages[currentImageIndex])}
                       alt={`${selectedPost.title} - Image ${currentImageIndex + 1}`}
                       className="w-full h-full object-contain"
                     />

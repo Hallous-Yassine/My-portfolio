@@ -47,9 +47,10 @@ const Certifications = () => {
               {/* Certification Image Area */}
               <div className="relative w-full aspect-square overflow-hidden bg-gradient-to-br from-primary/20 via-primary/10 to-transparent flex items-center justify-center border-b border-border/30">
                 <img
-                  src={cert.image}
+                  src={getAssetPath(cert.image)}
                   alt={cert.title}
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 p-4 bg-muted/30"
+                  loading="lazy"
                 />
               </div>
 

@@ -73,9 +73,10 @@ const Projects = () => {
               {/* Project Image */}
               <div className="relative w-full aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent overflow-hidden">
                 <img
-                  src={project.image}
+                  src={getAssetPath(project.image)}
                   alt={project.title}
                   className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-muted/50"
+                  loading="lazy"
                 />
                 <div className="absolute top-4 left-4">
                   <Badge className="bg-primary/90 text-primary-foreground border-0 px-3 py-1">

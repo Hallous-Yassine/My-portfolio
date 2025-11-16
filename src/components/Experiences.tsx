@@ -52,11 +52,12 @@ const Experiences = () => {
                   <div className="relative overflow-hidden lg:col-span-1 h-64 lg:h-auto">
                     <div className="absolute inset-0 bg-gradient-to-br from-primary/20 to-secondary/20"></div>
                     <img
-                      src={exp.image}
+                      src={getAssetPath(exp.image)}
                       alt={`${exp.company} experience`}
                       className="w-full h-full object-contain transition-transform duration-500 group-hover:scale-110"
+                      loading="lazy"
                       onError={(e) => {
-                        e.currentTarget.src = "/placeholder.svg";
+                        e.currentTarget.src = getAssetPath("/placeholder.svg");
                       }}
                     />
                     <div className="absolute top-4 left-4">
