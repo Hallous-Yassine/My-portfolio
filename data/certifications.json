@@ -1,0 +1,64 @@
+{
+  "certifications": [
+    {
+      "id": 1,
+      "title": "Python Essentials 2",
+      "issuer": "Cisco Networking Academy",
+      "date": "July 2025",
+      "credentialId": "Available upon request",
+      "description": "Advanced Python programming concepts including OOP, modules, file handling, and real-world applications.",
+      "skills": ["Python", "OOP", "Scripting", "Problem Solving"],
+      "image": "/assets/certifications/python-essentials-2.png"
+    },
+    {
+      "id": 2,
+      "title": "Python Essentials 1",
+      "issuer": "Cisco Networking Academy",
+      "date": "June 2025",
+      "credentialId": "Available upon request",
+      "description": "Fundamentals of Python programming including variables, loops, functions, and basic problem-solving.",
+      "skills": ["Python", "Programming Basics", "Logic", "Scripting"],
+      "image": "/assets/certifications/python-essentials-1.png"
+    },
+    {
+      "id": 3,
+      "title": "Pre-Security Learning Path",
+      "issuer": "TryHackMe",
+      "date": "July 2025",
+      "credentialId": "Available upon request",
+      "description": "Hands-on introduction to cybersecurity covering OS basics, networking, security fundamentals, and practical labs.",
+      "skills": ["Networking", "Linux Basics", "Threat Fundamentals"],
+      "image": "/assets/certifications/tryhackme-presecurity.png"
+    },
+    {
+      "id": 4,
+      "title": "Introduction à la cybersécurité",
+      "issuer": "Cisco Networking Academy",
+      "date": "June 2025",
+      "credentialId": "Available upon request",
+      "description": "Introduction to cybersecurity concepts, digital risks, attack types, and protection strategies.",
+      "skills": ["Cybersecurity", "Threat Awareness", "Risk Management"],
+      "image": "/assets/certifications/cisco-cybersecurity.png"
+    },
+    {
+      "id": 5,
+      "title": "Notions de base sur les réseaux",
+      "issuer": "Cisco Networking Academy",
+      "date": "April 2025",
+      "credentialId": "Available upon request",
+      "description": "Fundamentals of computer networking including IP addressing, routing, and network communication concepts.",
+      "skills": ["IP Addressing", "Routing", "Network Fundamentals"],
+      "image": "/assets/certifications/cisco-networking.png"
+    },
+    {
+      "id": 6,
+      "title": "IEEEXtreme 18.0 Programming Competition",
+      "issuer": "IEEE",
+      "date": "October 2024",
+      "credentialId": "Available upon request",
+      "description": "Global competitive programming contest testing algorithmic thinking, time-efficient problem solving, and coding skills.",
+      "skills": ["Algorithms" , "Problem Solving"],
+      "image": "/assets/certifications/ieeextreme.png"
+    }
+  ]
+}
