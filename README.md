@@ -1,4 +1,4 @@
-# Kyuby Bytes Portfolio
+# My Portfolio
 
 A professional portfolio website showcasing my experience, projects, certifications, and technical expertise.
 
