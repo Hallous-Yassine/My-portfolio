@@ -104,19 +104,24 @@ const About = () => {
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {Object.entries(technologies).map(([category, techs]) => (
-              <div key={category}>
-                <h4 className="text-lg font-semibold text-primary mb-4">{category}</h4>
-                <div className="flex flex-wrap gap-2">
-                  {techs.map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-sm text-foreground/80 hover:border-primary/50 hover:text-primary transition-all"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-              </div>
+              <Card 
+                key={category}
+                className="bg-card/30 backdrop-blur border-border/50 hover:border-primary/30 transition-all duration-300"
+              >
+                <CardContent className="p-6">
+                  <h4 className="text-lg font-semibold text-primary mb-4 font-share-tech">{category}</h4>
+                  <div className="flex flex-wrap gap-2">
+                    {techs.map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1.5 bg-muted/50 border border-primary/20 rounded-full text-sm text-foreground/90 hover:border-primary/50 hover:text-primary hover:bg-primary/5 transition-all font-fira-code"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </CardContent>
+              </Card>
             ))}
           </div>
         </div>
