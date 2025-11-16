@@ -1,73 +1,123 @@
-# Welcome to your Lovable project
+# Kyuby Bytes Portfolio
 
-## Project info
+A professional portfolio website showcasing my experience, projects, certifications, and technical expertise.
 
-**URL**: https://lovable.dev/projects/605b2781-5e03-4a58-9ce5-63a7005ff610
+## About
 
-## How can I edit this code?
+Welcome to my personal portfolio! This site highlights my professional journey, technical skills, and past projects in cybersecurity and software development.
 
-There are several ways of editing your application.
+## Features
 
-**Use Lovable**
+- **Professional Design**: Clean and modern UI with dark/light theme support
+- **Responsive Layout**: Fully responsive design for all devices
+- **Interactive Components**: Smooth animations and transitions
+- **Contact Form**: Direct email integration for inquiries
+- **Experience Timeline**: Detailed work experience and internships
+- **Project Showcase**: Portfolio of completed projects
+- **Certifications**: Display of professional certifications
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/605b2781-5e03-4a58-9ce5-63a7005ff610) and start prompting.
+## Technology Stack
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Frontend Framework**: React with TypeScript
+- **Build Tool**: Vite
+- **Styling**: Tailwind CSS
+- **UI Components**: shadcn-ui
+- **Email Service**: EmailJS
+- **Validation**: Zod
+- **Icons**: Lucide React
 
-**Use your preferred IDE**
+## Getting Started
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+### Prerequisites
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- Node.js (v16 or higher) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+- npm or bun package manager
 
-Follow these steps:
+### Installation
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
-cd <YOUR_PROJECT_NAME>
+# Navigate to the project directory
+cd kyuby-bytes-portfolio
 
-# Step 3: Install the necessary dependencies.
-npm i
-
-# Step 4: Start the development server with auto-reloading and an instant preview.
-npm run dev
+# Install dependencies
+npm install
+# or
+bun install
 ```
 
-**Edit a file directly in GitHub**
+### Development
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+```sh
+# Start the development server
+npm run dev
+# or
+bun dev
+```
 
-**Use GitHub Codespaces**
+The application will be available at `http://localhost:8080`
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+## Deployment
 
-## What technologies are used for this project?
+To build the project for production:
 
-This project is built with:
+```sh
+npm run build
+# or
+bun run build
+```
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+The optimized build will be in the `dist` directory.
 
-## How can I deploy this project?
+## Project Structure
 
-Simply open [Lovable](https://lovable.dev/projects/605b2781-5e03-4a58-9ce5-63a7005ff610) and click on Share -> Publish.
+```
+src/
+├── components/          # React components
+├── pages/              # Page components
+├── hooks/              # Custom React hooks
+├── lib/                # Utility functions
+├── App.tsx             # Main app component
+└── main.tsx            # Entry point
 
-## Can I connect a custom domain to my Lovable project?
+public/
+├── data/               # JSON data files
+└── assets/             # Images and media files
+```
 
-Yes, you can!
+## Configuration
 
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
+### Environment Variables
 
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Create a `.env.local` file in the root directory (if needed):
+
+```
+VITE_API_URL=your_api_url
+```
+
+### Customization
+
+- Update portfolio data in `public/data/` JSON files
+- Modify styling in `src/App.css` and `src/index.css`
+- Customize components in `src/components/`
+
+## Contact
+
+For inquiries or collaboration opportunities, please visit the contact section or reach out via:
+- Email: yassine_hallous@ieee.org
+- GitHub: [Hallous-Yassine](https://github.com/Hallous-Yassine)
+- LinkedIn: [yassine-hallous](https://linkedin.com/in/yassine-hallous)
+
+## License
+
+[link]
+
+## Author
+
+Yassine Hallous
+
+---
+
+Built with passion and modern web technologies.
