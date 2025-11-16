@@ -46,6 +46,7 @@ const Contact = () => {
         {
           from_name: validated.name,
           from_email: validated.email,
+          title: "Contact Form Submission",
           subject: validated.topic,
           message: validated.message,
           reply_to: validated.email,
