@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useRef } from "react";
 import { Shield, Network, AlertTriangle, Lock, CheckCircle } from "lucide-react";
 
 interface TerminalLine {
@@ -9,6 +9,8 @@ interface TerminalLine {
 
 const Terminal = () => {
   const [visibleLines, setVisibleLines] = useState<number>(0);
+  const [hasAnimated, setHasAnimated] = useState(false);
+  const terminalRef = useRef<HTMLDivElement>(null);
 
   const lines: TerminalLine[] = [
     { text: "> Initializing portfolio...", icon: "shield", delay: 0 },
@@ -19,12 +21,32 @@ const Terminal = () => {
   ];
 
   useEffect(() => {
-    lines.forEach((_, index) => {
-      setTimeout(() => {
-        setVisibleLines(index + 1);
-      }, lines[index].delay);
-    });
-  }, []);
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting && !hasAnimated) {
+            setHasAnimated(true);
+            lines.forEach((_, index) => {
+              setTimeout(() => {
+                setVisibleLines(index + 1);
+              }, lines[index].delay);
+            });
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (terminalRef.current) {
+      observer.observe(terminalRef.current);
+    }
+
+    return () => {
+      if (terminalRef.current) {
+        observer.unobserve(terminalRef.current);
+      }
+    };
+  }, [hasAnimated]);
 
   const getIcon = (iconType: string) => {
     const iconClass = "w-4 h-4";
@@ -45,7 +67,7 @@ const Terminal = () => {
   };
 
   return (
-    <div className="w-full">
+    <div className="w-full" ref={terminalRef}>
       <div className="bg-card/80 backdrop-blur-lg border border-border/50 rounded-lg overflow-hidden shadow-2xl card-glow">
         {/* Terminal Header */}
         <div className="bg-muted/50 px-4 py-3 flex items-center gap-2 border-b border-border/50">

@@ -42,15 +42,15 @@ const Contact = () => {
       // Send email using EmailJS
       await emailjs.send(
         'service_4nphbyk',
-        'YOUR_TEMPLATE_ID', // You need to provide your EmailJS template ID
+        'template_822ombj',
         {
           from_name: validated.name,
           from_email: validated.email,
-          topic: validated.topic,
+          subject: validated.topic,
           message: validated.message,
-          to_name: 'Yassine Hallous',
+          reply_to: validated.email,
         },
-        'YOUR_PUBLIC_KEY' // You need to provide your EmailJS public key
+        '2E8KYnXszPWWJQOoM'
       );
 
       toast({
