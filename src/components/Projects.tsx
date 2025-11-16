@@ -3,6 +3,7 @@ import { Github } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import { getAssetPath } from "@/lib/paths";
 
 interface Project {
   id: number;
@@ -21,7 +22,7 @@ const Projects = () => {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
   useEffect(() => {
-    fetch("/data/projects.json")
+    fetch(getAssetPath("/data/projects.json"))
       .then((res) => res.json())
       .then((data) => setProjects(data.projects))
       .catch((err) => console.error("Error loading projects:", err));

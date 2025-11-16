@@ -9,6 +9,7 @@ import {
   DialogHeader,
   DialogTitle,
 } from "@/components/ui/dialog";
+import { getAssetPath } from "@/lib/paths";
 
 interface Post {
   id: number;
@@ -34,7 +35,7 @@ const Journey = () => {
   const [selectedYear, setSelectedYear] = useState<number | "All">("All");
 
   useEffect(() => {
-    fetch("/data/gallery.json")
+    fetch(getAssetPath("/data/gallery.json"))
       .then((res) => res.json())
       .then((data) => setPosts(data.posts))
       .catch((err) => console.error("Error loading gallery:", err));

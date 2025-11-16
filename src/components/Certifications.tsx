@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { Award, ExternalLink } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/paths";
 
 interface Certification {
   id: number;
@@ -18,7 +19,7 @@ const Certifications = () => {
   const [certifications, setCertifications] = useState<Certification[]>([]);
 
   useEffect(() => {
-    fetch("/data/certifications.json")
+    fetch(getAssetPath("/data/certifications.json"))
       .then((res) => res.json())
       .then((data) => setCertifications(data.certifications))
       .catch((err) => console.error("Error loading certifications:", err));

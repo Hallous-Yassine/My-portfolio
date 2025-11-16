@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { MapPin, Calendar, Briefcase } from "lucide-react";
+import { getAssetPath } from "@/lib/paths";
 
 interface Experience {
   id: number;
@@ -19,7 +20,7 @@ const Experiences = () => {
   const [experiences, setExperiences] = useState<Experience[]>([]);
 
   useEffect(() => {
-    fetch("/data/experiences.json")
+    fetch(getAssetPath("/data/experiences.json"))
       .then((res) => res.json())
       .then((data) => setExperiences(data.experience))
       .catch((error) => console.error("Error loading experiences:", error));
