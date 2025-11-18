@@ -1,5 +1,6 @@
 import { Github, Linkedin, Mail, Terminal } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/paths";
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

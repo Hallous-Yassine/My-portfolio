@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { getAssetPath } from "@/lib/paths";
 import Terminal from "./Terminal";
 
 const Hero = () => {
@@ -82,7 +83,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-primary/50 hover:bg-primary/10"
-              onClick={() => window.open("/CV_Yassine_Hallous.pdf", "_blank")}
+              onClick={() => window.open(getAssetPath("/CV_Yassine_Hallous.pdf"), "_blank")}
             >
               <Download className="w-4 h-4 mr-2" />
               Download CV

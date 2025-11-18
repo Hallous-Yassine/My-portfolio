@@ -3,6 +3,7 @@ import { Mail, MapPin, Send, Github, Linkedin } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
+import { getAssetPath } from "@/lib/paths";
 import {
   Select,
   SelectContent,
@@ -238,7 +239,7 @@ const Contact = () => {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => window.open("/CV_Yassine_Hallous.pdf", "_blank")}
+                  onClick={() => window.open(getAssetPath("/CV_Yassine_Hallous.pdf"), "_blank")}
                 >
                   Download My CV
                 </Button>
