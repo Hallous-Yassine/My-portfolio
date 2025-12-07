@@ -121,5 +121,3 @@ My-portfolio/
 ## 10. Author
 
 **Yassine Hallous** – Built with passion, creativity, and modern web technologies.
-
-Do you want me to do that next?
