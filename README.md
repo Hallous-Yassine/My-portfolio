@@ -1,123 +1,125 @@
-# My Portfolio
+# Yassine Hallous – Personal Portfolio
 
-A professional portfolio website showcasing my experience, projects, certifications, and technical expertise.
+## 1. Description
 
-## About
+**My Portfolio** is a professional, interactive website showcasing my journey, projects, skills, and certifications in **software development**.
+It serves as a hub to explore my work, experience, and technical expertise, designed with modern web technologies and a clean, responsive interface.
 
-Welcome to my personal portfolio! This site highlights my professional journey, technical skills, and past projects in cybersecurity and software development.
+---
 
-## Features
+## 2. Demo
 
-- **Professional Design**: Clean and modern UI with dark/light theme support
-- **Responsive Layout**: Fully responsive design for all devices
-- **Interactive Components**: Smooth animations and transitions
-- **Contact Form**: Direct email integration for inquiries
-- **Experience Timeline**: Detailed work experience and internships
-- **Project Showcase**: Portfolio of completed projects
-- **Certifications**: Display of professional certifications
+### 🌐 Live Portfolio
 
-## Technology Stack
+Check it out here: [https://hallous-yassine.github.io/My-portfolio/](https://hallous-yassine.github.io/My-portfolio/)
 
-- **Frontend Framework**: React with TypeScript
-- **Build Tool**: Vite
-- **Styling**: Tailwind CSS
-- **UI Components**: shadcn-ui
-- **Email Service**: EmailJS
-- **Validation**: Zod
-- **Icons**: Lucide React
+### 🔹 Key Sections
 
-## Getting Started
+* **About Me** → Overview of my professional journey and skills.
+* **Experience Timeline** → Detailed work experience and internships.
+* **Project Showcase** → Highlight of completed projects with descriptions.
+* **Certifications** → Display of professional certifications.
+* **Contact Form** → Direct email integration for inquiries.
 
-### Prerequisites
+---
 
-- Node.js (v16 or higher) - [Install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
-- npm or bun package manager
+## 3. Installation
 
-### Installation
+Clone the repository:
 
-```sh
-# Clone the repository
-git clone <YOUR_GIT_URL>
+```bash
+git clone https://github.com/Hallous-Yassine/My-portfolio.git
+cd My-portfolio
+```
 
-# Navigate to the project directory
-cd kyuby-bytes-portfolio
+Install dependencies:
 
-# Install dependencies
+```bash
 npm install
-# or
-bun install
 ```
 
-### Development
+Run the development server:
 
-```sh
-# Start the development server
+```bash
 npm run dev
-# or
-bun dev
 ```
 
-The application will be available at `http://localhost:8080`
+Access locally at: `http://localhost:8080`
 
-## Deployment
+Build for production:
 
-To build the project for production:
-
-```sh
+```bash
 npm run build
-# or
-bun run build
 ```
 
 The optimized build will be in the `dist` directory.
 
-## Project Structure
+---
 
-```
-src/
-├── components/          # React components
-├── pages/              # Page components
-├── hooks/              # Custom React hooks
-├── lib/                # Utility functions
-├── App.tsx             # Main app component
-└── main.tsx            # Entry point
+## 4. Features
 
-public/
-├── data/               # JSON data files
-└── assets/             # Images and media files
-```
-
-## Configuration
-
-### Environment Variables
-
-Create a `.env.local` file in the root directory (if needed):
-
-```
-VITE_API_URL=your_api_url
-```
-
-### Customization
-
-- Update portfolio data in `public/data/` JSON files
-- Modify styling in `src/App.css` and `src/index.css`
-- Customize components in `src/components/`
-
-## Contact
-
-For inquiries or collaboration opportunities, please visit the contact section or reach out via:
-- Email: yassine_hallous@ieee.org
-- GitHub: [Hallous-Yassine](https://github.com/Hallous-Yassine)
-- LinkedIn: [yassine-hallous](https://linkedin.com/in/yassine-hallous)
-
-## License
-
-[link]
-
-## Author
-
-Yassine Hallous
+* **Professional Design** → Clean, modern UI with dark/light theme.
+* **Responsive Layout** → Works on any device or screen size.
+* **Interactive Components** → Smooth animations and transitions.
+* **Contact Form** → EmailJS integration for direct messages.
+* **Experience Timeline** → Chronological display of internships and jobs.
+* **Project Showcase** → Portfolio of completed work with links.
+* **Certifications** → Displayed in a structured and visually appealing way.
 
 ---
 
-Built with passion and modern web technologies.
+## 5. Architecture
+
+```bash
+My-portfolio/
+│── public/              # Static assets (images, JSON data)
+│    └── data/           # Portfolio data files
+│── src/                 # Source code
+│    ├── components/     # React components
+│    ├── pages/          # Page components
+│    ├── hooks/          # Custom React hooks
+│    ├── lib/            # Utility functions
+│    ├── App.tsx         # Main app component
+│    └── main.tsx        # Entry point
+```
+
+---
+
+## 6. Tech Stack / Built With
+
+* **Frontend** → React + TypeScript
+* **Styling** → Tailwind CSS + shadcn-ui components
+* **Validation** → Zod
+* **Icons** → Lucide React
+* **Email** → EmailJS
+* **Build Tool** → Vite
+
+---
+
+## 7. Customization
+
+* Update portfolio data in `public/data/` JSON files.
+* Modify styles in `src/App.css` or `src/index.css`.
+* Customize components in `src/components/`.
+
+---
+
+## 8. Contact
+
+* **Email** → [yassine_hallous@ieee.org](mailto:yassine_hallous@ieee.org)
+* **GitHub** → [Hallous-Yassine](https://github.com/Hallous-Yassine)
+* **LinkedIn** → [yassine-hallous](https://www.linkedin.com/in/yassine-hallous/)
+
+---
+
+## 9. License
+
+**Private License – Personal Portfolio**
+
+---
+
+## 10. Author
+
+**Yassine Hallous** – Built with passion, creativity, and modern web technologies.
+
+Do you want me to do that next?
