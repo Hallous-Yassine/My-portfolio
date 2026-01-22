@@ -1,0 +1,34 @@
+{
+  "experience": [
+    {
+      "id": 1,
+      "company": "SofiaTech",
+      "location": "Ariana, Tunisia",
+      "title": "Summer Intern",
+      "date": "July 2025 – August 2025",
+      "description": "Developed an automated code-verification tool to improve software quality and streamline code review workflows.",
+      "highlights": [
+        "Built RuleGuard, a Python-based tool that verifies C source files against SOFIOS coding guidelines",
+        "Designed a user-friendly GUI with real-time analysis, detailed violation tracking, and exportable reports",
+        "Reduced manual code review time by 70% through automated detection and fix suggestions"
+      ],
+      "technologies": ["Python", "Tkinter", "C", "SOFIOS Guidelines"],
+      "image": "/assets/experience/sofiatech-2025.png"
+    },
+    {
+      "id": 2,
+      "company": "SofiaTech",
+      "location": "Ariana, Tunisia",
+      "title": "Summer Intern",
+      "date": "July 2024 – August 2024",
+      "description": "Developed an IoT-enabled mobile and backend system for real-time environmental monitoring.",
+      "highlights": [
+        "Built a Flutter mobile app connected to an ESP32 programmed in Embedded C using ESP-IDF",
+        "Created a PHP/MySQL backend to store and manage DHT11 sensor data",
+        "Implemented real-time synchronization between IoT devices and the mobile interface"
+      ],
+      "technologies": ["Flutter", "ESP32", "Embedded C", "ESP-IDF", "PHP", "MySQL"],
+      "image": "/assets/experience/sofiatech-2024.jpg"
+    }
+  ]
+}
