@@ -2,6 +2,34 @@
   "projects": [
     {
       "id": 1,
+      "title": "SuperCleaner",
+      "description": "A smart Chrome extension for web content cleaning",
+      "date": "December 2025",
+      "category": "Web Development",
+      "technologies": ["JavaScript", "HTML", "CSS", "Manifest V3"],
+      "highlights": [
+        "Built a Chrome extension to hide unwanted elements (ads, pop-ups, images, links, videos)",
+        "Added intelligent modes (Adult, Education, Image/Link/Icon/Video removal)"
+      ],
+      "github": "https://github.com/Hallous-Yassine/super-cleaner-extension",
+      "image": "/assets/projects/supercleaner.png"
+    },
+    {
+      "id": 2,
+      "title": "STL Web Viewer",
+      "description": "3D STL file viewer",
+      "date": "November 2025",
+      "category": "Web Development",
+      "technologies": ["React", "TypeScript", "Three.js", "Tailwind CSS", "Vite", "Vercel"],
+      "highlights": [
+        "Developed a web application to load and visualize large STL files",
+        "Implemented smooth 3D rendering with Web Workers and optimized camera controls"
+      ],
+      "github": "https://github.com/Hallous-Yassine/STL-WebViewer",
+      "image": "/assets/projects/stlviewer.png"
+    },
+    {
+      "id": 3,
       "title": "MNIST Digit Recognition",
       "description": "Handwritten digit classifier using a high-accuracy CNN model",
       "date": "October 2025",
@@ -15,7 +43,7 @@
       "image": "/assets/projects/mnist.png"
     },
     {
-      "id": 2,
+      "id": 4,
       "title": "CineMatch",
       "description": "Intelligent movie recommendation system powered by ML",
       "date": "October 2025",
@@ -29,7 +57,7 @@
       "image": "/assets/projects/cinematch.png"
     },
     {
-      "id": 3,
+      "id": 5,
       "title": "Nexova",
       "description": "Intelligent IoT-powered platform automating industrial processes",
       "date": "November 2024 – Present",
@@ -43,7 +71,7 @@
       "image": "/assets/projects/nexova.png"
     },
     {
-      "id": 4,
+      "id": 6,
       "title": "ExpenseTracker Mobile App",
       "description": "Android application for secure personal expense tracking",
       "date": "April 2025",
@@ -57,7 +85,7 @@
       "image": "/assets/projects/expense.png"
     },
     {
-      "id": 5,
+      "id": 7,
       "title": "QuizNight",
       "description": "Full-stack quiz game platform with real-time interaction",
       "date": "March 2025",
@@ -71,7 +99,7 @@
       "image": "/assets/projects/quiznight.png"
     },
     {
-      "id": 6,
+      "id": 8,
       "title": "Journal App",
       "description": "Mobile journal app for managing personal entries",
       "date": "February 2025",
@@ -84,7 +112,7 @@
       "image": "/assets/projects/journal.png"
     },
     {
-      "id": 7,
+      "id": 9,
       "title": "Messaging System",
       "description": "Linux-based messaging server built in C",
       "date": "March 2024",
