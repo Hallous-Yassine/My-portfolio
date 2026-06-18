@@ -142,4 +142,16 @@ All colors MUST be HSL.
       transform: translateY(0);
     }
   }
+
+  @media (prefers-reduced-motion: reduce) {
+    .animate-fade-in,
+    .animate-pulse,
+    .animate-bounce {
+      animation: none !important;
+    }
+
+    * {
+      scroll-behavior: auto !important;
+    }
+  }
 }

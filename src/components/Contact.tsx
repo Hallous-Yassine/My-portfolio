@@ -21,6 +21,7 @@ const contactSchema = z.object({
   email: z.string().trim().email("Invalid email address").max(255, "Email is too long"),
   topic: z.string().min(1, "Please select a topic"),
   message: z.string().trim().min(10, "Message must be at least 10 characters").max(1000, "Message is too long"),
+  website: z.string().max(0).optional(),
 });
 
 const Contact = () => {
@@ -29,21 +30,38 @@ const Contact = () => {
     email: "",
     topic: "",
     message: "",
+    website: "",
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const { toast } = useToast();
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
+
+    if (formData.website) return;
+
     setIsSubmitting(true);
+
+    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+    if (!serviceId || !templateId || !publicKey) {
+      toast({
+        title: "Configuration Error",
+        description: "Email service is not configured. Please try again later.",
+        variant: "destructive",
+      });
+      setIsSubmitting(false);
+      return;
+    }
 
     try {
       const validated = contactSchema.parse(formData);
 
-      // Send email using EmailJS
       await emailjs.send(
-        'service_4nphbyk',
-        'template_822ombj',
+        serviceId,
+        templateId,
         {
           from_name: validated.name,
           from_email: validated.email,
@@ -52,7 +70,7 @@ const Contact = () => {
           message: validated.message,
           reply_to: validated.email,
         },
-        '2E8KYnXszPWWJQOoM'
+        publicKey
       );
 
       toast({
@@ -60,7 +78,7 @@ const Contact = () => {
         description: "Thanks for reaching out. I'll get back to you soon!",
       });
 
-      setFormData({ name: "", email: "", topic: "", message: "" });
+      setFormData({ name: "", email: "", topic: "", message: "", website: "" });
     } catch (error) {
       if (error instanceof z.ZodError) {
         toast({
@@ -124,9 +142,21 @@ const Contact = () => {
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6">Send Me a Message</h3>
               <form onSubmit={handleSubmit} className="space-y-6">
+                <input
+                  type="text"
+                  name="website"
+                  value={formData.website}
+                  onChange={(e) => setFormData({ ...formData, website: e.target.value })}
+                  className="hidden"
+                  tabIndex={-1}
+                  autoComplete="off"
+                  aria-hidden="true"
+                />
+
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Name</label>
+                  <label htmlFor="contact-name" className="text-sm font-medium mb-2 block">Name</label>
                   <Input
+                    id="contact-name"
                     placeholder="Your name"
                     value={formData.name}
                     onChange={(e) =>
@@ -138,8 +168,9 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Email</label>
+                  <label htmlFor="contact-email" className="text-sm font-medium mb-2 block">Email</label>
                   <Input
+                    id="contact-email"
                     type="email"
                     placeholder="your.email@example.com"
                     value={formData.email}
@@ -152,14 +183,14 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Topic</label>
+                  <label htmlFor="contact-topic" className="text-sm font-medium mb-2 block">Topic</label>
                   <Select
                     value={formData.topic}
                     onValueChange={(value) =>
                       setFormData({ ...formData, topic: value })
                     }
                   >
-                    <SelectTrigger className="bg-background/50 border-border/50 focus:border-primary">
+                    <SelectTrigger id="contact-topic" className="bg-background/50 border-border/50 focus:border-primary">
                       <SelectValue placeholder="Select a topic" />
                     </SelectTrigger>
                     <SelectContent className="bg-popover border-border">
@@ -173,8 +204,9 @@ const Contact = () => {
                 </div>
 
                 <div>
-                  <label className="text-sm font-medium mb-2 block">Message</label>
+                  <label htmlFor="contact-message" className="text-sm font-medium mb-2 block">Message</label>
                   <Textarea
+                    id="contact-message"
                     placeholder="Tell me about your project or inquiry..."
                     value={formData.message}
                     onChange={(e) =>
@@ -203,8 +235,8 @@ const Contact = () => {
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6">Contact Information</h3>
                 <div className="space-y-6">
-                  {contactInfo.map((info, index) => (
-                    <div key={index} className="flex items-start gap-4">
+                  {contactInfo.map((info) => (
+                    <div key={info.label} className="flex items-start gap-4">
                       <div className="w-12 h-12 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
                         <info.icon className="w-6 h-6 text-primary" />
                       </div>

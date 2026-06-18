@@ -2,23 +2,30 @@ import { useEffect, useState } from "react";
 import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAssetPath } from "@/lib/paths";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 import Terminal from "./Terminal";
 
-const Hero = () => {
-  const [displayText, setDisplayText] = useState("");
-  const roles = [
-    "Computer Engineering Student",
-    "AI/ML Developer",
-    "Backend & IoT Developer",
-    "Cybersecurity Learner"
-  ];
+const ROLES = [
+  "Computer Engineering Student",
+  "AI/ML Developer",
+  "Backend & IoT Developer",
+  "Cybersecurity Learner",
+];
 
+const Hero = () => {
+  const reducedMotion = useReducedMotion();
+  const [displayText, setDisplayText] = useState(ROLES[0]);
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
-    const currentRole = roles[roleIndex];
+    if (reducedMotion) {
+      setDisplayText(ROLES[roleIndex]);
+      return;
+    }
+
+    const currentRole = ROLES[roleIndex];
     const timeout = setTimeout(
       () => {
         if (!isDeleting && charIndex < currentRole.length) {
@@ -31,19 +38,19 @@ const Hero = () => {
           setTimeout(() => setIsDeleting(true), 2000);
         } else if (isDeleting && charIndex === 0) {
           setIsDeleting(false);
-          setRoleIndex((roleIndex + 1) % roles.length);
+          setRoleIndex((prev) => (prev + 1) % ROLES.length);
         }
       },
       isDeleting ? 50 : 100
     );
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, roleIndex, roles]);
+  }, [charIndex, isDeleting, roleIndex, reducedMotion]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
-      element.scrollIntoView({ behavior: "smooth" });
+      element.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth" });
     }
   };
 
@@ -55,22 +62,22 @@ const Hero = () => {
             <div className="font-mono text-primary text-sm mb-2">$ whoami</div>
           </div>
 
-          <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in font-share-tech" style={{ animationDelay: '0.1s' }}>
+          <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in font-share-tech" style={{ animationDelay: "0.1s" }}>
             <span className="text-glow">Yassine Hallous</span>
           </h1>
 
-          <div className="h-20 mb-10 animate-fade-in" style={{ animationDelay: '0.2s' }}>
+          <div className="h-20 mb-10 animate-fade-in" style={{ animationDelay: "0.2s" }}>
             <p className="text-3xl md:text-4xl text-muted-foreground font-fira-code">
               <span className="text-secondary text-glow-purple">{displayText}</span>
-              <span className="animate-pulse text-primary">|</span>
+              {!reducedMotion && <span className="animate-pulse text-primary">|</span>}
             </p>
           </div>
 
-          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 animate-fade-in font-fira-code" style={{ animationDelay: '0.3s' }}>
+          <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 animate-fade-in font-fira-code" style={{ animationDelay: "0.3s" }}>
             Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: '0.4s' }}>
+          <div className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
             <Button
               size="lg"
               className="bg-primary hover:bg-primary/90 text-primary-foreground border-glow"
@@ -90,11 +97,12 @@ const Hero = () => {
             </Button>
           </div>
 
-          <div className="flex items-center justify-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: '0.5s' }}>
+          <div className="flex items-center justify-center gap-4 mb-12 animate-fade-in" style={{ animationDelay: "0.5s" }}>
             <Button
               variant="ghost"
               size="icon"
               className="hover:text-primary hover:border-glow transition-all"
+              aria-label="GitHub profile"
               onClick={() => window.open("https://github.com/Hallous-Yassine", "_blank")}
             >
               <Github className="w-6 h-6" />
@@ -104,6 +112,7 @@ const Hero = () => {
               variant="ghost"
               size="icon"
               className="hover:text-primary hover:border-glow transition-all"
+              aria-label="LinkedIn profile"
               onClick={() => window.open("https://linkedin.com/in/yassine-hallous", "_blank")}
             >
               <Linkedin className="w-6 h-6" />
@@ -113,19 +122,19 @@ const Hero = () => {
               variant="ghost"
               size="icon"
               className="hover:text-primary hover:border-glow transition-all"
-              onClick={() => window.location.href = "mailto:yassine_hallous@ieee.org"}
+              aria-label="Send email"
+              onClick={() => { window.location.href = "mailto:yassine_hallous@ieee.org"; }}
             >
               <Mail className="w-6 h-6" />
             </Button>
           </div>
 
-          <div className="flex justify-center animate-fade-in" style={{ animationDelay: '0.6s' }}>
-            <ChevronDown className="w-8 h-8 text-primary animate-bounce" />
+          <div className="flex justify-center animate-fade-in" style={{ animationDelay: "0.6s" }}>
+            <ChevronDown className={`w-8 h-8 text-primary ${reducedMotion ? "" : "animate-bounce"}`} aria-hidden="true" />
           </div>
         </div>
       </section>
 
-      {/* Terminal Section - Below hero */}
       <section id="terminal-section" className="relative py-12 px-4">
         <div className="container mx-auto">
           <div className="w-full max-w-5xl mx-auto">

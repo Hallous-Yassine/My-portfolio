@@ -1,9 +1,11 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Github } from "lucide-react";
 import { Card, CardContent, CardHeader } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { getAssetPath } from "@/lib/paths";
+import { useJsonData } from "@/hooks/use-json-data";
+import SectionFeedback from "@/components/SectionFeedback";
 
 interface Project {
   id: number;
@@ -17,16 +19,14 @@ interface Project {
   image: string;
 }
 
-const Projects = () => {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [selectedCategory, setSelectedCategory] = useState("All");
+interface ProjectsData {
+  projects: Project[];
+}
 
-  useEffect(() => {
-    fetch(getAssetPath("/data/projects.json"))
-      .then((res) => res.json())
-      .then((data) => setProjects(data.projects))
-      .catch((err) => console.error("Error loading projects:", err));
-  }, []);
+const Projects = () => {
+  const { data, loading, error } = useJsonData<ProjectsData>("/data/projects.json");
+  const projects = data?.projects ?? [];
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const categories = ["All", ...new Set(projects.map((p) => p.category))];
   const filteredProjects =
@@ -47,96 +47,114 @@ const Projects = () => {
           </p>
         </div>
 
-        <div className="flex flex-wrap justify-center gap-3 mb-12">
-          {categories.map((category) => (
-            <Button
-              key={category}
-              variant={selectedCategory === category ? "default" : "outline"}
-              onClick={() => setSelectedCategory(category)}
-              className={
-                selectedCategory === category
-                  ? "bg-primary text-primary-foreground"
-                  : "border-border/50 hover:border-primary/50"
-              }
-            >
-              {category}
-            </Button>
-          ))}
-        </div>
+        {!loading && !error && projects.length > 0 && (
+          <div className="flex flex-wrap justify-center gap-3 mb-12">
+            {categories.map((category) => (
+              <Button
+                key={category}
+                variant={selectedCategory === category ? "default" : "outline"}
+                onClick={() => setSelectedCategory(category)}
+                className={
+                  selectedCategory === category
+                    ? "bg-primary text-primary-foreground"
+                    : "border-border/50 hover:border-primary/50"
+                }
+              >
+                {category}
+              </Button>
+            ))}
+          </div>
+        )}
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {filteredProjects.map((project) => (
-            <Card
-              key={project.id}
-              className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 group overflow-hidden flex flex-col h-full"
-            >
-              {/* Project Image */}
-              <div className="relative w-full aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent overflow-hidden">
-                <img
-                  src={getAssetPath(project.image)}
-                  alt={project.title}
-                  className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-muted/50"
-                  loading="lazy"
-                />
-                <div className="absolute top-4 left-4">
-                  <Badge className="bg-primary/90 text-primary-foreground border-0 px-3 py-1">
-                    {project.category}
-                  </Badge>
-                </div>
-              </div>
-
-              <CardHeader className="pb-3">
-                <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
-                  {project.title}
-                </h3>
-                <p className="text-muted-foreground text-sm leading-relaxed">
-                  {project.description}
-                </p>
-              </CardHeader>
-
-              <CardContent className="space-y-4">
-                {/* Technologies */}
-                <div className="flex flex-wrap gap-2">
-                  {project.technologies.slice(0, 4).map((tech) => (
-                    <span
-                      key={tech}
-                      className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-primary/50 transition-colors"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                  {project.technologies.length > 4 && (
-                    <span className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90">
-                      +{project.technologies.length - 4}
-                    </span>
-                  )}
-                </div>
-
-                {/* Metadata & Actions */}
-                <div className="pt-2 border-t border-border/30">
-                  <div className="flex items-center justify-between mb-3 text-xs text-muted-foreground">
-                    <span className="flex items-center gap-1">
-                      <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
-                      {project.date}
-                    </span>
+        <SectionFeedback
+          loading={loading}
+          error={error}
+          isEmpty={filteredProjects.length === 0}
+          emptyMessage="No projects found for this category."
+        >
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {filteredProjects.map((project) => (
+              <Card
+                key={project.id}
+                className="bg-card/80 backdrop-blur border-border/50 hover:border-primary/30 hover:shadow-[0_0_30px_rgba(139,92,246,0.3)] transition-all duration-300 group overflow-hidden flex flex-col h-full"
+              >
+                <div className="relative w-full aspect-video bg-gradient-to-br from-primary/20 via-secondary/10 to-transparent overflow-hidden">
+                  <img
+                    src={getAssetPath(project.image)}
+                    alt={project.title}
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-muted/50"
+                    loading="lazy"
+                  />
+                  <div className="absolute top-4 left-4">
+                    <Badge className="bg-primary/90 text-primary-foreground border-0 px-3 py-1">
+                      {project.category}
+                    </Badge>
                   </div>
-                  
-                  <div className="flex gap-3">
+                </div>
+
+                <CardHeader className="pb-3">
+                  <h3 className="text-2xl font-bold text-foreground group-hover:text-primary transition-colors mb-2">
+                    {project.title}
+                  </h3>
+                  <p className="text-muted-foreground text-sm leading-relaxed">
+                    {project.description}
+                  </p>
+                </CardHeader>
+
+                <CardContent className="space-y-4 flex-1 flex flex-col">
+                  {project.highlights.length > 0 && (
+                    <ul className="space-y-1.5">
+                      {project.highlights.slice(0, 2).map((highlight) => (
+                        <li
+                          key={highlight}
+                          className="text-xs text-muted-foreground flex items-start gap-2 font-fira-code"
+                        >
+                          <span className="text-primary mt-0.5">▹</span>
+                          <span>{highlight}</span>
+                        </li>
+                      ))}
+                    </ul>
+                  )}
+
+                  <div className="flex flex-wrap gap-2">
+                    {project.technologies.slice(0, 4).map((tech) => (
+                      <span
+                        key={tech}
+                        className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90 hover:border-primary/50 transition-colors"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                    {project.technologies.length > 4 && (
+                      <span className="px-3 py-1 bg-muted/50 border border-border/50 rounded-full text-xs text-foreground/90">
+                        +{project.technologies.length - 4}
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="pt-2 border-t border-border/30 mt-auto">
+                    <div className="flex items-center justify-between mb-3 text-xs text-muted-foreground">
+                      <span className="flex items-center gap-1">
+                        <span className="w-1.5 h-1.5 rounded-full bg-primary"></span>
+                        {project.date}
+                      </span>
+                    </div>
+
                     <Button
                       size="sm"
                       variant="outline"
                       className="w-full border-border/50 hover:border-primary/50 hover:bg-primary/5"
-                      onClick={() => window.open(project.github, "_blank")}
+                      onClick={() => window.open(project.github, "_blank", "noopener,noreferrer")}
                     >
                       <Github className="w-4 h-4 mr-2" />
                       View Code
                     </Button>
                   </div>
-                </div>
-              </CardContent>
-            </Card>
-          ))}
-        </div>
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </SectionFeedback>
       </div>
     </section>
   );

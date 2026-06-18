@@ -1,4 +1,5 @@
 import { useEffect, useRef } from "react";
+import { useReducedMotion } from "@/hooks/use-reduced-motion";
 
 interface Particle {
   x: number;
@@ -9,13 +10,18 @@ interface Particle {
 
 const NetworkBackground = () => {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const reducedMotion = useReducedMotion();
 
   useEffect(() => {
+    if (reducedMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
     const ctx = canvas.getContext("2d");
     if (!ctx) return;
+
+    let animationId = 0;
 
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
@@ -71,21 +77,36 @@ const NetworkBackground = () => {
         });
       });
 
-      requestAnimationFrame(animate);
+      animationId = requestAnimationFrame(animate);
     };
 
-    animate();
+    animationId = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(animationId);
       window.removeEventListener("resize", resizeCanvas);
     };
-  }, []);
+  }, [reducedMotion]);
+
+  if (reducedMotion) {
+    return (
+      <div
+        className="fixed inset-0 pointer-events-none z-0 opacity-40"
+        style={{
+          background:
+            "radial-gradient(circle at 30% 40%, rgba(0, 217, 255, 0.08) 0%, transparent 50%), radial-gradient(circle at 70% 60%, rgba(139, 92, 246, 0.08) 0%, transparent 50%)",
+        }}
+        aria-hidden="true"
+      />
+    );
+  }
 
   return (
     <canvas
       ref={canvasRef}
       className="fixed inset-0 pointer-events-none z-0"
       style={{ opacity: 0.4 }}
+      aria-hidden="true"
     />
   );
 };

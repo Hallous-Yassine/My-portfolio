@@ -38,6 +38,14 @@ Install dependencies:
 npm install
 ```
 
+Copy environment variables for the contact form:
+
+```bash
+cp .env.example .env
+```
+
+For GitHub Pages deployment, set `VITE_EMAILJS_*` secrets in your repository or CI before running `npm run build`.
+
 Run the development server:
 
 ```bash
@@ -58,7 +66,7 @@ The optimized build will be in the `dist` directory.
 
 ## 4. Features
 
-* **Professional Design** → Clean, modern UI with dark/light theme.
+* **Professional Design** → Clean, modern dark-themed cyber UI.
 * **Responsive Layout** → Works on any device or screen size.
 * **Interactive Components** → Smooth animations and transitions.
 * **Contact Form** → EmailJS integration for direct messages.
@@ -99,7 +107,7 @@ My-portfolio/
 ## 7. Customization
 
 * Update portfolio data in `public/data/` JSON files.
-* Modify styles in `src/App.css` or `src/index.css`.
+* Modify styles in `src/index.css`.
 * Customize components in `src/components/`.
 
 ---

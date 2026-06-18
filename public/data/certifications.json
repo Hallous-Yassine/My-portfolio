@@ -6,6 +6,7 @@
       "issuer": "Cisco Networking Academy",
       "date": "July 2025",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Advanced Python programming concepts including OOP, modules, file handling, and real-world applications.",
       "skills": ["Python", "OOP", "Scripting", "Problem Solving"],
       "image": "/assets/certifications/python-essentials-2.png"
@@ -16,6 +17,7 @@
       "issuer": "Cisco Networking Academy",
       "date": "June 2025",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Fundamentals of Python programming including variables, loops, functions, and basic problem-solving.",
       "skills": ["Python", "Programming Basics", "Logic", "Scripting"],
       "image": "/assets/certifications/python-essentials-1.png"
@@ -26,6 +28,7 @@
       "issuer": "TryHackMe",
       "date": "July 2025",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Hands-on introduction to cybersecurity covering OS basics, networking, security fundamentals, and practical labs.",
       "skills": ["Networking", "Linux Basics", "Threat Fundamentals"],
       "image": "/assets/certifications/tryhackme-presecurity.png"
@@ -36,6 +39,7 @@
       "issuer": "Cisco Networking Academy",
       "date": "June 2025",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Introduction to cybersecurity concepts, digital risks, attack types, and protection strategies.",
       "skills": ["Cybersecurity", "Threat Awareness", "Risk Management"],
       "image": "/assets/certifications/cisco-cybersecurity.png"
@@ -46,6 +50,7 @@
       "issuer": "Cisco Networking Academy",
       "date": "April 2025",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Fundamentals of computer networking including IP addressing, routing, and network communication concepts.",
       "skills": ["IP Addressing", "Routing", "Network Fundamentals"],
       "image": "/assets/certifications/cisco-networking.png"
@@ -56,8 +61,9 @@
       "issuer": "IEEE",
       "date": "October 2024",
       "credentialId": "Available upon request",
+      "credentialUrl": null,
       "description": "Global competitive programming contest testing algorithmic thinking, time-efficient problem solving, and coding skills.",
-      "skills": ["Algorithms" , "Problem Solving"],
+      "skills": ["Algorithms", "Problem Solving"],
       "image": "/assets/certifications/ieeextreme.png"
     }
   ]
