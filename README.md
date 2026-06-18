@@ -113,13 +113,16 @@ My-portfolio/
 
 ## 7. Content management (Decap CMS)
 
-**No more manual JSON editing.** Use the admin panel:
+**Admin panel:** [https://hallous-yassine.github.io/My-portfolio/admin/](https://hallous-yassine.github.io/My-portfolio/admin/)
 
-**[https://hallous-yassine.github.io/My-portfolio/admin/](https://hallous-yassine.github.io/My-portfolio/admin/)**
+**Full setup (OAuth + secrets):** [docs/DECAP_CMS.md](docs/DECAP_CMS.md)
 
-Manage projects, experience, certifications, and journey photos from a web UI. Changes commit to GitHub and auto-deploy via GitHub Actions.
+Quick checklist you must configure yourself:
 
-**First-time setup:** see [docs/DECAP_CMS.md](docs/DECAP_CMS.md) (OAuth app + free Render deploy).
+1. **Render** — deploy `oauth-server/` with `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `OAUTH_CALLBACK_URL`, `ORIGIN`
+2. **GitHub OAuth App** — callback URL = `https://YOUR-APP.onrender.com/callback`
+3. **`public/admin/config.yml`** — set `backend.base_url` to your Render URL
+4. **GitHub Actions secrets** — `VITE_EMAILJS_*` for the contact form
 
 **Local CMS:**
 ```bash

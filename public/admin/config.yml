@@ -14,9 +14,9 @@ backend:
 
 local_backend: true
 
-site_url: https://hallous-yassine.github.io
-display_url: https://hallous-yassine.github.io/My-portfolio/
-logo_url: /My-portfolio/logo.jpg
+site_url: https://hallous-yassine.github.io/My-portfolio
+display_url: https://hallous-yassine.github.io/My-portfolio
+logo_url: https://hallous-yassine.github.io/My-portfolio/logo.jpg
 
 media_folder: public/assets
 public_folder: /assets
