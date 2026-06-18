@@ -22,8 +22,9 @@ interface CertificationsData {
 }
 
 const handleCredentialClick = (cert: Certification) => {
-  if (cert.credentialUrl) {
-    window.open(cert.credentialUrl, "_blank", "noopener,noreferrer");
+  const url = cert.credentialUrl?.trim();
+  if (url) {
+    window.open(url, "_blank", "noopener,noreferrer");
     return;
   }
   const subject = encodeURIComponent(`Credential request: ${cert.title}`);

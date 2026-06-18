@@ -80,8 +80,14 @@ The optimized build will be in the `dist` directory.
 
 ```bash
 My-portfolio/
-│── public/              # Static assets (images, JSON data)
-│    └── data/           # Portfolio data files
+│── public/
+│    ├── admin/          # Decap CMS (content manager UI)
+│    ├── assets/         # Images uploaded via CMS
+│    └── data/           # Portfolio JSON (edited via CMS)
+│── docs/                # Setup guides (Decap CMS, etc.)
+│── oauth-server/        # OAuth bridge for CMS login (deploy to Render)
+│── scripts/             # Data normalization for CMS
+│── .github/workflows/   # Auto-deploy on content changes
 │── src/                 # Source code
 │    ├── components/     # React components
 │    ├── pages/          # Page components
@@ -100,19 +106,38 @@ My-portfolio/
 * **Validation** → Zod
 * **Icons** → Lucide React
 * **Email** → EmailJS
-* **Build Tool** → Vite
+* **Content CMS** → Decap CMS (Git-based admin)
+* **CI/CD** → GitHub Actions → GitHub Pages
 
 ---
 
-## 7. Customization
+## 7. Content management (Decap CMS)
 
-* Update portfolio data in `public/data/` JSON files.
-* Modify styles in `src/index.css`.
-* Customize components in `src/components/`.
+**No more manual JSON editing.** Use the admin panel:
+
+**[https://hallous-yassine.github.io/My-portfolio/admin/](https://hallous-yassine.github.io/My-portfolio/admin/)**
+
+Manage projects, experience, certifications, and journey photos from a web UI. Changes commit to GitHub and auto-deploy via GitHub Actions.
+
+**First-time setup:** see [docs/DECAP_CMS.md](docs/DECAP_CMS.md) (OAuth app + free Render deploy).
+
+**Local CMS:**
+```bash
+npm run dev    # terminal 1
+npm run cms    # terminal 2
+```
 
 ---
 
-## 8. Contact
+## 8. Customization
+
+* **Content** → Decap CMS admin (recommended) or `public/data/` JSON files
+* **Styles** → `src/index.css`
+* **Components** → `src/components/`
+
+---
+
+## 9. Contact
 
 * **Email** → [yassine_hallous@ieee.org](mailto:yassine_hallous@ieee.org)
 * **GitHub** → [Hallous-Yassine](https://github.com/Hallous-Yassine)
@@ -120,12 +145,12 @@ My-portfolio/
 
 ---
 
-## 9. License
+## 10. License
 
 **Private License – Personal Portfolio**
 
 ---
 
-## 10. Author
+## 11. Author
 
 **Yassine Hallous** – Built with passion, creativity, and modern web technologies.

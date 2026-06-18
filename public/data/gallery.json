@@ -7,7 +7,16 @@
       "location": "Tunisia",
       "date": "2025",
       "caption": "Attending TSYP 13 reminded me of one powerful lesson: 👉 Your network is your biggest classroom. Between technical workshops, leadership sessions, and panels, I had the chance to connect with passionate students, mentors, and professionals from across Tunisia. Every conversation opened a new door, a new idea, and a new motivation to grow. Grateful for this experience ✨. Proud to have won 2nd place in the AESS/IES Challenge and participated in the PES Challenge!",
-      "hashtags": ["IEEE", "TSYP", "Networking", "Leadership", "AESS", "IES", "PES", "Challenge"],
+      "hashtags": [
+        "IEEE",
+        "TSYP",
+        "Networking",
+        "Leadership",
+        "AESS",
+        "IES",
+        "PES",
+        "Challenge"
+      ],
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -19,7 +28,6 @@
         "/assets/tsyp13/tsyp13_2.jpeg",
         "/assets/tsyp13/tsyp13_3.jpeg",
         "/assets/tsyp13/tsyp13_4.jpeg"
-        
       ]
     },
     {
@@ -29,7 +37,20 @@
       "location": "Tunis, Tunisia",
       "date": "2025",
       "caption": "Proud to have participated in the Orange Digital Center Tunisie × IEEE Hackathon focused on AI in telecommunications as Team Leader of Team ZITCOM. We worked with real-world data, leveraged AWS EC2 for model training, and used Guepard for database management. I led the development of high-performance machine learning models, strengthening my skills in AI, data manipulation, and scalable cloud infrastructure. An intense and rewarding journey combining AI, telecom, leadership, and cloud computing 🚀.",
-      "hashtags": ["TeamLeader", "AI", "MachineLearning", "Telecommunications", "OrangeDigitalCenter", "IEEE", "Hackathon", "AWS", "EC2", "DataScience", "CloudComputing", "TeamZITCOM"],
+      "hashtags": [
+        "TeamLeader",
+        "AI",
+        "MachineLearning",
+        "Telecommunications",
+        "OrangeDigitalCenter",
+        "IEEE",
+        "Hackathon",
+        "AWS",
+        "EC2",
+        "DataScience",
+        "CloudComputing",
+        "TeamZITCOM"
+      ],
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -50,7 +71,13 @@
       "location": "Tunisia",
       "date": "December 2025",
       "caption": "An unforgettable experience ✨️! I had the honor of participating in La Nuit de l'Info 2025 as a member of the Super_TOUNSI team 🚀. This intense night was an opportunity to take on exciting challenges, put our technical skills into practice, and truly experience the spirit of teamwork. Developing innovative solutions under pressure, collaborating with my teammates, and sharing this collective energy… that’s what makes this event so unique and enriching. A big thank you to ISITCom and my entire team for this memorable adventure 💜🤍💜.",
-      "hashtags": ["Hackathon", "NuitDeLInfo", "Teamwork", "Innovation", "ISITCom"],
+      "hashtags": [
+        "Hackathon",
+        "NuitDeLInfo",
+        "Teamwork",
+        "Innovation",
+        "ISITCom"
+      ],
       "likes": 0,
       "comments": 0,
       "shares": 0,
@@ -70,7 +97,13 @@
       "location": "Tunis, Tunisia",
       "date": "October 2025",
       "caption": "First place at IAS TAM Technical Challenge! Our startup Defensys won with an AI-powered security platform that provides proactive application protection. Proud of what we built in 48 hours!",
-      "hashtags": ["AI", "Security", "Innovation", "FirstPlace", "Hackathon"],
+      "hashtags": [
+        "AI",
+        "Security",
+        "Innovation",
+        "FirstPlace",
+        "Hackathon"
+      ],
       "likes": 127,
       "comments": 23,
       "shares": 12,
@@ -91,7 +124,12 @@
       "location": "Sousse, Tunisia",
       "date": "April 2025",
       "caption": "Best Android Project at GDG TechDays! Incredible learning experience focusing on Kotlin development and modern Android architecture. Thanks to GDG Sousse for this amazing bootcamp!",
-      "hashtags": ["Android", "Kotlin", "GDG", "TechDays"],
+      "hashtags": [
+        "Android",
+        "Kotlin",
+        "GDG",
+        "TechDays"
+      ],
       "likes": 94,
       "comments": 15,
       "shares": 8,
@@ -113,7 +151,12 @@
       "location": "Tunisia",
       "date": "2025",
       "caption": "Great experience at Raksha Pentest Hackathon! Testing security vulnerabilities and learning advanced penetration testing techniques. Cybersecurity is all about thinking like an attacker to defend better! 🔐",
-      "hashtags": ["Cybersecurity", "Pentest", "Hackathon", "Raksha"],
+      "hashtags": [
+        "Cybersecurity",
+        "Pentest",
+        "Hackathon",
+        "Raksha"
+      ],
       "likes": 156,
       "comments": 31,
       "shares": 19,
@@ -137,7 +180,12 @@
       "location": "Online",
       "date": "October 2024 & 2025",
       "caption": "24 hours of non-stop competitive programming at IEEEXtreme! Solving algorithms, debugging at 3 AM, and pushing our limits. Two years of intense coding challenges!",
-      "hashtags": ["Programming", "Competition", "IEEE", "IEEEXtreme"],
+      "hashtags": [
+        "Programming",
+        "Competition",
+        "IEEE",
+        "IEEEXtreme"
+      ],
       "likes": 189,
       "comments": 34,
       "shares": 18,
@@ -156,7 +204,12 @@
       "location": "Tunisia",
       "date": "March 2025",
       "caption": "3rd place overall and 2nd in CTF at RedRoom Hackathon by Securinets! 26 hours of intensive cybersecurity challenges. Sleep is overrated when you're cracking codes! 💪",
-      "hashtags": ["Cybersecurity", "CTF", "Hackathon", "RedRoom"],
+      "hashtags": [
+        "Cybersecurity",
+        "CTF",
+        "Hackathon",
+        "RedRoom"
+      ],
       "likes": 156,
       "comments": 31,
       "shares": 19,
@@ -176,7 +229,12 @@
       "location": "ISITCOM, Tunisia",
       "date": "2024",
       "caption": "Successfully organized Sight Day Congress as part of IEEE ESSTHS! Bringing together students and industry professionals to discuss technology's impact on society.",
-      "hashtags": ["IEEE", "Leadership", "TechForGood", "SightDay"],
+      "hashtags": [
+        "IEEE",
+        "Leadership",
+        "TechForGood",
+        "SightDay"
+      ],
       "likes": 203,
       "comments": 42,
       "shares": 25,
@@ -201,7 +259,12 @@
       "location": "Tunisia",
       "date": "2024",
       "caption": "Leading the booth at the IEEE IAS 60th Anniversary Conference! Connecting with industry leaders and showcasing our chapter's activities. Great networking and learning experience!",
-      "hashtags": ["IEEE", "IAS", "Conference", "Leadership"],
+      "hashtags": [
+        "IEEE",
+        "IAS",
+        "Conference",
+        "Leadership"
+      ],
       "likes": 178,
       "comments": 29,
       "shares": 14,
@@ -221,7 +284,12 @@
       "location": "Tunisia",
       "date": "2023",
       "caption": "Part of the TSYP 11 Organizing Committee! Working with talented young professionals across regions to create impactful technical programs.",
-      "hashtags": ["IEEE", "TSYP", "Leadership", "Networking"],
+      "hashtags": [
+        "IEEE",
+        "TSYP",
+        "Leadership",
+        "Networking"
+      ],
       "likes": 142,
       "comments": 28,
       "shares": 16,
@@ -240,7 +308,12 @@
       "location": "Tunisia",
       "date": "2024",
       "caption": "Another successful year with TSYP 12! Continuing to build bridges between young professionals and creating opportunities for technical growth and collaboration.",
-      "hashtags": ["IEEE", "TSYP", "Leadership", "Networking"],
+      "hashtags": [
+        "IEEE",
+        "TSYP",
+        "Leadership",
+        "Networking"
+      ],
       "likes": 165,
       "comments": 32,
       "shares": 18,
@@ -259,7 +332,12 @@
       "location": "Tunisia",
       "date": "2025",
       "caption": "Organized an industrial visit to Leoni Wiring System factory! Great opportunity for students to see real-world engineering applications and understand automotive wiring systems manufacturing.",
-      "hashtags": ["Industrial", "Engineering", "Factory", "Learning"],
+      "hashtags": [
+        "Industrial",
+        "Engineering",
+        "Factory",
+        "Learning"
+      ],
       "likes": 112,
       "comments": 19,
       "shares": 9,
@@ -278,7 +356,12 @@
       "location": "Tunisia",
       "date": "2025",
       "caption": "Competing with our Nexova project! Innovative solutions and creative problem-solving with an amazing team. Every competition is a learning opportunity!",
-      "hashtags": ["Innovation", "Competition", "Nexova", "Teamwork"],
+      "hashtags": [
+        "Innovation",
+        "Competition",
+        "Nexova",
+        "Teamwork"
+      ],
       "likes": 98,
       "comments": 17,
       "shares": 11,
@@ -292,4 +375,3 @@
     }
   ]
 }
-    

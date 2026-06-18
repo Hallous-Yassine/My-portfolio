@@ -9,7 +9,9 @@
     "build": "vite build",
     "build:dev": "vite build --mode development",
     "lint": "eslint .",
-    "predeploy": "npm run build",
+    "cms": "decap-server",
+    "normalize-data": "node scripts/normalize-portfolio-data.mjs",
+    "predeploy": "npm run normalize-data && npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview"
   },
@@ -72,6 +74,7 @@
     "@types/react-dom": "^18.3.7",
     "@vitejs/plugin-react-swc": "^3.11.0",
     "autoprefixer": "^10.4.21",
+    "decap-server": "^3.9.1",
     "eslint": "^9.32.0",
     "eslint-plugin-react-hooks": "^5.2.0",
     "eslint-plugin-react-refresh": "^0.4.20",

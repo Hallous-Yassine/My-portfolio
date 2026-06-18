@@ -13,8 +13,12 @@ export const getBasePath = (): string => {
  * Prepends the base path to ensure assets load correctly in all environments
  */
 export const getAssetPath = (path: string): string => {
+  if (!path) return "";
+  if (path.startsWith("http://") || path.startsWith("https://")) return path;
+
   const basePath = getBasePath();
-  // Remove leading slash if present to avoid double slashes
+  if (path.startsWith(basePath)) return path;
+
   const cleanPath = path.startsWith("/") ? path.substring(1) : path;
   return `${basePath}${cleanPath}`;
 };
