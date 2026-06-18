@@ -12,7 +12,12 @@
         "Designed a user-friendly GUI with real-time analysis, detailed violation tracking, and exportable reports",
         "Reduced manual code review time by 70% through automated detection and fix suggestions"
       ],
-      "technologies": ["Python", "Tkinter", "C", "SOFIOS Guidelines"],
+      "technologies": [
+        "Python",
+        "Tkinter",
+        "C",
+        "SOFIOS Guidelines"
+      ],
       "image": "/assets/experience/sofiatech-2025.png"
     },
     {
@@ -27,7 +32,14 @@
         "Created a PHP/MySQL backend to store and manage DHT11 sensor data",
         "Implemented real-time synchronization between IoT devices and the mobile interface"
       ],
-      "technologies": ["Flutter", "ESP32", "Embedded C", "ESP-IDF", "PHP", "MySQL"],
+      "technologies": [
+        "Flutter",
+        "ESP32",
+        "Embedded C",
+        "ESP-IDF",
+        "PHP",
+        "MySQL"
+      ],
       "image": "/assets/experience/sofiatech-2024.jpg"
     }
   ]
