@@ -2,7 +2,7 @@ name: Normalize content data
 
 on:
   push:
-    branches: [admin, main]
+    branches: [main]
     paths:
       - "public/data/**"
 

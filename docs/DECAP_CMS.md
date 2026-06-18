@@ -61,7 +61,7 @@ backend:
   base_url: https://YOUR-APP.onrender.com   # your Render URL, no trailing slash
 ```
 
-Commit and push to the `admin` branch.
+Commit and push to the `main` branch.
 
 ### Step 4 — GitHub Actions secrets (contact form)
 
