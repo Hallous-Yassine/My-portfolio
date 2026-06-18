@@ -56,8 +56,8 @@ collections:
                   - Mobile Development
                   - Systems Programming
                   - Cybersecurity
-              - { label: Technologies, name: technologies, widget: list, field: { label: Technology, widget: string } }
-              - { label: Highlights, name: highlights, widget: list, field: { label: Highlight, widget: string } }
+              - { label: Technologies, name: technologies, widget: list, field: { label: Technology, name: technology, widget: string } }
+              - { label: Highlights, name: highlights, widget: list, field: { label: Highlight, name: highlight, widget: string } }
               - { label: GitHub URL, name: github, widget: string }
               - { label: Cover Image, name: image, widget: image, hint: "Upload or pick from media library. Stored as /assets/..." }
 
@@ -78,8 +78,8 @@ collections:
               - { label: Location, name: location, widget: string }
               - { label: Date, name: date, widget: string, hint: "e.g. July 2025 – August 2025" }
               - { label: Description, name: description, widget: text }
-              - { label: Highlights, name: highlights, widget: list, field: { label: Highlight, widget: string } }
-              - { label: Technologies, name: technologies, widget: list, field: { label: Technology, widget: string } }
+              - { label: Highlights, name: highlights, widget: list, field: { label: Highlight, name: highlight, widget: string } }
+              - { label: Technologies, name: technologies, widget: list, field: { label: Technology, name: technology, widget: string } }
               - { label: Image, name: image, widget: image }
 
       - name: certifications
@@ -100,7 +100,7 @@ collections:
               - { label: Credential ID, name: credentialId, widget: string, required: false }
               - { label: Credential URL, name: credentialUrl, widget: string, required: false, hint: "Leave empty to show 'Request Credential' button" }
               - { label: Description, name: description, widget: text }
-              - { label: Skills, name: skills, widget: list, field: { label: Skill, widget: string } }
+              - { label: Skills, name: skills, widget: list, field: { label: Skill, name: skill, widget: string } }
               - { label: Badge Image, name: image, widget: image }
 
       - name: journey
@@ -120,7 +120,7 @@ collections:
               - { label: Location, name: location, widget: string }
               - { label: Date, name: date, widget: string }
               - { label: Caption, name: caption, widget: text }
-              - { label: Hashtags, name: hashtags, widget: list, field: { label: Tag, widget: string }, required: false }
+              - { label: Hashtags, name: hashtags, widget: list, field: { label: Tag, name: tag, widget: string }, required: false }
               - { label: Likes, name: likes, widget: number, default: 0, required: false }
               - { label: Comments, name: comments, widget: number, default: 0, required: false }
               - { label: Shares, name: shares, widget: number, default: 0, required: false }
@@ -136,4 +136,4 @@ collections:
                   - Competitions
                   - Other
               - { label: Album Name, name: album, widget: string, required: false }
-              - { label: Album Images, name: albumImages, widget: list, field: { label: Image, widget: image }, min: 1 }
+              - { label: Album Images, name: albumImages, widget: list, field: { label: Image, name: image, widget: image }, min: 1 }
