@@ -17,8 +17,10 @@ import {
 } from "lucide-react";
 import { Link } from "react-router-dom";
 import AdminLayout from "@/admin/components/AdminLayout";
+import AdminImagePreview from "@/admin/components/AdminImagePreview";
 import { ItemEditor } from "@/admin/components/DynamicField";
 import { useCollectionEditor } from "@/admin/hooks/use-collection-editor";
+import { getItemListDisplay } from "@/admin/lib/format-item-display";
 import type { CollectionKey } from "@/admin/lib/types";
 import { Alert, AlertDescription } from "@/components/ui/alert";
 import { Badge } from "@/components/ui/badge";
@@ -98,7 +100,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
         </>
       }
     >
-      <div className="grid gap-6 lg:grid-cols-[320px_1fr]">
+      <div className="grid gap-6 lg:grid-cols-[minmax(280px,360px)_1fr]">
         <Card className="border-border/60 bg-card/80 backdrop-blur">
           <CardHeader className="pb-3">
             <div className="flex items-center gap-3">
@@ -142,16 +144,11 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
               ) : (
                 <div className="space-y-2">
                   {filteredItems.map(({ item, index }) => {
-                    const title = String(item[config.summaryFields[0]] ?? `${config.itemLabel} ${index + 1}`);
-                    const subtitle = config.summaryFields
-                      .slice(1)
-                      .map((field) => item[field])
-                      .filter(Boolean)
-                      .join(" · ");
+                    const display = getItemListDisplay(item, config, index);
 
                     return (
                       <button
-                        key={index}
+                        key={`${display.id}-${index}`}
                         type="button"
                         onClick={() => setEditingIndex(index)}
                         className={`w-full rounded-lg border px-3 py-3 text-left transition-colors ${
@@ -160,14 +157,40 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
                             : "border-border/50 hover:border-primary/30 hover:bg-muted/30"
                         }`}
                       >
-                        <div className="flex items-start justify-between gap-2">
-                          <div className="min-w-0">
-                            <p className="font-medium truncate">{title}</p>
-                            {subtitle && (
-                              <p className="text-xs text-muted-foreground truncate mt-1">{subtitle}</p>
+                        <div className="flex items-start gap-3">
+                          {display.thumbnail && (
+                            <AdminImagePreview
+                              src={display.thumbnail}
+                              alt={display.title}
+                              thumbnail
+                            />
+                          )}
+                          <div className="min-w-0 flex-1">
+                            <div className="flex items-start gap-2">
+                              <Badge
+                                variant="outline"
+                                className="shrink-0 text-[10px] px-1.5 h-5 font-mono"
+                              >
+                                #{display.id}
+                              </Badge>
+                              <p className="font-medium leading-snug break-words line-clamp-2 flex-1">
+                                {display.title}
+                              </p>
+                            </div>
+                            {display.details.length > 0 && (
+                              <div className="mt-2 space-y-1">
+                                {display.details.map(({ label, value }) => (
+                                  <p
+                                    key={label}
+                                    className="text-xs leading-relaxed break-words text-muted-foreground"
+                                  >
+                                    <span className="text-foreground/70">{label}:</span> {value}
+                                  </p>
+                                ))}
+                              </div>
                             )}
                           </div>
-                          <Pencil className="h-3.5 w-3.5 shrink-0 text-muted-foreground" />
+                          <Pencil className="h-3.5 w-3.5 shrink-0 text-muted-foreground mt-0.5" />
                         </div>
                       </button>
                     );
@@ -231,11 +254,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
                 </div>
 
                 {typeof editingItem.image === "string" && editingItem.image && (
-                  <img
-                    src={getAssetPath(editingItem.image)}
-                    alt=""
-                    className="h-32 w-full max-w-sm rounded-lg object-cover border border-border/60"
-                  />
+                  <AdminImagePreview src={editingItem.image} alt={String(editingItem.title ?? "Preview")} maxHeight={360} />
                 )}
 
                 <ItemEditor

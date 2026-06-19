@@ -3,7 +3,7 @@ import { ImagePlus, Loader2, Upload } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { uploadMedia } from "@/admin/lib/cms-api";
-import { getAssetPath } from "@/lib/paths";
+import AdminImagePreview from "@/admin/components/AdminImagePreview";
 import { toast } from "sonner";
 
 interface ImagePickerProps {
@@ -39,18 +39,7 @@ export default function ImagePicker({ label, value, hint, onChange }: ImagePicke
         {hint && <p className="text-xs text-muted-foreground mt-1">{hint}</p>}
       </div>
 
-      {value && (
-        <div className="relative overflow-hidden rounded-lg border border-border/60 bg-muted/30">
-          <img
-            src={getAssetPath(value)}
-            alt="Preview"
-            className="h-40 w-full object-cover"
-            onError={(e) => {
-              (e.target as HTMLImageElement).style.display = "none";
-            }}
-          />
-        </div>
-      )}
+      {value && <AdminImagePreview src={value} alt={label} maxHeight={280} />}
 
       <div className="flex flex-col sm:flex-row gap-2">
         <Input
@@ -124,8 +113,8 @@ export function ImageListPicker({ label, values, hint, onChange }: ImageListPick
 
       <div className="grid grid-cols-2 sm:grid-cols-3 gap-3">
         {values.map((path, index) => (
-          <div key={`${path}-${index}`} className="relative group rounded-lg overflow-hidden border border-border/60">
-            <img src={getAssetPath(path)} alt="" className="h-24 w-full object-cover" />
+          <div key={`${path}-${index}`} className="relative group rounded-lg overflow-hidden border border-border/60 bg-muted/20 p-2">
+            <AdminImagePreview src={path} alt="" maxHeight={120} />
             <Button
               type="button"
               size="sm"

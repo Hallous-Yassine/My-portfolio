@@ -129,7 +129,7 @@ const Journey = () => {
                   <img
                     src={getAssetPath(post.image.startsWith("/") ? post.image : `/${post.image}`)}
                     alt={post.title}
-                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    className="w-full h-full object-contain group-hover:scale-105 transition-transform duration-300 bg-muted/30"
                     loading="lazy"
                   />
                   <Badge

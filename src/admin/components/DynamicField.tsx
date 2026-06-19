@@ -47,24 +47,35 @@ export default function DynamicField({ field, value, onChange }: DynamicFieldPro
         </div>
       );
 
-    case "select":
+    case "select": {
+      const currentValue = String(value ?? "");
+      const options = field.options ?? [];
+      const selectOptions =
+        currentValue && !options.includes(currentValue) ? [currentValue, ...options] : options;
+
       return (
         <div className="space-y-2">
           <label className="text-sm font-medium">{field.label}</label>
-          <Select value={String(value ?? "")} onValueChange={onChange}>
+          <Select value={currentValue || undefined} onValueChange={onChange}>
             <SelectTrigger>
-              <SelectValue placeholder="Select..." />
+              <SelectValue placeholder={`Select ${field.label.toLowerCase()}…`} />
             </SelectTrigger>
             <SelectContent>
-              {(field.options ?? []).map((option) => (
+              {selectOptions.map((option) => (
                 <SelectItem key={option} value={option}>
                   {option}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
+          {currentValue && !options.includes(currentValue) && (
+            <p className="text-xs text-amber-400">
+              Current value is not in the preset list. Pick an option or keep &quot;{currentValue}&quot;.
+            </p>
+          )}
         </div>
       );
+    }
 
     case "string-list":
       return (
