@@ -19,6 +19,8 @@ if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET || !OAUTH_CALLBACK_URL) {
   process.exit(1);
 }
 
+const DEFAULT_RETURN_URL = `${ORIGIN}/My-portfolio/admin/oauth-callback`;
+
 const CONTENT_FILES = {
   projects: "public/data/projects.json",
   experiences: "public/data/experiences.json",
@@ -33,6 +35,66 @@ app.use(
     credentials: true,
   }),
 );
+
+function escapeHtml(value) {
+  return String(value)
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;")
+    .replace(/"/g, "&quot;");
+}
+
+function isAllowedReturnUrl(url) {
+  if (!url || typeof url !== "string") return false;
+  try {
+    const parsed = new URL(url);
+    const allowed = new URL(ORIGIN);
+    return parsed.origin === allowed.origin && parsed.pathname.startsWith("/My-portfolio/admin");
+  } catch {
+    return false;
+  }
+}
+
+function encodeState(returnUrl) {
+  return Buffer.from(JSON.stringify({ returnUrl }), "utf8").toString("base64url");
+}
+
+function decodeState(state) {
+  if (!state || typeof state !== "string") return DEFAULT_RETURN_URL;
+  try {
+    const parsed = JSON.parse(Buffer.from(state, "base64url").toString("utf8"));
+    if (isAllowedReturnUrl(parsed.returnUrl)) return parsed.returnUrl;
+  } catch {
+    // fall through
+  }
+  return DEFAULT_RETURN_URL;
+}
+
+function renderPage(title, message, linkHref, linkLabel) {
+  return `<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>${escapeHtml(title)}</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0a0e14; color: #a8e6f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; padding: 1rem; }
+    .card { text-align: center; padding: 2rem; border: 1px solid #1e293b; border-radius: 12px; background: #111827; max-width: 460px; width: 100%; }
+    a { color: #22d3ee; text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    p { line-height: 1.6; margin: 0.75rem 0; }
+    h1 { font-size: 1.25rem; margin: 0 0 0.5rem; color: #ecfeff; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <h1>${escapeHtml(title)}</h1>
+    <p>${escapeHtml(message)}</p>
+    ${linkHref ? `<p><a href="${escapeHtml(linkHref)}">${escapeHtml(linkLabel ?? "Continue")}</a></p>` : ""}
+  </div>
+</body>
+</html>`;
+}
 
 function getToken(req) {
   const header = req.headers.authorization ?? "";
@@ -93,98 +155,102 @@ async function upsertFile(token, path, content, message) {
   });
 }
 
-app.get("/auth", (_req, res) => {
+async function exchangeCodeForToken(code) {
+  const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
+    method: "POST",
+    headers: {
+      Accept: "application/json",
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify({
+      client_id: GITHUB_CLIENT_ID,
+      client_secret: GITHUB_CLIENT_SECRET,
+      code,
+      redirect_uri: OAUTH_CALLBACK_URL,
+    }),
+  });
+
+  const tokenData = await tokenRes.json();
+  if (tokenData.error || !tokenData.access_token) {
+    const message = tokenData.error_description || tokenData.error || "OAuth failed.";
+    const error = new Error(message);
+    error.status = 401;
+    throw error;
+  }
+
+  return tokenData.access_token;
+}
+
+app.get("/auth", (req, res) => {
+  const requestedReturn =
+    typeof req.query.return_url === "string" ? req.query.return_url : DEFAULT_RETURN_URL;
+  const returnUrl = isAllowedReturnUrl(requestedReturn) ? requestedReturn : DEFAULT_RETURN_URL;
+
   const params = new URLSearchParams({
     client_id: GITHUB_CLIENT_ID,
     redirect_uri: OAUTH_CALLBACK_URL,
     scope: "repo,user",
+    state: encodeState(returnUrl),
   });
-  res.redirect(`https://github.com/login/oauth/authorize?${params}`);
+
+  res.redirect(`https://github.com/login/oauth/authorize?${params.toString()}`);
 });
 
 app.get("/callback", async (req, res) => {
-  const { code } = req.query;
+  const { code, state, error, error_description: errorDescription } = req.query;
+  const returnUrl = decodeState(typeof state === "string" ? state : undefined);
+  const adminLoginUrl = `${ORIGIN}/My-portfolio/admin/login`;
+
+  if (error) {
+    const message = typeof errorDescription === "string" ? errorDescription : String(error);
+    res
+      .status(400)
+      .send(
+        renderPage(
+          "GitHub sign-in cancelled",
+          message,
+          `${adminLoginUrl}?error=${encodeURIComponent(message)}`,
+          "Back to Portfolio CMS",
+        ),
+      );
+    return;
+  }
+
   if (!code || typeof code !== "string") {
-    res.status(400).send("Missing authorization code.");
+    res
+      .status(400)
+      .send(
+        renderPage(
+          "Sign-in failed",
+          "Missing authorization code from GitHub.",
+          adminLoginUrl,
+          "Try again",
+        ),
+      );
     return;
   }
 
   try {
-    const tokenRes = await fetch("https://github.com/login/oauth/access_token", {
-      method: "POST",
-      headers: {
-        Accept: "application/json",
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        client_id: GITHUB_CLIENT_ID,
-        client_secret: GITHUB_CLIENT_SECRET,
-        code,
-      }),
-    });
-
-    const tokenData = await tokenRes.json();
-    if (tokenData.error || !tokenData.access_token) {
-      res.status(401).send(tokenData.error_description || "OAuth failed.");
-      return;
-    }
-
-    const msg = JSON.stringify({
-      token: tokenData.access_token,
+    const accessToken = await exchangeCodeForToken(code);
+    const hash = new URLSearchParams({
+      token: accessToken,
       provider: "github",
-    });
+    }).toString();
 
-    const adminUrl = `${ORIGIN}/My-portfolio/admin/`;
-    const content = `<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>GitHub Login</title>
-  <style>
-    body { font-family: system-ui, sans-serif; background: #0a0e14; color: #a8e6f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
-    .card { text-align: center; padding: 2rem; border: 1px solid #1e293b; border-radius: 12px; background: #111827; max-width: 420px; }
-    a { color: #22d3ee; }
-    p { line-height: 1.6; }
-  </style>
-</head>
-<body>
-  <div class="card">
-    <p id="status">Completing sign in…</p>
-    <p id="fallback" style="display:none">You can close this tab and return to the admin.</p>
-    <p id="manual" style="display:none"><a href="${adminUrl}">Return to Portfolio CMS</a></p>
-  </div>
-  <script>
-(function() {
-  var payload = 'authorization:github:success:' + ${JSON.stringify(msg)};
-  var targetOrigin = ${JSON.stringify(ORIGIN)};
-
-  function showManual() {
-    document.getElementById('status').textContent = 'Sign in successful.';
-    document.getElementById('fallback').style.display = 'block';
-    document.getElementById('manual').style.display = 'block';
-  }
-
-  if (window.opener && !window.opener.closed) {
-    try {
-      window.opener.postMessage(payload, targetOrigin);
-      document.getElementById('status').textContent = 'Success! Closing window…';
-      window.setTimeout(function() { window.close(); }, 400);
-    } catch (err) {
-      showManual();
-    }
-  } else {
-    showManual();
-  }
-})();
-  </script>
-</body>
-</html>`;
-
-    res.send(content);
+    res.redirect(`${returnUrl}#${hash}`);
   } catch (err) {
-    console.error(err);
-    res.status(500).send("OAuth token exchange failed.");
+    console.error("OAuth callback error:", err);
+    const message = err instanceof Error ? err.message : "OAuth token exchange failed.";
+    res
+      .status(err.status ?? 500)
+      .send(
+        renderPage(
+          "Sign-in failed",
+          message,
+          `${adminLoginUrl}?error=${encodeURIComponent(message)}`,
+          "Try again",
+        ),
+      );
   }
 });
 

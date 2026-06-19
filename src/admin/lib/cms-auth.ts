@@ -18,105 +18,40 @@ export function getCmsApiBaseUrl(): string {
   return "";
 }
 
-function getAllowedMessageOrigins(): string[] {
-  const origins = new Set<string>([window.location.origin]);
+export function getOAuthCallbackUrl(): string {
+  const base = import.meta.env.BASE_URL || "/";
+  const normalizedBase = base.endsWith("/") ? base : `${base}/`;
+  return `${window.location.origin}${normalizedBase}admin/oauth-callback`;
+}
 
-  const apiBase = getCmsApiBaseUrl();
-  if (apiBase) {
-    try {
-      origins.add(new URL(apiBase).origin);
-    } catch {
-      // ignore invalid URL
-    }
+/** Redirect the browser to GitHub OAuth (reliable on GitHub Pages; no popup needed). */
+export function startGitHubLogin(): void {
+  const baseUrl = getCmsApiBaseUrl();
+  const returnUrl = encodeURIComponent(getOAuthCallbackUrl());
+  const authUrl = baseUrl
+    ? `${baseUrl}/auth?return_url=${returnUrl}`
+    : `/api/auth?return_url=${returnUrl}`;
+
+  window.location.assign(authUrl);
+}
+
+/** Read token from URL hash after OAuth redirect. Clears hash from address bar. */
+export function consumeOAuthCallbackHash(): { token: string | null; error: string | null } {
+  const hash = window.location.hash.startsWith("#") ? window.location.hash.slice(1) : window.location.hash;
+  const params = new URLSearchParams(hash);
+
+  const token = params.get("token");
+  const error = params.get("error");
+
+  if (token || error) {
+    window.history.replaceState({}, document.title, window.location.pathname + window.location.search);
   }
 
-  return [...origins];
+  return { token, error };
 }
 
-function isAllowedOrigin(origin: string): boolean {
-  return getAllowedMessageOrigins().includes(origin);
-}
-
-export function loginWithGitHub(): Promise<string> {
-  const baseUrl = getCmsApiBaseUrl();
-  const authUrl = baseUrl ? `${baseUrl}/auth` : "/api/auth";
-
-  return new Promise((resolve, reject) => {
-    const popup = window.open(authUrl, "github-oauth", "width=600,height=700");
-
-    if (!popup) {
-      reject(new Error("Popup blocked. Allow popups for this site and try again."));
-      return;
-    }
-
-    let settled = false;
-
-    const timeout = window.setTimeout(() => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      reject(new Error("Login timed out. Please try again."));
-    }, 120_000);
-
-    const finishSuccess = (token: string) => {
-      if (settled) return;
-      settled = true;
-      setStoredToken(token);
-      cleanup();
-      resolve(token);
-    };
-
-    const finishError = (message: string) => {
-      if (settled) return;
-      settled = true;
-      cleanup();
-      reject(new Error(message));
-    };
-
-    const onMessage = (event: MessageEvent) => {
-      if (!isAllowedOrigin(event.origin)) return;
-      if (typeof event.data !== "string") return;
-
-      if (event.data === "authorizing:github") {
-        // Legacy Decap handshake — acknowledge so older deployed callbacks still work.
-        if (popup && !popup.closed) {
-          popup.postMessage("authorizing:github", event.origin);
-        }
-        return;
-      }
-
-      const prefix = "authorization:github:success:";
-      if (!event.data.startsWith(prefix)) return;
-
-      try {
-        const payload = JSON.parse(event.data.slice(prefix.length)) as { token?: string };
-        if (!payload.token) {
-          finishError("OAuth succeeded but no token was returned.");
-          return;
-        }
-        finishSuccess(payload.token);
-      } catch {
-        finishError("Failed to parse OAuth response.");
-      }
-    };
-
-    const poll = window.setInterval(() => {
-      if (popup.closed && !settled) {
-        if (getStoredToken()) {
-          finishSuccess(getStoredToken()!);
-        } else {
-          finishError("Login window closed before completing authorization.");
-        }
-      }
-    }, 500);
-
-    const cleanup = () => {
-      window.removeEventListener("message", onMessage);
-      window.clearTimeout(timeout);
-      window.clearInterval(poll);
-      if (popup && !popup.closed) popup.close();
-    };
-
-    window.addEventListener("message", onMessage);
-  });
+export function consumeOAuthCallbackQuery(): string | null {
+  const params = new URLSearchParams(window.location.search);
+  const error = params.get("error");
+  return error;
 }

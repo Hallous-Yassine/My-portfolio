@@ -65,14 +65,18 @@ export function cmsApiPlugin() {
         }
 
         // Local dev: OAuth stub redirects back with a fake token
-        if (url === "/api/auth" && req.method === "GET") {
-          const html = `<!DOCTYPE html><html><body><script>
-            window.opener.postMessage('authorization:github:success:' + ${JSON.stringify(JSON.stringify({ token: "local-dev-token" }))}, window.location.origin);
-            window.close();
-          </script></body></html>`;
-          res.statusCode = 200;
-          res.setHeader("Content-Type", "text/html");
-          res.end(html);
+        if (url.startsWith("/api/auth") && req.method === "GET") {
+          const requestUrl = new URL(url, "http://localhost");
+          const returnUrl =
+            requestUrl.searchParams.get("return_url") ||
+            "http://localhost:8080/My-portfolio/admin/oauth-callback";
+          const hash = new URLSearchParams({
+            token: "local-dev-token",
+            provider: "github",
+          }).toString();
+          res.statusCode = 302;
+          res.setHeader("Location", `${returnUrl}#${hash}`);
+          res.end();
           return;
         }
 

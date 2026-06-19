@@ -4,6 +4,7 @@ import { Navigate, Route, Routes } from "react-router-dom";
 import { Toaster } from "@/components/ui/sonner";
 import { AdminShell } from "@/admin/components/AdminLayout";
 import AdminLogin from "@/admin/pages/AdminLogin";
+import AdminOAuthCallback from "@/admin/pages/AdminOAuthCallback";
 import CollectionPage, { AdminOverview } from "@/admin/pages/CollectionPage";
 import { clearStoredToken, getStoredToken } from "@/admin/lib/cms-auth";
 import { fetchCurrentUser } from "@/admin/lib/cms-api";
@@ -48,10 +49,8 @@ export default function AdminApp() {
     <>
       <Toaster richColors position="top-right" />
       <Routes>
-        <Route
-          path="login"
-          element={user ? <Navigate to="/admin" replace /> : <AdminLogin onSuccess={() => void verifySession()} />}
-        />
+        <Route path="oauth-callback" element={<AdminOAuthCallback />} />
+        <Route path="login" element={user ? <Navigate to="/admin" replace /> : <AdminLogin />} />
 
         {user ? (
           <Route element={<AdminShell user={user} onLogout={() => setUser(null)} />}>

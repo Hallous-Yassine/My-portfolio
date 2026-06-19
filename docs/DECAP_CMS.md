@@ -24,8 +24,8 @@ Images upload to `public/assets/uploads/`. After **Publish**, GitHub Actions reb
 
 ## Daily workflow
 
-1. Open [https://hallous-yassine.github.io/My-portfolio/admin/](https://hallous-yassine.github.io/My-portfolio/admin/)
-2. **Continue with GitHub** (popup OAuth)
+1. Open [https://hallous-yassine.github.io/My-portfolio/admin/login](https://hallous-yassine.github.io/My-portfolio/admin/login)
+2. **Continue with GitHub** — redirect to GitHub, then back to admin automatically
 3. Pick a section from the sidebar
 4. Edit items, upload images, reorder with Move up/down
 5. Click **Publish** when ready
@@ -95,8 +95,9 @@ Content stays in **your repo** — versioned, free, no external database.
 
 | Problem | Fix |
 |---------|-----|
-| Login popup blocked | Allow popups for your site |
-| Login fails on production | Check Render env vars and OAuth callback URL |
+| Stuck on Render `/callback?code=...` blank page | Redeploy latest `oauth-server/` on Render, then push site build to GitHub Pages |
+| Login fails on production | Check Render env vars; OAuth callback must be `https://my-portfolio-uv04.onrender.com/callback` |
+| Redirect works but admin says not signed in | Ensure deploy workflow sets `VITE_CMS_API_URL` and site was rebuilt after auth changes |
 | Publish fails | Ensure you have write access to the repo |
 | Images not showing | Paths should be `/assets/...`; CI normalizes on deploy |
 | `/admin` 404 on direct URL | SPA fallback (`404.html`) is generated at build time |

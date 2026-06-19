@@ -1,28 +1,20 @@
-import { useState } from "react";
-import { Github, Loader2, ShieldCheck, Sparkles } from "lucide-react";
-import { loginWithGitHub } from "@/admin/lib/cms-auth";
+import { useEffect, useState } from "react";
+import { Github, ShieldCheck, Sparkles } from "lucide-react";
+import { consumeOAuthCallbackQuery, startGitHubLogin } from "@/admin/lib/cms-auth";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 
-interface AdminLoginProps {
-  onSuccess: () => void;
-}
-
-export default function AdminLogin({ onSuccess }: AdminLoginProps) {
-  const [loading, setLoading] = useState(false);
+export default function AdminLogin() {
   const [error, setError] = useState<string | null>(null);
 
-  const handleLogin = async () => {
-    setLoading(true);
+  useEffect(() => {
+    const queryError = consumeOAuthCallbackQuery();
+    if (queryError) setError(queryError);
+  }, []);
+
+  const handleLogin = () => {
     setError(null);
-    try {
-      await loginWithGitHub();
-      onSuccess();
-    } catch (err) {
-      setError(err instanceof Error ? err.message : "Login failed.");
-    } finally {
-      setLoading(false);
-    }
+    startGitHubLogin();
   };
 
   return (
@@ -42,17 +34,13 @@ export default function AdminLogin({ onSuccess }: AdminLoginProps) {
           <CardHeader>
             <CardTitle>Sign in to continue</CardTitle>
             <CardDescription>
-              Authenticate with GitHub to read and publish content to your repository.
+              You&apos;ll be redirected to GitHub, then back here automatically.
             </CardDescription>
           </CardHeader>
           <CardContent className="space-y-4">
-            <Button className="w-full h-11" disabled={loading} onClick={() => void handleLogin()}>
-              {loading ? (
-                <Loader2 className="h-4 w-4 mr-2 animate-spin" />
-              ) : (
-                <Github className="h-4 w-4 mr-2" />
-              )}
-              {loading ? "Connecting..." : "Continue with GitHub"}
+            <Button className="w-full h-11" onClick={handleLogin}>
+              <Github className="h-4 w-4 mr-2" />
+              Continue with GitHub
             </Button>
 
             {error && <p className="text-sm text-destructive text-center">{error}</p>}
