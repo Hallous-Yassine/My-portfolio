@@ -3,8 +3,7 @@
  * This handles both local development and GitHub Pages deployment
  */
 export const getBasePath = (): string => {
-  // In development, base path is "/"
-  // In production (GitHub Pages), base path is "/My-portfolio/"
+  // Vite `base` is "/My-portfolio/" for both dev and production builds.
   return import.meta.env.BASE_URL || "/";
 };
 

@@ -31,6 +31,24 @@ jobs:
       - name: Normalize portfolio JSON (Decap CMS)
         run: node scripts/normalize-portfolio-data.mjs
 
+      - name: Verify EmailJS secrets
+        run: |
+          missing=0
+          for name in VITE_EMAILJS_SERVICE_ID VITE_EMAILJS_TEMPLATE_ID VITE_EMAILJS_PUBLIC_KEY; do
+            if [ -z "${!name}" ]; then
+              echo "::error::Missing GitHub Actions secret: $name"
+              missing=1
+            fi
+          done
+          if [ "$missing" -ne 0 ]; then
+            echo "Add secrets under Settings → Secrets and variables → Actions, then re-run this workflow."
+            exit 1
+          fi
+        env:
+          VITE_EMAILJS_SERVICE_ID: ${{ secrets.VITE_EMAILJS_SERVICE_ID }}
+          VITE_EMAILJS_TEMPLATE_ID: ${{ secrets.VITE_EMAILJS_TEMPLATE_ID }}
+          VITE_EMAILJS_PUBLIC_KEY: ${{ secrets.VITE_EMAILJS_PUBLIC_KEY }}
+
       - name: Build
         run: npm run build
         env:

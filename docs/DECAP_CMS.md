@@ -114,7 +114,7 @@ These are **not** for the CMS. They power the contact form at build time.
 
 4. In EmailJS dashboard → **Account → Security** → restrict **Allowed origins** to:
    - `https://hallous-yassine.github.io`
-   - `http://localhost:8080` (for local dev)
+   - `http://localhost:8080` (for local dev — origin is the host, not the `/My-portfolio/` path)
 
 5. Re-run **Deploy to GitHub Pages** workflow (or push any commit) so the build picks up secrets.
 
@@ -176,7 +176,10 @@ Open: [http://localhost:8080/My-portfolio/admin/](http://localhost:8080/My-portf
 | Login popup blank / fails | Callback URL in GitHub OAuth App must exactly match `OAUTH_CALLBACK_URL` on Render |
 | `Invalid origin` on login | `ORIGIN` on Render must be `https://hallous-yassine.github.io` (no `/My-portfolio`) |
 | CMS login works but publish fails | Ensure OAuth app has `repo` scope (default with our server) and you have write access to the repo |
-| Contact form fails on live site | Add EmailJS secrets in GitHub Actions; redeploy |
+| Contact form fails on live site | Add all three `VITE_EMAILJS_*` secrets in GitHub Actions; redeploy. Deploy workflow now **fails** if secrets are missing. |
+| Contact form works locally but not on live site | Secrets exist in `.env` only — they are not used by CI until added as GitHub Actions secrets |
+| Contact form fails locally after editing `.env` | Restart `npm run dev` (Vite reads env only at startup) |
+| EmailJS 403 / origin error | Add `https://hallous-yassine.github.io` and `http://localhost:8080` under EmailJS → Account → Security → Allowed origins |
 | Render sleeps (free tier) | First login after idle may take ~30s — retry |
 
 ---

@@ -14,7 +14,8 @@ import {
 import { Card, CardContent } from "@/components/ui/card";
 import { useToast } from "@/hooks/use-toast";
 import { z } from "zod";
-import emailjs from "@emailjs/browser";
+import emailjs, { EmailJSResponseStatus } from "@emailjs/browser";
+import { getEmailJsConfig } from "@/lib/emailjs-config";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name is too long"),
@@ -42,14 +43,13 @@ const Contact = () => {
 
     setIsSubmitting(true);
 
-    const serviceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
-    const templateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
-    const publicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
-
-    if (!serviceId || !templateId || !publicKey) {
+    const emailConfig = getEmailJsConfig();
+    if (!emailConfig) {
       toast({
         title: "Configuration Error",
-        description: "Email service is not configured. Please try again later.",
+        description: import.meta.env.DEV
+          ? "EmailJS is not configured. Add VITE_EMAILJS_* to .env and restart the dev server."
+          : "Email service is not configured on the live site. Redeploy after adding GitHub Actions secrets.",
         variant: "destructive",
       });
       setIsSubmitting(false);
@@ -58,6 +58,7 @@ const Contact = () => {
 
     try {
       const validated = contactSchema.parse(formData);
+      const { serviceId, templateId, publicKey } = emailConfig;
 
       await emailjs.send(
         serviceId,
@@ -70,7 +71,7 @@ const Contact = () => {
           message: validated.message,
           reply_to: validated.email,
         },
-        publicKey
+        { publicKey }
       );
 
       toast({
@@ -84,6 +85,16 @@ const Contact = () => {
         toast({
           title: "Validation Error",
           description: error.errors[0].message,
+          variant: "destructive",
+        });
+      } else if (error instanceof EmailJSResponseStatus) {
+        const hint =
+          error.status === 403
+            ? " Check EmailJS → Account → Security → Allowed origins."
+            : "";
+        toast({
+          title: "Error",
+          description: `Failed to send message (${error.status}).${hint}`,
           variant: "destructive",
         });
       } else {

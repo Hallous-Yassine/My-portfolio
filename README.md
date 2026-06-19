@@ -52,7 +52,9 @@ Run the development server:
 npm run dev
 ```
 
-Access locally at: `http://localhost:8080`
+Access locally at: `http://localhost:8080/My-portfolio/`
+
+> Restart `npm run dev` after editing `.env`. EmailJS keys are baked in at **build time** — the live site needs the same three values as **GitHub Actions secrets**, then a redeploy.
 
 Build for production:
 

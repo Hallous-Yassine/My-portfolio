@@ -1,8 +1,8 @@
 # Decap CMS — Portfolio content manager
 # Admin URL: https://hallous-yassine.github.io/My-portfolio/admin/
 #
-# OAuth: set DECAP_OAUTH_BASE_URL after deploying oauth-server/ (see docs/DECAP_CMS.md)
-# Local editing: run `npm run cms` then open http://localhost:8080/admin/
+# OAuth: backend.base_url points to oauth-server/ on Render (see docs/DECAP_CMS.md)
+# Local editing: run `npm run cms` then open http://localhost:8080/My-portfolio/admin/
 
 backend:
   name: github
