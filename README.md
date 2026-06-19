@@ -83,10 +83,10 @@ The optimized build will be in the `dist` directory.
 ```bash
 My-portfolio/
 │── public/
-│    ├── admin/          # Decap CMS (content manager UI)
 │    ├── assets/         # Images uploaded via CMS
 │    └── data/           # Portfolio JSON (edited via CMS)
-│── docs/                # Setup guides (Decap CMS, etc.)
+│── src/admin/           # Modern React CMS admin UI
+│── docs/                # Setup guides (CMS, etc.)
 │── oauth-server/        # OAuth bridge for CMS login (deploy to Render)
 │── scripts/             # Data normalization for CMS
 │── .github/workflows/   # Auto-deploy on content changes
@@ -108,35 +108,35 @@ My-portfolio/
 * **Validation** → Zod
 * **Icons** → Lucide React
 * **Email** → EmailJS
-* **Content CMS** → Decap CMS (Git-based admin)
+* **Content CMS** → Custom React admin (Git-based publishing)
 * **CI/CD** → GitHub Actions → GitHub Pages
 
 ---
 
-## 7. Content management (Decap CMS)
+## 7. Content management (Portfolio CMS)
 
 **Admin panel:** [https://hallous-yassine.github.io/My-portfolio/admin/](https://hallous-yassine.github.io/My-portfolio/admin/)
 
-**Full setup (OAuth + secrets):** [docs/DECAP_CMS.md](docs/DECAP_CMS.md)
+**Full setup (OAuth + API):** [docs/DECAP_CMS.md](docs/DECAP_CMS.md)
 
-Quick checklist you must configure yourself:
+Quick checklist:
 
-1. **Render** — deploy `oauth-server/` with `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `OAUTH_CALLBACK_URL`, `ORIGIN`
+1. **Render** — redeploy `oauth-server/` (adds CMS API + `cors`) with `GITHUB_CLIENT_ID`, `GITHUB_CLIENT_SECRET`, `OAUTH_CALLBACK_URL`, `ORIGIN`
 2. **GitHub OAuth App** — callback URL = `https://YOUR-APP.onrender.com/callback`
-3. **`public/admin/config.yml`** — set `backend.base_url` to your Render URL
+3. **Deploy workflow** — sets `VITE_CMS_API_URL` to your Render URL at build time
 4. **GitHub Actions secrets** — `VITE_EMAILJS_*` for the contact form
 
 **Local CMS:**
 ```bash
-npm run dev    # terminal 1
-npm run cms    # terminal 2
+npm run dev
+# open http://localhost:8080/My-portfolio/admin/
 ```
 
 ---
 
 ## 8. Customization
 
-* **Content** → Decap CMS admin (recommended) or `public/data/` JSON files
+* **Content** → Portfolio CMS admin at `/admin` or `public/data/` JSON files
 * **Styles** → `src/index.css`
 * **Components** → `src/components/`
 
