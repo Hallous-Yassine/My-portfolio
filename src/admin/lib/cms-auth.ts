@@ -18,6 +18,25 @@ export function getCmsApiBaseUrl(): string {
   return "";
 }
 
+function getAllowedMessageOrigins(): string[] {
+  const origins = new Set<string>([window.location.origin]);
+
+  const apiBase = getCmsApiBaseUrl();
+  if (apiBase) {
+    try {
+      origins.add(new URL(apiBase).origin);
+    } catch {
+      // ignore invalid URL
+    }
+  }
+
+  return [...origins];
+}
+
+function isAllowedOrigin(origin: string): boolean {
+  return getAllowedMessageOrigins().includes(origin);
+}
+
 export function loginWithGitHub(): Promise<string> {
   const baseUrl = getCmsApiBaseUrl();
   const authUrl = baseUrl ? `${baseUrl}/auth` : "/api/auth";
@@ -30,15 +49,41 @@ export function loginWithGitHub(): Promise<string> {
       return;
     }
 
+    let settled = false;
+
     const timeout = window.setTimeout(() => {
+      if (settled) return;
+      settled = true;
       cleanup();
       reject(new Error("Login timed out. Please try again."));
     }, 120_000);
 
+    const finishSuccess = (token: string) => {
+      if (settled) return;
+      settled = true;
+      setStoredToken(token);
+      cleanup();
+      resolve(token);
+    };
+
+    const finishError = (message: string) => {
+      if (settled) return;
+      settled = true;
+      cleanup();
+      reject(new Error(message));
+    };
+
     const onMessage = (event: MessageEvent) => {
+      if (!isAllowedOrigin(event.origin)) return;
       if (typeof event.data !== "string") return;
 
-      if (event.data === "authorizing:github") return;
+      if (event.data === "authorizing:github") {
+        // Legacy Decap handshake — acknowledge so older deployed callbacks still work.
+        if (popup && !popup.closed) {
+          popup.postMessage("authorizing:github", event.origin);
+        }
+        return;
+      }
 
       const prefix = "authorization:github:success:";
       if (!event.data.startsWith(prefix)) return;
@@ -46,25 +91,21 @@ export function loginWithGitHub(): Promise<string> {
       try {
         const payload = JSON.parse(event.data.slice(prefix.length)) as { token?: string };
         if (!payload.token) {
-          cleanup();
-          reject(new Error("OAuth succeeded but no token was returned."));
+          finishError("OAuth succeeded but no token was returned.");
           return;
         }
-
-        setStoredToken(payload.token);
-        cleanup();
-        resolve(payload.token);
+        finishSuccess(payload.token);
       } catch {
-        cleanup();
-        reject(new Error("Failed to parse OAuth response."));
+        finishError("Failed to parse OAuth response.");
       }
     };
 
     const poll = window.setInterval(() => {
-      if (popup.closed) {
-        cleanup();
-        if (!getStoredToken()) {
-          reject(new Error("Login window closed before completing authorization."));
+      if (popup.closed && !settled) {
+        if (getStoredToken()) {
+          finishSuccess(getStoredToken()!);
+        } else {
+          finishError("Login window closed before completing authorization.");
         }
       }
     }, 500);
@@ -73,7 +114,7 @@ export function loginWithGitHub(): Promise<string> {
       window.removeEventListener("message", onMessage);
       window.clearTimeout(timeout);
       window.clearInterval(poll);
-      if (!popup.closed) popup.close();
+      if (popup && !popup.closed) popup.close();
     };
 
     window.addEventListener("message", onMessage);

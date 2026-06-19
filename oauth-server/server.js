@@ -134,20 +134,52 @@ app.get("/callback", async (req, res) => {
       provider: "github",
     });
 
+    const adminUrl = `${ORIGIN}/My-portfolio/admin/`;
     const content = `<!DOCTYPE html>
-<html><body><script>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>GitHub Login</title>
+  <style>
+    body { font-family: system-ui, sans-serif; background: #0a0e14; color: #a8e6f0; display: flex; align-items: center; justify-content: center; min-height: 100vh; margin: 0; }
+    .card { text-align: center; padding: 2rem; border: 1px solid #1e293b; border-radius: 12px; background: #111827; max-width: 420px; }
+    a { color: #22d3ee; }
+    p { line-height: 1.6; }
+  </style>
+</head>
+<body>
+  <div class="card">
+    <p id="status">Completing sign in…</p>
+    <p id="fallback" style="display:none">You can close this tab and return to the admin.</p>
+    <p id="manual" style="display:none"><a href="${adminUrl}">Return to Portfolio CMS</a></p>
+  </div>
+  <script>
 (function() {
-  function receiveMessage(e) {
-    window.opener.postMessage(
-      'authorization:github:success:' + ${JSON.stringify(msg)},
-      ${JSON.stringify(ORIGIN)}
-    );
-    window.removeEventListener("message", receiveMessage, false);
+  var payload = 'authorization:github:success:' + ${JSON.stringify(msg)};
+  var targetOrigin = ${JSON.stringify(ORIGIN)};
+
+  function showManual() {
+    document.getElementById('status').textContent = 'Sign in successful.';
+    document.getElementById('fallback').style.display = 'block';
+    document.getElementById('manual').style.display = 'block';
   }
-  window.addEventListener("message", receiveMessage, false);
-  window.opener.postMessage("authorizing:github", ${JSON.stringify(ORIGIN)});
+
+  if (window.opener && !window.opener.closed) {
+    try {
+      window.opener.postMessage(payload, targetOrigin);
+      document.getElementById('status').textContent = 'Success! Closing window…';
+      window.setTimeout(function() { window.close(); }, 400);
+    } catch (err) {
+      showManual();
+    }
+  } else {
+    showManual();
+  }
 })();
-</script></body></html>`;
+  </script>
+</body>
+</html>`;
 
     res.send(content);
   } catch (err) {
