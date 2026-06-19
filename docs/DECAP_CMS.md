@@ -52,12 +52,12 @@ GitHub Pages cannot run OAuth itself. You need a tiny free **OAuth bridge** on R
    |-----|--------|---------|
    | `GITHUB_CLIENT_ID` | From Step 2 below | `Ov23li...` |
    | `GITHUB_CLIENT_SECRET` | From Step 2 below | `abc123...` (keep secret) |
-   | `OAUTH_CALLBACK_URL` | Your Render URL + `/callback` | `https://portfolio-oauth.onrender.com/callback` |
+   | `OAUTH_CALLBACK_URL` | Your Render URL + `/callback` | `https://my-portfolio-uv04.onrender.com/callback` |
    | `ORIGIN` | GitHub Pages origin (no path) | `https://hallous-yassine.github.io` |
 
-6. Deploy. Copy your service URL, e.g. `https://portfolio-oauth.onrender.com` (no trailing slash).
+6. Deploy. Your service URL: `https://my-portfolio-uv04.onrender.com` (no trailing slash).
 
-7. Test: open `https://YOUR-APP.onrender.com/health` → should show `{"ok":true}`.
+7. Test: open [https://my-portfolio-uv04.onrender.com/health](https://my-portfolio-uv04.onrender.com/health) → should show `{"ok":true}` after env vars are set.
 
 ### Step 2 — Create GitHub OAuth App
 
@@ -68,7 +68,7 @@ GitHub Pages cannot run OAuth itself. You need a tiny free **OAuth bridge** on R
    |-------|--------|
    | Application name | `Portfolio Decap CMS` |
    | Homepage URL | `https://hallous-yassine.github.io/My-portfolio/admin/` |
-   | Authorization callback URL | `https://YOUR-APP.onrender.com/callback` *(exact match with Render)* |
+   | Authorization callback URL | `https://my-portfolio-uv04.onrender.com/callback` *(exact match with Render)* |
 
 3. Click **Register application**.
 4. Copy **Client ID**.
@@ -85,7 +85,7 @@ backend:
   name: github
   repo: Hallous-Yassine/My-portfolio
   branch: main
-  base_url: https://YOUR-APP.onrender.com    # Render URL, NO trailing slash
+  base_url: https://my-portfolio-uv04.onrender.com    # Render URL, NO trailing slash
   auth_endpoint: auth
 
 site_url: https://hallous-yassine.github.io/My-portfolio

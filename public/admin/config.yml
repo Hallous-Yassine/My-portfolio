@@ -8,8 +8,7 @@ backend:
   name: github
   repo: Hallous-Yassine/My-portfolio
   branch: main
-  # Replace with your deployed OAuth server URL (no trailing slash), e.g. https://my-portfolio-oauth.onrender.com
-  base_url: https://YOUR_OAUTH_SERVER_URL
+  base_url: https://my-portfolio-uv04.onrender.com
   auth_endpoint: auth
 
 local_backend: true
