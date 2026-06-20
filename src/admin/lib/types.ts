@@ -67,13 +67,49 @@ export interface GalleryData {
   posts: JourneyPost[];
 }
 
-export interface SiteData {
-  sections: Record<string, unknown>;
+export interface HeroContent {
+  name?: string;
+  roles?: string[];
+  tagline?: string;
+  primaryCtaLabel?: string;
+  secondaryCtaLabel?: string;
 }
 
-export type CollectionKey = "projects" | "experiences" | "certifications" | "gallery" | "site";
+export interface AboutBlock {
+  subtitle?: string;
+  fieldsOfInterestTitle?: string;
+  fieldsOfInterest?: { title: string; description: string }[];
+  technicalArsenalTitle?: string;
+  technicalArsenal?: { category: string; technologies: string[] }[];
+  stats?: { value: string; label: string }[];
+}
 
-export type CollectionData = ProjectsData | ExperiencesData | CertificationsData | GalleryData | SiteData;
+export interface AboutContentData {
+  about?: AboutBlock;
+  experience?: { subtitle?: string };
+  projects?: { subtitle?: string };
+  certifications?: { subtitle?: string };
+}
+
+export interface SiteData {
+  sections: {
+    hero?: HeroContent;
+    about?: AboutBlock;
+    experience?: { subtitle?: string };
+    projects?: { subtitle?: string };
+    certifications?: { subtitle?: string };
+  };
+}
+
+export type CollectionKey = "projects" | "experiences" | "certifications" | "gallery" | "hero" | "about";
+
+export type CollectionData =
+  | ProjectsData
+  | ExperiencesData
+  | CertificationsData
+  | GalleryData
+  | HeroContent
+  | AboutContentData;
 
 export interface GitHubUser {
   login: string;

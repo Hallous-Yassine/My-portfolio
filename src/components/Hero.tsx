@@ -1,31 +1,59 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { Github, Linkedin, Mail, Download, ChevronDown } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { getAssetPath } from "@/lib/paths";
 import { useReducedMotion } from "@/hooks/use-reduced-motion";
+import { useJsonData } from "@/hooks/use-json-data";
 import Terminal from "./Terminal";
 
-const ROLES = [
+const DEFAULT_ROLES = [
   "Computer Engineering Student",
   "AI/ML Developer",
   "Backend & IoT Developer",
   "Cybersecurity Learner",
 ];
 
+type SiteData = {
+  sections?: {
+    hero?: {
+      name?: string;
+      roles?: string[];
+      tagline?: string;
+      primaryCtaLabel?: string;
+      secondaryCtaLabel?: string;
+    };
+  };
+};
+
 const Hero = () => {
   const reducedMotion = useReducedMotion();
-  const [displayText, setDisplayText] = useState(ROLES[0]);
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
+  const hero = siteData?.sections?.hero;
+
+  const roles = useMemo(
+    () => (hero?.roles?.length ? hero.roles : DEFAULT_ROLES),
+    [hero?.roles],
+  );
+
+  const [displayText, setDisplayText] = useState(roles[0]);
   const [roleIndex, setRoleIndex] = useState(0);
   const [charIndex, setCharIndex] = useState(0);
   const [isDeleting, setIsDeleting] = useState(false);
 
   useEffect(() => {
+    setDisplayText(roles[roleIndex] ?? roles[0]);
+    setRoleIndex(0);
+    setCharIndex(0);
+    setIsDeleting(false);
+  }, [roles]);
+
+  useEffect(() => {
     if (reducedMotion) {
-      setDisplayText(ROLES[roleIndex]);
+      setDisplayText(roles[roleIndex]);
       return;
     }
 
-    const currentRole = ROLES[roleIndex];
+    const currentRole = roles[roleIndex];
     const timeout = setTimeout(
       () => {
         if (!isDeleting && charIndex < currentRole.length) {
@@ -38,14 +66,14 @@ const Hero = () => {
           setTimeout(() => setIsDeleting(true), 2000);
         } else if (isDeleting && charIndex === 0) {
           setIsDeleting(false);
-          setRoleIndex((prev) => (prev + 1) % ROLES.length);
+          setRoleIndex((prev) => (prev + 1) % roles.length);
         }
       },
-      isDeleting ? 50 : 100
+      isDeleting ? 50 : 100,
     );
 
     return () => clearTimeout(timeout);
-  }, [charIndex, isDeleting, roleIndex, reducedMotion]);
+  }, [charIndex, isDeleting, roleIndex, reducedMotion, roles]);
 
   const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
@@ -63,7 +91,7 @@ const Hero = () => {
           </div>
 
           <h1 className="text-6xl md:text-8xl font-bold mb-6 animate-fade-in font-share-tech" style={{ animationDelay: "0.1s" }}>
-            <span className="text-glow">Yassine Hallous</span>
+            <span className="text-glow">{hero?.name ?? "Yassine Hallous"}</span>
           </h1>
 
           <div className="h-20 mb-10 animate-fade-in" style={{ animationDelay: "0.2s" }}>
@@ -74,7 +102,8 @@ const Hero = () => {
           </div>
 
           <p className="text-xl md:text-2xl text-muted-foreground max-w-3xl mx-auto mb-14 animate-fade-in font-fira-code" style={{ animationDelay: "0.3s" }}>
-            Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.
+            {hero?.tagline ??
+              "Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions."}
           </p>
 
           <div className="flex flex-wrap items-center justify-center gap-4 mb-10 animate-fade-in" style={{ animationDelay: "0.4s" }}>
@@ -83,7 +112,7 @@ const Hero = () => {
               className="bg-primary hover:bg-primary/90 text-primary-foreground border-glow"
               onClick={() => scrollToSection("contact")}
             >
-              Get In Touch
+              {hero?.primaryCtaLabel ?? "Get In Touch"}
             </Button>
 
             <Button
@@ -93,7 +122,7 @@ const Hero = () => {
               onClick={() => window.open(getAssetPath("/CV_Yassine_Hallous.pdf"), "_blank")}
             >
               <Download className="w-4 h-4 mr-2" />
-              Download CV
+              {hero?.secondaryCtaLabel ?? "Download CV"}
             </Button>
           </div>
 
@@ -123,7 +152,9 @@ const Hero = () => {
               size="icon"
               className="hover:text-primary hover:border-glow transition-all"
               aria-label="Send email"
-              onClick={() => { window.location.href = "mailto:yassine_hallous@ieee.org"; }}
+              onClick={() => {
+                window.location.href = "mailto:yassine_hallous@ieee.org";
+              }}
             >
               <Mail className="w-6 h-6" />
             </Button>

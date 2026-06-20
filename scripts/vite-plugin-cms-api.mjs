@@ -9,13 +9,23 @@ const root = join(dirname(fileURLToPath(import.meta.url)), "..");
 const DATA_DIR = join(root, "public", "data");
 const ASSETS_DIR = join(root, "public", "assets");
 
+const SITE_FILE = join(DATA_DIR, "site.json");
+
 const FILES = {
-  site: "site.json",
   projects: "projects.json",
   experiences: "experiences.json",
   certifications: "certifications.json",
   gallery: "gallery.json",
 };
+
+function readSiteJson() {
+  if (!existsSync(SITE_FILE)) return { sections: {} };
+  return JSON.parse(readFileSync(SITE_FILE, "utf8"));
+}
+
+function writeSiteJson(data) {
+  writeFileSync(SITE_FILE, `${JSON.stringify(data, null, 2)}\n`);
+}
 
 function sendJson(res, status, body) {
   res.statusCode = status;
@@ -90,9 +100,27 @@ export function cmsApiPlugin() {
           return;
         }
 
-        const contentMatch = url.match(/^\/api\/content\/(site|projects|experiences|certifications|gallery)$/);
+        const contentMatch = url.match(/^\/api\/content\/(hero|about|projects|experiences|certifications|gallery)$/);
         if (contentMatch && req.method === "GET") {
           const key = contentMatch[1];
+
+          if (key === "hero") {
+            const site = readSiteJson();
+            sendJson(res, 200, site.sections?.hero ?? {});
+            return;
+          }
+
+          if (key === "about") {
+            const site = readSiteJson();
+            sendJson(res, 200, {
+              about: site.sections?.about ?? {},
+              experience: site.sections?.experience ?? { subtitle: "" },
+              projects: site.sections?.projects ?? { subtitle: "" },
+              certifications: site.sections?.certifications ?? { subtitle: "" },
+            });
+            return;
+          }
+
           const filePath = join(DATA_DIR, FILES[key]);
           if (!existsSync(filePath)) {
             sendJson(res, 404, { error: "Content file not found." });
@@ -106,8 +134,31 @@ export function cmsApiPlugin() {
           const key = contentMatch[1];
           try {
             const body = await readBody(req);
+            const payload = JSON.parse(body);
+
+            if (key === "hero") {
+              const site = readSiteJson();
+              site.sections = site.sections ?? {};
+              site.sections.hero = payload;
+              writeSiteJson(site);
+              sendJson(res, 200, { ok: true });
+              return;
+            }
+
+            if (key === "about") {
+              const site = readSiteJson();
+              site.sections = site.sections ?? {};
+              if (payload.about) site.sections.about = payload.about;
+              if (payload.experience) site.sections.experience = payload.experience;
+              if (payload.projects) site.sections.projects = payload.projects;
+              if (payload.certifications) site.sections.certifications = payload.certifications;
+              writeSiteJson(site);
+              sendJson(res, 200, { ok: true });
+              return;
+            }
+
             const filePath = join(DATA_DIR, FILES[key]);
-            writeFileSync(filePath, `${JSON.stringify(JSON.parse(body), null, 2)}\n`);
+            writeFileSync(filePath, `${JSON.stringify(payload, null, 2)}\n`);
             sendJson(res, 200, { ok: true });
           } catch {
             sendJson(res, 400, { error: "Invalid JSON payload." });

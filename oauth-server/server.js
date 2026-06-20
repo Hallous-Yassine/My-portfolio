@@ -21,8 +21,9 @@ if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET || !OAUTH_CALLBACK_URL) {
 
 const DEFAULT_RETURN_URL = `${ORIGIN}/My-portfolio/admin/oauth-callback`;
 
+const SITE_FILE = "public/data/site.json";
+
 const CONTENT_FILES = {
-  site: "public/data/site.json",
   projects: "public/data/projects.json",
   experiences: "public/data/experiences.json",
   certifications: "public/data/certifications.json",
@@ -274,6 +275,19 @@ app.get("/api/user", async (req, res) => {
   }
 });
 
+async function readSiteJson(token) {
+  const data = await githubRequest(
+    `/repos/${GITHUB_REPO}/contents/${SITE_FILE}?ref=${GITHUB_BRANCH}`,
+    token,
+  );
+  return JSON.parse(Buffer.from(data.content, "base64").toString("utf8"));
+}
+
+async function writeSiteJson(token, siteData, message) {
+  const content = `${JSON.stringify(siteData, null, 2)}\n`;
+  await upsertFile(token, SITE_FILE, content, message);
+}
+
 app.get("/api/content/:key", async (req, res) => {
   const token = getToken(req);
   if (!token) {
@@ -281,13 +295,32 @@ app.get("/api/content/:key", async (req, res) => {
     return;
   }
 
-  const filePath = CONTENT_FILES[req.params.key];
-  if (!filePath) {
-    res.status(404).json({ error: "Unknown content collection." });
-    return;
-  }
+  const { key } = req.params;
 
   try {
+    if (key === "hero") {
+      const site = await readSiteJson(token);
+      res.json(site.sections?.hero ?? {});
+      return;
+    }
+
+    if (key === "about") {
+      const site = await readSiteJson(token);
+      res.json({
+        about: site.sections?.about ?? {},
+        experience: site.sections?.experience ?? { subtitle: "" },
+        projects: site.sections?.projects ?? { subtitle: "" },
+        certifications: site.sections?.certifications ?? { subtitle: "" },
+      });
+      return;
+    }
+
+    const filePath = CONTENT_FILES[key];
+    if (!filePath) {
+      res.status(404).json({ error: "Unknown content collection." });
+      return;
+    }
+
     const data = await githubRequest(
       `/repos/${GITHUB_REPO}/contents/${filePath}?ref=${GITHUB_BRANCH}`,
       token,
@@ -306,15 +339,38 @@ app.put("/api/content/:key", express.json({ limit: "2mb" }), async (req, res) =>
     return;
   }
 
-  const filePath = CONTENT_FILES[req.params.key];
-  if (!filePath) {
-    res.status(404).json({ error: "Unknown content collection." });
-    return;
-  }
+  const { key } = req.params;
 
   try {
+    if (key === "hero") {
+      const site = await readSiteJson(token);
+      site.sections = site.sections ?? {};
+      site.sections.hero = req.body;
+      await writeSiteJson(token, site, "Update hero section via Portfolio CMS");
+      res.json({ ok: true });
+      return;
+    }
+
+    if (key === "about") {
+      const site = await readSiteJson(token);
+      site.sections = site.sections ?? {};
+      if (req.body.about) site.sections.about = req.body.about;
+      if (req.body.experience) site.sections.experience = req.body.experience;
+      if (req.body.projects) site.sections.projects = req.body.projects;
+      if (req.body.certifications) site.sections.certifications = req.body.certifications;
+      await writeSiteJson(token, site, "Update about section via Portfolio CMS");
+      res.json({ ok: true });
+      return;
+    }
+
+    const filePath = CONTENT_FILES[key];
+    if (!filePath) {
+      res.status(404).json({ error: "Unknown content collection." });
+      return;
+    }
+
     const content = `${JSON.stringify(req.body, null, 2)}\n`;
-    await upsertFile(token, filePath, content, `Update ${req.params.key} via Portfolio CMS`);
+    await upsertFile(token, filePath, content, `Update ${key} via Portfolio CMS`);
     res.json({ ok: true });
   } catch (err) {
     res.status(err.status ?? 500).json({ error: err.message });

@@ -13,6 +13,7 @@ import {
   RotateCcw,
   Save,
   Search,
+  Sparkles,
   Trash2,
 } from "lucide-react";
 import { Link } from "react-router-dom";
@@ -286,12 +287,13 @@ export function AdminOverview() {
     >
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {[
-          { key: "site", icon: LayoutDashboard, color: "text-primary" },
+          { key: "hero", icon: Sparkles, color: "text-primary", label: "Hero Section" },
+          { key: "about", icon: LayoutDashboard, color: "text-sky-400", label: "About Section" },
           { key: "projects", icon: FolderKanban, color: "text-cyan-400" },
           { key: "experiences", icon: Briefcase, color: "text-violet-400" },
           { key: "certifications", icon: Award, color: "text-amber-400" },
           { key: "gallery", icon: Camera, color: "text-emerald-400" },
-        ].map(({ key, icon: Icon, color }) => (
+        ].map(({ key, icon: Icon, color, label }) => (
           <Link key={key} to={`/admin/${key}`}>
             <Card className="border-border/60 bg-card/80 backdrop-blur hover:border-primary/40 transition-colors h-full">
               <CardHeader>
@@ -299,10 +301,11 @@ export function AdminOverview() {
                   <Icon className="h-5 w-5" />
                 </div>
                 <CardTitle className="capitalize">
-                  {key === "gallery" ? "Journey" : key === "site" ? "Site content" : key}
+                  {label ?? (key === "gallery" ? "Journey" : key)}
                 </CardTitle>
                 <CardDescription>
-                  {key === "site" && "Hero, about text, interests, skills, and stats"}
+                  {key === "hero" && "Name, roles, tagline, and CTA buttons"}
+                  {key === "about" && "About text, interests, skills, stats, subtitles"}
                   {key === "projects" && "Projects, tech stacks, and GitHub links"}
                   {key === "experiences" && "Jobs, internships, and roles"}
                   {key === "certifications" && "Badges and credentials"}
