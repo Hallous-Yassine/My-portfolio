@@ -1,7 +1,7 @@
 {
   "sections": {
     "hero": {
-      "name": "Yassine Hallous",
+      "name": "Yassine kammoun",
       "roles": [
         "Computer Engineering Student",
         "AI/ML Developer",
@@ -57,7 +57,13 @@
         },
         {
           "category": "AI & Machine Learning",
-          "technologies": ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Flask"]
+          "technologies": [
+            "TensorFlow",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "Flask"
+          ]
         },
         {
           "category": "Mobile & Backend Development",
@@ -75,11 +81,24 @@
         },
         {
           "category": "DevOps & Cloud",
-          "technologies": ["Docker", "CI/CD", "Nginx", "AWS", "Git", "GitHub", "Linux"]
+          "technologies": [
+            "Docker",
+            "CI/CD",
+            "Nginx",
+            "AWS",
+            "Git",
+            "GitHub",
+            "Linux"
+          ]
         },
         {
           "category": "Embedded Systems & IoT",
-          "technologies": ["ESP32", "Arduino", "Raspberry Pi", "MQTT"]
+          "technologies": [
+            "ESP32",
+            "Arduino",
+            "Raspberry Pi",
+            "MQTT"
+          ]
         },
         {
           "category": "Cybersecurity",
@@ -95,9 +114,18 @@
         }
       ],
       "stats": [
-        { "value": "16.63/20", "label": "Current GPA" },
-        { "value": "7+", "label": "Projects Completed" },
-        { "value": "5+", "label": "Certifications Earned" }
+        {
+          "value": "16.63/20",
+          "label": "Current GPA"
+        },
+        {
+          "value": "7+",
+          "label": "Projects Completed"
+        },
+        {
+          "value": "5+",
+          "label": "Certifications Earned"
+        }
       ]
     },
     "experience": {
@@ -111,4 +139,3 @@
     }
   }
 }
-
