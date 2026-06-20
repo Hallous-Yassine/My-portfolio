@@ -10,7 +10,7 @@
       ],
       "tagline": "Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.",
       "primaryCtaLabel": "Get In Touch",
-      "secondaryCtaLabel": "Download CV"
+      "secondaryCtaLabel": "Download CV ahmed"
     },
     "about": {
       "subtitle": "A third-year Computer Engineering student specializing in Embedded Systems and IoT. Proven experience in app development, backend system design, and building automated, data-driven solutions. Actively involved in IEEE, where I developed strong leadership, teamwork, and project coordination skills.",
@@ -57,7 +57,13 @@
         },
         {
           "category": "AI & Machine Learning",
-          "technologies": ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Flask"]
+          "technologies": [
+            "TensorFlow",
+            "Scikit-learn",
+            "Pandas",
+            "NumPy",
+            "Flask"
+          ]
         },
         {
           "category": "Mobile & Backend Development",
@@ -75,11 +81,24 @@
         },
         {
           "category": "DevOps & Cloud",
-          "technologies": ["Docker", "CI/CD", "Nginx", "AWS", "Git", "GitHub", "Linux"]
+          "technologies": [
+            "Docker",
+            "CI/CD",
+            "Nginx",
+            "AWS",
+            "Git",
+            "GitHub",
+            "Linux"
+          ]
         },
         {
           "category": "Embedded Systems & IoT",
-          "technologies": ["ESP32", "Arduino", "Raspberry Pi", "MQTT"]
+          "technologies": [
+            "ESP32",
+            "Arduino",
+            "Raspberry Pi",
+            "MQTT"
+          ]
         },
         {
           "category": "Cybersecurity",
@@ -95,9 +114,18 @@
         }
       ],
       "stats": [
-        { "value": "16.63/20", "label": "Current GPA" },
-        { "value": "7+", "label": "Projects Completed" },
-        { "value": "5+", "label": "Certifications Earned" }
+        {
+          "value": "16.63/20",
+          "label": "Current GPA"
+        },
+        {
+          "value": "7+",
+          "label": "Projects Completed"
+        },
+        {
+          "value": "5+",
+          "label": "Certifications Earned"
+        }
       ]
     },
     "experience": {
@@ -111,4 +139,3 @@
     }
   }
 }
-
