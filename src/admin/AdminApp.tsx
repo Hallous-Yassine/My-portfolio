@@ -5,6 +5,7 @@ import { Toaster } from "@/components/ui/sonner";
 import { AdminShell } from "@/admin/components/AdminLayout";
 import AdminLogin from "@/admin/pages/AdminLogin";
 import AdminOAuthCallback from "@/admin/pages/AdminOAuthCallback";
+import SiteContentPage from "@/admin/pages/SiteContentPage";
 import CollectionPage, { AdminOverview } from "@/admin/pages/CollectionPage";
 import { clearStoredToken, getStoredToken } from "@/admin/lib/cms-auth";
 import { fetchCurrentUser } from "@/admin/lib/cms-api";
@@ -55,6 +56,7 @@ export default function AdminApp() {
         {user ? (
           <Route element={<AdminShell user={user} onLogout={() => setUser(null)} />}>
             <Route index element={<AdminOverview />} />
+            <Route path="site" element={<SiteContentPage />} />
             <Route path="projects" element={<CollectionPage collectionKey="projects" />} />
             <Route path="experiences" element={<CollectionPage collectionKey="experiences" />} />
             <Route path="certifications" element={<CollectionPage collectionKey="certifications" />} />

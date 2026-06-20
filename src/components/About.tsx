@@ -1,7 +1,24 @@
 import { Code2, Shield, Cpu, Brain, Cloud } from "lucide-react";
 import { Card, CardContent } from "@/components/ui/card";
+import { useJsonData } from "@/hooks/use-json-data";
+
+type SiteData = {
+  sections?: {
+    about?: {
+      subtitle?: string;
+      fieldsOfInterestTitle?: string;
+      fieldsOfInterest?: { title: string; description: string }[];
+      technicalArsenalTitle?: string;
+      technicalArsenal?: { category: string; technologies: string[] }[];
+      stats?: { value: string; label: string }[];
+    };
+  };
+};
 
 const About = () => {
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
+  const about = siteData?.sections?.about;
+
   const interests = [
     {
       icon: Code2,
@@ -62,6 +79,42 @@ const About = () => {
     ]
   };
 
+  const cmsInterests = about?.fieldsOfInterest?.length
+    ? about.fieldsOfInterest.map((i) => ({
+        icon:
+          i.title.toLowerCase().includes("ai") ? Brain
+          : i.title.toLowerCase().includes("embed") || i.title.toLowerCase().includes("iot") ? Cpu
+          : i.title.toLowerCase().includes("cyber") ? Shield
+          : i.title.toLowerCase().includes("cloud") || i.title.toLowerCase().includes("devops") ? Cloud
+          : Code2,
+        title: i.title,
+        description: i.description,
+      }))
+    : interests;
+
+  const cmsTechnologies =
+    about?.technicalArsenal?.length
+      ? Object.fromEntries(about.technicalArsenal.map((c) => [c.category, c.technologies]))
+      : technologies;
+
+  const stats = about?.stats?.length
+    ? about.stats
+    : [
+        { value: "16.63/20", label: "Current GPA" },
+        { value: "7+", label: "Projects Completed" },
+        { value: "5+", label: "Certifications Earned" },
+      ];
+
+  const interestTitle = about?.fieldsOfInterestTitle ?? "Fields of Interest";
+  const interestTitleParts = interestTitle.trim().split(/\s+/);
+  const interestTitlePrefix = interestTitleParts.slice(0, -1).join(" ") || interestTitle;
+  const interestTitleEmphasis = interestTitleParts.slice(-1)[0] || "";
+
+  const arsenalTitle = about?.technicalArsenalTitle ?? "Technical Arsenal";
+  const arsenalTitleParts = arsenalTitle.trim().split(/\s+/);
+  const arsenalTitlePrefix = arsenalTitleParts.slice(0, -1).join(" ") || arsenalTitle;
+  const arsenalTitleEmphasis = arsenalTitleParts.slice(-1)[0] || "";
+
 
   return (
     <section id="about" className="py-20 px-4 relative">
@@ -72,17 +125,19 @@ const About = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
-            A third-year Computer Engineering student specializing in Embedded Systems and IoT. Proven experience in app development, backend system design, and building automated, data-driven solutions. Actively involved in IEEE, where I developed strong leadership, teamwork, and project coordination skills.
+            {about?.subtitle ??
+              "A third-year Computer Engineering student specializing in Embedded Systems and IoT. Proven experience in app development, backend system design, and building automated, data-driven solutions. Actively involved in IEEE, where I developed strong leadership, teamwork, and project coordination skills."}
           </p>
         </div>
 
         {/* Fields of Interest Section */}
         <div className="mb-20">
           <h3 className="text-3xl font-bold mb-12 text-center">
-            Fields of <span className="text-primary text-glow">Interest</span>
+            {interestTitlePrefix}{" "}
+            {interestTitleEmphasis && <span className="text-primary text-glow">{interestTitleEmphasis}</span>}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {interests.map((interest, index) => (
+            {cmsInterests.map((interest, index) => (
               <Card
                 key={index}
                 className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group"
@@ -100,10 +155,11 @@ const About = () => {
         {/* Technical Arsenal Section */}
         <div className="bg-card/30 backdrop-blur border border-border/50 rounded-lg p-8 mb-16">
           <h3 className="text-2xl font-bold mb-8 text-center">
-            Technical <span className="text-primary text-glow">Arsenal</span>
+            {arsenalTitlePrefix}{" "}
+            {arsenalTitleEmphasis && <span className="text-primary text-glow">{arsenalTitleEmphasis}</span>}
           </h3>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {Object.entries(technologies).map(([category, techs]) => (
+            {Object.entries(cmsTechnologies).map(([category, techs]) => (
               <Card 
                 key={category}
                 className="bg-card/30 backdrop-blur border-border/50 hover:border-primary/30 transition-all duration-300"
@@ -130,18 +186,12 @@ const About = () => {
         <div className="text-center">
           <div className="inline-block bg-card/50 backdrop-blur border border-border/50 rounded-lg p-8">
             <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
-              <div>
-                <div className="text-4xl font-bold text-primary text-glow mb-2">16.63/20</div>
-                <div className="text-muted-foreground">Current GPA</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary text-glow mb-2">7+</div>
-                <div className="text-muted-foreground">Projects Completed</div>
-              </div>
-              <div>
-                <div className="text-4xl font-bold text-primary text-glow mb-2">5+</div>
-                <div className="text-muted-foreground">Certifications Earned</div>
-              </div>
+              {stats.slice(0, 3).map((s) => (
+                <div key={s.label}>
+                  <div className="text-4xl font-bold text-primary text-glow mb-2">{s.value}</div>
+                  <div className="text-muted-foreground">{s.label}</div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

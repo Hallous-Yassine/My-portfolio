@@ -8,6 +8,7 @@ import {
   FolderKanban,
   LayoutDashboard,
   LogOut,
+  Settings,
   Sparkles,
 } from "lucide-react";
 import { clearStoredToken } from "@/admin/lib/cms-auth";
@@ -19,6 +20,7 @@ import type { GitHubUser } from "@/admin/lib/types";
 
 const NAV = [
   { to: "/admin", label: "Overview", icon: LayoutDashboard, end: true },
+  { to: "/admin/site", label: "Site Content", icon: Settings },
   { to: "/admin/projects", label: "Projects", icon: FolderKanban },
   { to: "/admin/experiences", label: "Experience", icon: Briefcase },
   { to: "/admin/certifications", label: "Certifications", icon: Award },

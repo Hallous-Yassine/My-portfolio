@@ -67,9 +67,13 @@ export interface GalleryData {
   posts: JourneyPost[];
 }
 
-export type CollectionKey = "projects" | "experiences" | "certifications" | "gallery";
+export interface SiteData {
+  sections: Record<string, unknown>;
+}
 
-export type CollectionData = ProjectsData | ExperiencesData | CertificationsData | GalleryData;
+export type CollectionKey = "projects" | "experiences" | "certifications" | "gallery" | "site";
+
+export type CollectionData = ProjectsData | ExperiencesData | CertificationsData | GalleryData | SiteData;
 
 export interface GitHubUser {
   login: string;

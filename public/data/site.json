@@ -1,0 +1,114 @@
+{
+  "sections": {
+    "hero": {
+      "name": "Yassine Hallous",
+      "roles": [
+        "Computer Engineering Student",
+        "AI/ML Developer",
+        "Backend & IoT Developer",
+        "Cybersecurity Learner"
+      ],
+      "tagline": "Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.",
+      "primaryCtaLabel": "Get In Touch",
+      "secondaryCtaLabel": "Download CV"
+    },
+    "about": {
+      "subtitle": "A third-year Computer Engineering student specializing in Embedded Systems and IoT. Proven experience in app development, backend system design, and building automated, data-driven solutions. Actively involved in IEEE, where I developed strong leadership, teamwork, and project coordination skills.",
+      "fieldsOfInterestTitle": "Fields of Interest",
+      "fieldsOfInterest": [
+        {
+          "title": "App Development",
+          "description": "I enjoy turning ideas into functional mobile or web applications and creating interfaces that feel simple and intuitive for users."
+        },
+        {
+          "title": "AI & Machine Learning",
+          "description": "I'm motivated by building models that learn from data and help automate decisions, especially when they solve real problems."
+        },
+        {
+          "title": "Embedded Systems & IoT",
+          "description": "I love connecting hardware and software together, working with sensors, and building systems that react in real time."
+        },
+        {
+          "title": "Cybersecurity",
+          "description": "Participating in CTFs and hackathons sparked my interest in understanding how systems can be strengthened against attacks."
+        },
+        {
+          "title": "Cloud & DevOps",
+          "description": "I find it exciting to deploy applications efficiently and automate workflows to make systems faster, scalable, and reliable."
+        }
+      ],
+      "technicalArsenalTitle": "Technical Arsenal",
+      "technicalArsenal": [
+        {
+          "category": "Programming Languages",
+          "technologies": [
+            "C",
+            "C++",
+            "Python",
+            "Java",
+            "Kotlin",
+            "Dart",
+            "JavaScript",
+            "TypeScript",
+            "PHP",
+            "HTML",
+            "CSS"
+          ]
+        },
+        {
+          "category": "AI & Machine Learning",
+          "technologies": ["TensorFlow", "Scikit-learn", "Pandas", "NumPy", "Flask"]
+        },
+        {
+          "category": "Mobile & Backend Development",
+          "technologies": [
+            "Flutter",
+            "Node.js",
+            "Express.js",
+            "MySQL",
+            "PostgreSQL",
+            "MongoDB",
+            "Firebase",
+            "Postman",
+            "Figma"
+          ]
+        },
+        {
+          "category": "DevOps & Cloud",
+          "technologies": ["Docker", "CI/CD", "Nginx", "AWS", "Git", "GitHub", "Linux"]
+        },
+        {
+          "category": "Embedded Systems & IoT",
+          "technologies": ["ESP32", "Arduino", "Raspberry Pi", "MQTT"]
+        },
+        {
+          "category": "Cybersecurity",
+          "technologies": [
+            "Cisco Packet Tracer",
+            "Wireshark",
+            "VirtualBox",
+            "VLAN configuration",
+            "Web pentesting basics",
+            "Nmap",
+            "Burp Suite"
+          ]
+        }
+      ],
+      "stats": [
+        { "value": "16.63/20", "label": "Current GPA" },
+        { "value": "7+", "label": "Projects Completed" },
+        { "value": "5+", "label": "Certifications Earned" }
+      ]
+    },
+    "experience": {
+      "subtitle": "Real-world experience building innovative solutions"
+    },
+    "projects": {
+      "subtitle": "A showcase of my technical projects spanning AI, cybersecurity, backend development, and IoT solutions."
+    },
+    "certifications": {
+      "subtitle": "Professional certifications and credentials demonstrating expertise across multiple domains."
+    }
+  }
+}
+

@@ -5,6 +5,10 @@ import { getAssetPath } from "@/lib/paths";
 import { useJsonData } from "@/hooks/use-json-data";
 import SectionFeedback from "@/components/SectionFeedback";
 
+type SiteData = {
+  sections?: { certifications?: { subtitle?: string } };
+};
+
 interface Certification {
   id: number;
   title: string;
@@ -33,6 +37,7 @@ const handleCredentialClick = (cert: Certification) => {
 
 const Certifications = () => {
   const { data, loading, error } = useJsonData<CertificationsData>("/data/certifications.json");
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
   const certifications = data?.certifications ?? [];
 
   return (
@@ -44,7 +49,8 @@ const Certifications = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
-            Professional certifications and credentials demonstrating expertise across multiple domains.
+            {siteData?.sections?.certifications?.subtitle ??
+              "Professional certifications and credentials demonstrating expertise across multiple domains."}
           </p>
         </div>
 

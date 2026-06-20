@@ -100,8 +100,8 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
         </>
       }
     >
-      <div className="grid gap-6 lg:grid-cols-[minmax(280px,360px)_1fr]">
-        <Card className="border-border/60 bg-card/80 backdrop-blur">
+      <div className="grid gap-6 items-stretch lg:grid-cols-[minmax(280px,360px)_1fr]">
+        <Card className="border-border/60 bg-card/80 backdrop-blur h-full flex flex-col">
           <CardHeader className="pb-3">
             <div className="flex items-center gap-3">
               <div className="rounded-lg bg-primary/10 p-2 text-primary">
@@ -113,7 +113,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
               </div>
             </div>
           </CardHeader>
-          <CardContent className="space-y-4">
+          <CardContent className="space-y-4 flex flex-col flex-1">
             <div className="relative">
               <Search className="absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
               <Input
@@ -128,7 +128,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
               Add {config.itemLabel}
             </Button>
             <Separator />
-            <ScrollArea className="h-[calc(100vh-22rem)] pr-3">
+            <ScrollArea className="flex-1 pr-3">
               {loading ? (
                 <div className="space-y-3">
                   {Array.from({ length: 4 }).map((_, i) => (
@@ -201,7 +201,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
           </CardContent>
         </Card>
 
-        <Card className="border-border/60 bg-card/80 backdrop-blur min-h-[520px]">
+        <Card className="border-border/60 bg-card/80 backdrop-blur min-h-[520px] h-full flex flex-col">
           <CardHeader>
             <CardTitle>
               {editingItem ? `Edit ${config.itemLabel}` : `Select a ${config.itemLabel.toLowerCase()}`}
@@ -212,7 +212,7 @@ export default function CollectionPage({ collectionKey }: CollectionPageProps) {
                 : "Choose an item from the list or create a new one."}
             </CardDescription>
           </CardHeader>
-          <CardContent>
+          <CardContent className="flex-1">
             {editingIndex == null ? (
               <div className="flex h-80 flex-col items-center justify-center rounded-xl border border-dashed border-border/60 text-center px-6">
                 <LayoutDashboard className="h-10 w-10 text-muted-foreground mb-3" />
@@ -286,6 +286,7 @@ export function AdminOverview() {
     >
       <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-4">
         {[
+          { key: "site", icon: LayoutDashboard, color: "text-primary" },
           { key: "projects", icon: FolderKanban, color: "text-cyan-400" },
           { key: "experiences", icon: Briefcase, color: "text-violet-400" },
           { key: "certifications", icon: Award, color: "text-amber-400" },
@@ -297,8 +298,11 @@ export function AdminOverview() {
                 <div className={`rounded-lg bg-muted/40 p-2 w-fit ${color}`}>
                   <Icon className="h-5 w-5" />
                 </div>
-                <CardTitle className="capitalize">{key === "gallery" ? "Journey" : key}</CardTitle>
+                <CardTitle className="capitalize">
+                  {key === "gallery" ? "Journey" : key === "site" ? "Site content" : key}
+                </CardTitle>
                 <CardDescription>
+                  {key === "site" && "Hero, about text, interests, skills, and stats"}
                   {key === "projects" && "Projects, tech stacks, and GitHub links"}
                   {key === "experiences" && "Jobs, internships, and roles"}
                   {key === "certifications" && "Badges and credentials"}

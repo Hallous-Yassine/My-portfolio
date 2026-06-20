@@ -6,6 +6,10 @@ import { useJsonData } from "@/hooks/use-json-data";
 import SectionFeedback from "@/components/SectionFeedback";
 import { Skeleton } from "@/components/ui/skeleton";
 
+type SiteData = {
+  sections?: { experience?: { subtitle?: string } };
+};
+
 interface Experience {
   id: number;
   company: string;
@@ -24,6 +28,7 @@ interface ExperiencesData {
 
 const Experiences = () => {
   const { data, loading, error } = useJsonData<ExperiencesData>("/data/experiences.json");
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
   const experiences = data?.experience ?? [];
 
   return (
@@ -35,7 +40,7 @@ const Experiences = () => {
           </h2>
           <div className="w-24 h-1 bg-gradient-to-r from-primary to-secondary mx-auto mb-6"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
-            Real-world experience building innovative solutions
+            {siteData?.sections?.experience?.subtitle ?? "Real-world experience building innovative solutions"}
           </p>
         </div>
 

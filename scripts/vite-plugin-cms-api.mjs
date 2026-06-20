@@ -10,6 +10,7 @@ const DATA_DIR = join(root, "public", "data");
 const ASSETS_DIR = join(root, "public", "assets");
 
 const FILES = {
+  site: "site.json",
   projects: "projects.json",
   experiences: "experiences.json",
   certifications: "certifications.json",
@@ -89,7 +90,7 @@ export function cmsApiPlugin() {
           return;
         }
 
-        const contentMatch = url.match(/^\/api\/content\/(projects|experiences|certifications|gallery)$/);
+        const contentMatch = url.match(/^\/api\/content\/(site|projects|experiences|certifications|gallery)$/);
         if (contentMatch && req.method === "GET") {
           const key = contentMatch[1];
           const filePath = join(DATA_DIR, FILES[key]);

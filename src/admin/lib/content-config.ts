@@ -45,6 +45,17 @@ export const JOURNEY_CATEGORIES = [
 
 export const COLLECTIONS: CollectionConfig[] = [
   {
+    key: "site",
+    label: "Site Content",
+    description: "Edit your hero, about text, interests, skills, and stats.",
+    icon: "Settings",
+    dataKey: "sections",
+    filePath: "public/data/site.json",
+    itemLabel: "Site",
+    summaryFields: [],
+    fields: [],
+  },
+  {
     key: "projects",
     label: "Projects",
     description: "Portfolio projects with tech stack, highlights, and GitHub links.",

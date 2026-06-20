@@ -7,6 +7,10 @@ import { getAssetPath } from "@/lib/paths";
 import { useJsonData } from "@/hooks/use-json-data";
 import SectionFeedback from "@/components/SectionFeedback";
 
+type SiteData = {
+  sections?: { projects?: { subtitle?: string } };
+};
+
 interface Project {
   id: number;
   title: string;
@@ -25,6 +29,7 @@ interface ProjectsData {
 
 const Projects = () => {
   const { data, loading, error } = useJsonData<ProjectsData>("/data/projects.json");
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
   const projects = data?.projects ?? [];
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -43,7 +48,8 @@ const Projects = () => {
           </h2>
           <div className="w-20 h-1 bg-primary mx-auto mb-6 rounded-full"></div>
           <p className="text-muted-foreground text-lg max-w-3xl mx-auto font-fira-code">
-            A showcase of my technical projects spanning AI, cybersecurity, backend development, and IoT solutions.
+            {siteData?.sections?.projects?.subtitle ??
+              "A showcase of my technical projects spanning AI, cybersecurity, backend development, and IoT solutions."}
           </p>
         </div>
 

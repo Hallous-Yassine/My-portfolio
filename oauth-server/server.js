@@ -22,6 +22,7 @@ if (!GITHUB_CLIENT_ID || !GITHUB_CLIENT_SECRET || !OAUTH_CALLBACK_URL) {
 const DEFAULT_RETURN_URL = `${ORIGIN}/My-portfolio/admin/oauth-callback`;
 
 const CONTENT_FILES = {
+  site: "public/data/site.json",
   projects: "public/data/projects.json",
   experiences: "public/data/experiences.json",
   certifications: "public/data/certifications.json",
