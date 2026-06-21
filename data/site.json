@@ -66,20 +66,20 @@
           ]
         },
         {
-          "category": "Mobile & Backend Development",
+          "category": "Web & Mobile Development",
           "technologies": [
-            "Flutter",
+            "FastApi",
             "Node.js",
-            "Express.js",
-            "MySQL",
+            "React",
+            "Flutter",
             "PostgreSQL",
+            "MySQL",
             "MongoDB",
+            "Redis",
+            "Celery",
             "Firebase",
             "Postman",
-            "Figma",
-            "FastApi",
-            "Redis",
-            "Celery"
+            "Figma"
           ]
         },
         {
@@ -107,14 +107,14 @@
           "category": "Cybersecurity",
           "technologies": [
             "Cisco Packet Tracer",
+            "Suricata IDS",
             "Wireshark",
-            "VirtualBox",
+            "Open vSwitch",
             "VLAN configuration",
-            "Web pentesting basics",
             "Nmap",
             "Burp Suite",
-            "Suricata IDS",
-            "Open vSwitch"
+            "Web pentesting basics",
+            "VirtualBox"
           ]
         }
       ],
