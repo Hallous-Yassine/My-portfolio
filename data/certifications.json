@@ -76,20 +76,6 @@
         "Network Fundamentals"
       ],
       "image": "/assets/certifications/cisco-networking.png"
-    },
-    {
-      "id": 6,
-      "title": "IEEEXtreme 18.0 Programming Competition",
-      "issuer": "IEEE",
-      "date": "October 2024",
-      "credentialId": "Available upon request",
-      "credentialUrl": null,
-      "description": "Global competitive programming contest testing algorithmic thinking, time-efficient problem solving, and coding skills.",
-      "skills": [
-        "Algorithms",
-        "Problem Solving"
-      ],
-      "image": "/assets/certifications/ieeextreme.png"
     }
   ]
 }
