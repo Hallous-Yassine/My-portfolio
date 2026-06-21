@@ -92,6 +92,30 @@
     },
     {
       "id": 4,
+      "image": "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
+      "title": "🏭 Organize Industrial Visit to Leoni Wiring System Factory",
+      "location": "Tunisia",
+      "date": "2025",
+      "caption": "Organized an industrial visit to Leoni Wiring System factory! Great opportunity for students to see real-world engineering applications and understand automotive wiring systems manufacturing.",
+      "hashtags": [
+        "Industrial",
+        "Engineering",
+        "Factory",
+        "Learning"
+      ],
+      "likes": 112,
+      "comments": 19,
+      "shares": 9,
+      "year": 2025,
+      "category": "Industry",
+      "album": "leoni",
+      "albumImages": [
+        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
+        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.10 (2).jpeg"
+      ]
+    },
+    {
+      "id": 5,
       "image": "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.51.jpeg",
       "title": "🏆 1st Place - IAS TAM Technical Challenge",
       "location": "Tunis, Tunisia",
@@ -118,7 +142,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "image": "/assets/gdg/480821202_618396030941814_3776731707426923263_n.jpg",
       "title": "🎖️ Best Android Project - GDG TechDays",
       "location": "Sousse, Tunisia",
@@ -145,7 +169,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "image": "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (1).jpeg",
       "title": "🥉 Raksha Pentest Hackathon",
       "location": "Tunisia",
@@ -174,31 +198,31 @@
       ]
     },
     {
-      "id": 7,
-      "image": "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
-      "title": "💻 Participate in IEEEXtreme 18.0 & 19.0",
-      "location": "Online",
-      "date": "October 2024 & 2025",
-      "caption": "24 hours of non-stop competitive programming at IEEEXtreme! Solving algorithms, debugging at 3 AM, and pushing our limits. Two years of intense coding challenges!",
+      "id": 8,
+      "image": "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
+      "title": "🚀 Participate in Competition with Nexova Project",
+      "location": "Tunisia",
+      "date": "2025",
+      "caption": "Competing with our Nexova project! Innovative solutions and creative problem-solving with an amazing team. Every competition is a learning opportunity!",
       "hashtags": [
-        "Programming",
+        "Innovation",
         "Competition",
-        "IEEE",
-        "IEEEXtreme"
+        "Nexova",
+        "Teamwork"
       ],
-      "likes": 189,
-      "comments": 34,
-      "shares": 18,
-      "year": 2024,
+      "likes": 98,
+      "comments": 17,
+      "shares": 11,
+      "year": 2025,
       "category": "Competitions",
-      "album": "IEEEXtreme",
+      "album": "nexova",
       "albumImages": [
-        "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
-        "/assets/IEEEXtreme/567150764_1528773374784617_1968757727561530436_n.jpg"
+        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
+        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (4).jpeg"
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "image": "/assets/redroom/486366252_974796501491731_6274390641205272597_n.jpg",
       "title": "🔴 RedRoom Hackathon",
       "location": "Tunisia",
@@ -223,7 +247,56 @@
       ]
     },
     {
-      "id": 9,
+      "id": 10,
+      "image": "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
+      "title": "🌐 TSYP 12 Congress",
+      "location": "Tunisia",
+      "date": "2024",
+      "caption": "Another successful year with TSYP 12! Continuing to build bridges between young professionals and creating opportunities for technical growth and collaboration.",
+      "hashtags": [
+        "IEEE",
+        "TSYP",
+        "Leadership",
+        "Networking"
+      ],
+      "likes": 165,
+      "comments": 32,
+      "shares": 18,
+      "year": 2024,
+      "category": "IEEE Events",
+      "album": "tsyp 12",
+      "albumImages": [
+        "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
+        "/assets/tsyp 12/WhatsApp Image 2025-11-11 at 00.42.17 (2).jpeg"
+      ]
+    },
+    {
+      "id": 11,
+      "image": "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
+      "title": "📍 Lead the Booth at IEEE IAS 60th Anniversary Conference",
+      "location": "Tunisia",
+      "date": "2024",
+      "caption": "Leading the booth at the IEEE IAS 60th Anniversary Conference! Connecting with industry leaders and showcasing our chapter's activities. Great networking and learning experience!",
+      "hashtags": [
+        "IEEE",
+        "IAS",
+        "Conference",
+        "Leadership"
+      ],
+      "likes": 178,
+      "comments": 29,
+      "shares": 14,
+      "year": 2024,
+      "category": "IEEE Events",
+      "album": "IAC",
+      "albumImages": [
+        "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
+        "/assets/IAC/490612873_122131141958739282_8234925052212975654_n.jpg",
+        "/assets/IAC/491789604_122131882238739282_1579140040570172138_n.jpg"
+      ]
+    },
+    {
+      "id": 12,
       "image": "/assets/sdc/IMG_7982-DeNoiseAI-low-light.jpg",
       "title": "🌟 Sight Day Congress",
       "location": "ISITCOM, Tunisia",
@@ -253,32 +326,31 @@
       ]
     },
     {
-      "id": 10,
-      "image": "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
-      "title": "📍 Lead the Booth at IEEE IAS 60th Anniversary Conference",
-      "location": "Tunisia",
-      "date": "2024",
-      "caption": "Leading the booth at the IEEE IAS 60th Anniversary Conference! Connecting with industry leaders and showcasing our chapter's activities. Great networking and learning experience!",
+      "id": 13,
+      "image": "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
+      "title": "💻 Participate in IEEEXtreme 18.0 & 19.0",
+      "location": "Online",
+      "date": "October 2024 & 2025",
+      "caption": "24 hours of non-stop competitive programming at IEEEXtreme! Solving algorithms, debugging at 3 AM, and pushing our limits. Two years of intense coding challenges!",
       "hashtags": [
+        "Programming",
+        "Competition",
         "IEEE",
-        "IAS",
-        "Conference",
-        "Leadership"
+        "IEEEXtreme"
       ],
-      "likes": 178,
-      "comments": 29,
-      "shares": 14,
+      "likes": 189,
+      "comments": 34,
+      "shares": 18,
       "year": 2024,
-      "category": "IEEE Events",
-      "album": "IAC",
+      "category": "Competitions",
+      "album": "IEEEXtreme",
       "albumImages": [
-        "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
-        "/assets/IAC/490612873_122131141958739282_8234925052212975654_n.jpg",
-        "/assets/IAC/491789604_122131882238739282_1579140040570172138_n.jpg"
+        "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
+        "/assets/IEEEXtreme/567150764_1528773374784617_1968757727561530436_n.jpg"
       ]
     },
     {
-      "id": 11,
+      "id": 14,
       "image": "/assets/tsyp 11/received_1528609294627429.jpeg",
       "title": "🌐 TSYP 11 Congress",
       "location": "Tunisia",
@@ -299,78 +371,6 @@
       "albumImages": [
         "/assets/tsyp 11/received_1528609294627429.jpeg",
         "/assets/tsyp 11/WhatsApp Image 2025-11-11 at 00.42.18.jpeg"
-      ]
-    },
-    {
-      "id": 12,
-      "image": "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
-      "title": "🌐 TSYP 12 Congress",
-      "location": "Tunisia",
-      "date": "2024",
-      "caption": "Another successful year with TSYP 12! Continuing to build bridges between young professionals and creating opportunities for technical growth and collaboration.",
-      "hashtags": [
-        "IEEE",
-        "TSYP",
-        "Leadership",
-        "Networking"
-      ],
-      "likes": 165,
-      "comments": 32,
-      "shares": 18,
-      "year": 2024,
-      "category": "IEEE Events",
-      "album": "tsyp 12",
-      "albumImages": [
-        "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
-        "/assets/tsyp 12/WhatsApp Image 2025-11-11 at 00.42.17 (2).jpeg"
-      ]
-    },
-    {
-      "id": 13,
-      "image": "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
-      "title": "🏭 Organize Industrial Visit to Leoni Wiring System Factory",
-      "location": "Tunisia",
-      "date": "2025",
-      "caption": "Organized an industrial visit to Leoni Wiring System factory! Great opportunity for students to see real-world engineering applications and understand automotive wiring systems manufacturing.",
-      "hashtags": [
-        "Industrial",
-        "Engineering",
-        "Factory",
-        "Learning"
-      ],
-      "likes": 112,
-      "comments": 19,
-      "shares": 9,
-      "year": 2025,
-      "category": "Industry",
-      "album": "leoni",
-      "albumImages": [
-        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
-        "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.10 (2).jpeg"
-      ]
-    },
-    {
-      "id": 14,
-      "image": "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
-      "title": "🚀 Participate in Competition with Nexova Project",
-      "location": "Tunisia",
-      "date": "2025",
-      "caption": "Competing with our Nexova project! Innovative solutions and creative problem-solving with an amazing team. Every competition is a learning opportunity!",
-      "hashtags": [
-        "Innovation",
-        "Competition",
-        "Nexova",
-        "Teamwork"
-      ],
-      "likes": 98,
-      "comments": 17,
-      "shares": 11,
-      "year": 2025,
-      "category": "Competitions",
-      "album": "nexova",
-      "albumImages": [
-        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
-        "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (4).jpeg"
       ]
     }
   ]
