@@ -2,6 +2,17 @@
   "experience": [
     {
       "id": 1,
+      "title": "Final Year Intern",
+      "company": "Pwn & Patch",
+      "location": "Menzah, Tunisia",
+      "date": "February 2026 – May 2026",
+      "description": "",
+      "highlights": [],
+      "technologies": [],
+      "image": "/assets/uploads/1782043971136-sandbox.png"
+    },
+    {
+      "id": 2,
       "company": "SofiaTech",
       "location": "Ariana, Tunisia",
       "title": "Summer Intern",
@@ -21,7 +32,7 @@
       "image": "/assets/experience/sofiatech-2025.png"
     },
     {
-      "id": 2,
+      "id": 3,
       "company": "SofiaTech",
       "location": "Ariana, Tunisia",
       "title": "Summer Intern",
