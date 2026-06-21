@@ -102,7 +102,7 @@ export const COLLECTIONS: CollectionConfig[] = [
         name: "credentialUrl",
         label: "Credential URL",
         type: "url",
-        hint: "Leave empty to show 'Request Credential' on the site",
+        hint: "Opens in a new tab when visitors click the credential button. Leave empty to fall back to email request.",
       },
       { name: "description", label: "Description", type: "textarea", required: true },
       { name: "skills", label: "Skills", type: "string-list", placeholder: "Add skill" },

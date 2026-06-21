@@ -25,15 +25,21 @@ interface CertificationsData {
   certifications: Certification[];
 }
 
-const handleCredentialClick = (cert: Certification) => {
-  const url = cert.credentialUrl?.trim();
+function resolveCredentialUrl(credentialUrl: string | null | undefined): string | null {
+  const trimmed = credentialUrl?.trim();
+  if (!trimmed) return null;
+  if (/^https?:\/\//i.test(trimmed)) return trimmed;
+  return `https://${trimmed}`;
+}
+
+function getCredentialLink(cert: Certification): { href: string; external: boolean } {
+  const url = resolveCredentialUrl(cert.credentialUrl);
   if (url) {
-    window.open(url, "_blank", "noopener,noreferrer");
-    return;
+    return { href: url, external: true };
   }
   const subject = encodeURIComponent(`Credential request: ${cert.title}`);
-  window.location.href = `mailto:yassine_hallous@ieee.org?subject=${subject}`;
-};
+  return { href: `mailto:yassine_hallous@ieee.org?subject=${subject}`, external: false };
+}
 
 const Certifications = () => {
   const { data, loading, error } = useJsonData<CertificationsData>("/data/certifications.json");
@@ -61,7 +67,11 @@ const Certifications = () => {
           emptyMessage="No certifications to display."
         >
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {certifications.map((cert) => (
+            {certifications.map((cert) => {
+              const credentialUrl = resolveCredentialUrl(cert.credentialUrl);
+              const { href, external } = getCredentialLink(cert);
+
+              return (
               <Card
                 key={cert.id}
                 className="bg-card/50 backdrop-blur border-border/50 hover:border-primary/50 hover:card-glow transition-all duration-300 group flex flex-col h-full"
@@ -111,18 +121,26 @@ const Certifications = () => {
 
                   <div className="pt-2">
                     <Button
+                      asChild
                       size="sm"
                       variant="outline"
                       className="w-full border-border/50 hover:border-primary/50 hover:bg-primary/5 group"
-                      onClick={() => handleCredentialClick(cert)}
                     >
-                      <ExternalLink className="w-4 h-4 mr-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
-                      {cert.credentialUrl ? "View Credential" : "Request Credential"}
+                      <a
+                        href={href}
+                        {...(external
+                          ? { target: "_blank", rel: "noopener noreferrer" }
+                          : {})}
+                      >
+                        <ExternalLink className="w-4 h-4 mr-2 group-hover:translate-x-0.5 group-hover:-translate-y-0.5 transition-transform" />
+                        {credentialUrl ? "View Credential" : "Request Credential"}
+                      </a>
                     </Button>
                   </div>
                 </CardContent>
               </Card>
-            ))}
+              );
+            })}
           </div>
         </SectionFeedback>
 
