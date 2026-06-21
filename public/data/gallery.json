@@ -27,6 +27,31 @@
     },
     {
       "id": 2,
+      "title": "🥈 2nd Place – Cyberbenders 3.0",
+      "image": "/assets/uploads/1782045581651-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
+      "location": "Sousse, Tunisia",
+      "date": "January 2026",
+      "caption": "Cyberbenders 3.0 was an incredible cybersecurity challenge that pushed our skills across cryptography, web exploitation, OSINT, and digital forensics. Proud to have secured 2nd place with Team Bitwi$e while learning, competing, and collaborating under pressure.",
+      "hashtags": [
+        "Cybersecurity",
+        "CTF",
+        "OSINT",
+        "Forensics",
+        "Cryptography"
+      ],
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "year": 2026,
+      "category": "Hackathons",
+      "album": "Cyberbenders",
+      "albumImages": [
+        "/assets/uploads/1782045585157-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
+        "/assets/uploads/1782045588347-WhatsApp-Image-2026-06-21-at-13.31.59.jpeg"
+      ]
+    },
+    {
+      "id": 3,
       "image": "/assets/tsyp13/tsyp13_1.jpeg",
       "title": "🌐 TSYP 13 Congress",
       "location": "Tunisia",
@@ -56,7 +81,7 @@
       ]
     },
     {
-      "id": 3,
+      "id": 4,
       "image": "/assets/orange/1767175855235.jpg",
       "title": "🚀 Orange Hackathon – AI in Telecommunications",
       "location": "Tunis, Tunisia",
@@ -90,7 +115,7 @@
       ]
     },
     {
-      "id": 4,
+      "id": 5,
       "image": "/assets/nuitinfo2025/nuit1.jpeg",
       "title": "✨ Nuit de l'Info 2025",
       "location": "Tunisia",
@@ -116,7 +141,7 @@
       ]
     },
     {
-      "id": 5,
+      "id": 6,
       "image": "/assets/leoni/WhatsApp Image 2025-11-11 at 00.42.09.jpeg",
       "title": "🏭 Organize Industrial Visit to Leoni Wiring System Factory",
       "location": "Tunisia",
@@ -140,7 +165,7 @@
       ]
     },
     {
-      "id": 6,
+      "id": 7,
       "image": "/assets/ias tam/WhatsApp Image 2025-11-11 at 00.18.51.jpeg",
       "title": "🏆 1st Place - IAS TAM Technical Challenge",
       "location": "Tunis, Tunisia",
@@ -167,7 +192,7 @@
       ]
     },
     {
-      "id": 7,
+      "id": 8,
       "image": "/assets/gdg/480821202_618396030941814_3776731707426923263_n.jpg",
       "title": "🎖️ Best Android Project - GDG TechDays",
       "location": "Sousse, Tunisia",
@@ -194,7 +219,7 @@
       ]
     },
     {
-      "id": 8,
+      "id": 9,
       "image": "/assets/raksha pentest/WhatsApp Image 2025-11-11 at 00.42.15 (1).jpeg",
       "title": "🥉 Raksha Pentest Hackathon",
       "location": "Tunisia",
@@ -223,7 +248,7 @@
       ]
     },
     {
-      "id": 9,
+      "id": 10,
       "image": "/assets/nexova/WhatsApp Image 2025-11-11 at 00.42.17 (3).jpeg",
       "title": "🚀 Participate in Competition with Nexova Project",
       "location": "Tunisia",
@@ -247,7 +272,7 @@
       ]
     },
     {
-      "id": 10,
+      "id": 11,
       "image": "/assets/redroom/486366252_974796501491731_6274390641205272597_n.jpg",
       "title": "🔴 RedRoom Hackathon",
       "location": "Tunisia",
@@ -272,7 +297,7 @@
       ]
     },
     {
-      "id": 11,
+      "id": 12,
       "image": "/assets/tsyp 12/470957586_18039732614460936_5318145448294234576_n.jpg",
       "title": "🌐 TSYP 12 Congress",
       "location": "Tunisia",
@@ -296,7 +321,7 @@
       ]
     },
     {
-      "id": 12,
+      "id": 13,
       "image": "/assets/IAC/491471880_122131336886739282_1231833205782835835_n.jpg",
       "title": "📍 Lead the Booth at IEEE IAS 60th Anniversary Conference",
       "location": "Tunisia",
@@ -321,7 +346,7 @@
       ]
     },
     {
-      "id": 13,
+      "id": 14,
       "image": "/assets/sdc/IMG_7982-DeNoiseAI-low-light.jpg",
       "title": "🌟 Sight Day Congress",
       "location": "ISITCOM, Tunisia",
@@ -351,7 +376,7 @@
       ]
     },
     {
-      "id": 14,
+      "id": 15,
       "image": "/assets/IEEEXtreme/566548221_1377010090705077_1010479586872874561_n.jpg",
       "title": "💻 Participate in IEEEXtreme 18.0 & 19.0",
       "location": "Online",
@@ -375,7 +400,7 @@
       ]
     },
     {
-      "id": 15,
+      "id": 16,
       "image": "/assets/tsyp 11/received_1528609294627429.jpeg",
       "title": "🌐 TSYP 11 Congress",
       "location": "Tunisia",
@@ -396,31 +421,6 @@
       "albumImages": [
         "/assets/tsyp 11/received_1528609294627429.jpeg",
         "/assets/tsyp 11/WhatsApp Image 2025-11-11 at 00.42.18.jpeg"
-      ]
-    },
-    {
-      "id": 16,
-      "title": "🥈 2nd Place – Cyberbenders 3.0",
-      "image": "/assets/uploads/1782045581651-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
-      "location": "Sousse, Tunisia",
-      "date": "January 2026",
-      "caption": "Cyberbenders 3.0 was an incredible cybersecurity challenge that pushed our skills across cryptography, web exploitation, OSINT, and digital forensics. Proud to have secured 2nd place with Team Bitwi$e while learning, competing, and collaborating under pressure.",
-      "hashtags": [
-        "Cybersecurity",
-        "CTF",
-        "OSINT",
-        "Forensics",
-        "Cryptography"
-      ],
-      "likes": 0,
-      "comments": 0,
-      "shares": 0,
-      "year": 2026,
-      "category": "Hackathons",
-      "album": "Cyberbenders",
-      "albumImages": [
-        "/assets/uploads/1782045585157-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
-        "/assets/uploads/1782045588347-WhatsApp-Image-2026-06-21-at-13.31.59.jpeg"
       ]
     }
   ]
