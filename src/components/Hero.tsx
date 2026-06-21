@@ -21,14 +21,18 @@ type SiteData = {
       tagline?: string;
       primaryCtaLabel?: string;
       secondaryCtaLabel?: string;
+      cvPath?: string;
     };
   };
 };
+
+const DEFAULT_CV_PATH = "/CV_Yassine_Hallous.pdf";
 
 const Hero = () => {
   const reducedMotion = useReducedMotion();
   const { data: siteData } = useJsonData<SiteData>("/data/site.json");
   const hero = siteData?.sections?.hero;
+  const cvPath = hero?.cvPath?.trim() || DEFAULT_CV_PATH;
 
   const roles = useMemo(
     () => (hero?.roles?.length ? hero.roles : DEFAULT_ROLES),
@@ -119,7 +123,7 @@ const Hero = () => {
               size="lg"
               variant="outline"
               className="border-primary/50 hover:bg-primary/10"
-              onClick={() => window.open(getAssetPath("/CV_Yassine_Hallous.pdf"), "_blank")}
+              onClick={() => window.open(getAssetPath(cvPath), "_blank")}
             >
               <Download className="w-4 h-4 mr-2" />
               {hero?.secondaryCtaLabel ?? "Download CV"}

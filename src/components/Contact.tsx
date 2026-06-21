@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { getAssetPath } from "@/lib/paths";
+import { useJsonData } from "@/hooks/use-json-data";
 import {
   Select,
   SelectContent,
@@ -25,7 +26,17 @@ const contactSchema = z.object({
   website: z.string().max(0).optional(),
 });
 
+type SiteData = {
+  sections?: { hero?: { cvPath?: string; secondaryCtaLabel?: string } };
+};
+
+const DEFAULT_CV_PATH = "/CV_Yassine_Hallous.pdf";
+
 const Contact = () => {
+  const { data: siteData } = useJsonData<SiteData>("/data/site.json");
+  const cvPath = siteData?.sections?.hero?.cvPath?.trim() || DEFAULT_CV_PATH;
+  const cvButtonLabel = siteData?.sections?.hero?.secondaryCtaLabel ?? "Download My CV";
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -282,9 +293,9 @@ const Contact = () => {
                 <Button
                   size="lg"
                   className="bg-primary hover:bg-primary/90 text-primary-foreground"
-                  onClick={() => window.open(getAssetPath("/CV_Yassine_Hallous.pdf"), "_blank")}
+                  onClick={() => window.open(getAssetPath(cvPath), "_blank")}
                 >
-                  Download My CV
+                  {cvButtonLabel}
                 </Button>
               </CardContent>
             </Card>

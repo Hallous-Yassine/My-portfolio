@@ -166,6 +166,40 @@ export function cmsApiPlugin() {
           return;
         }
 
+        if (url === "/api/cv" && req.method === "POST") {
+          try {
+            const contentType = req.headers["content-type"] ?? "";
+            const boundaryMatch = contentType.match(/boundary=(.+)$/);
+            if (!boundaryMatch) {
+              sendJson(res, 400, { error: "Expected multipart upload." });
+              return;
+            }
+
+            const raw = Buffer.from(await readBody(req), "binary");
+            const parsed = parseMultipart(raw, boundaryMatch[1]);
+            if (!parsed) {
+              sendJson(res, 400, { error: "No file uploaded." });
+              return;
+            }
+
+            const lowerName = parsed.filename.toLowerCase();
+            if (!lowerName.endsWith(".pdf")) {
+              sendJson(res, 400, { error: "Only PDF files are allowed for CV upload." });
+              return;
+            }
+
+            const safeName = parsed.filename.replace(/[^a-zA-Z0-9._-]/g, "-");
+            const folder = join(ASSETS_DIR, "cv");
+            mkdirSync(folder, { recursive: true });
+            const dest = join(folder, `${Date.now()}-${safeName}`);
+            writeFileSync(dest, parsed.buffer);
+            sendJson(res, 200, { path: `/assets/cv/${dest.split(/[/\\]/).pop()}` });
+          } catch (err) {
+            sendJson(res, 500, { error: err instanceof Error ? err.message : "Upload failed." });
+          }
+          return;
+        }
+
         if (url === "/api/media" && req.method === "POST") {
           try {
             const contentType = req.headers["content-type"] ?? "";

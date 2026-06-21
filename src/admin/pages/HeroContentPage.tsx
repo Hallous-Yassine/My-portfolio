@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from "react";
 import { Loader2, RotateCcw, Save } from "lucide-react";
 import { toast } from "sonner";
 import AdminLayout from "@/admin/components/AdminLayout";
+import CvUploader from "@/admin/components/CvUploader";
 import StringArrayInput from "@/admin/components/StringArrayInput";
 import { clampArray } from "@/admin/components/site-editors";
 import { fetchCollection, saveCollection } from "@/admin/lib/cms-api";
@@ -68,7 +69,7 @@ export default function HeroContentPage() {
   return (
     <AdminLayout
       title="Hero Section"
-      description="Edit the name, rotating roles, tagline, and call-to-action labels shown at the top of your portfolio."
+      description="Edit the name, rotating roles, tagline, CV file, and call-to-action labels shown at the top of your portfolio."
       actions={
         <>
           <Button variant="outline" size="sm" disabled={!isDirty || saving} onClick={discard}>
@@ -130,6 +131,8 @@ export default function HeroContentPage() {
                 />
               </div>
             </div>
+
+            <CvUploader value={data.cvPath} onChange={(cvPath) => update({ cvPath })} />
           </CardContent>
         </Card>
       )}

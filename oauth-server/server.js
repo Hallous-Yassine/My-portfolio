@@ -377,6 +377,56 @@ app.put("/api/content/:key", express.json({ limit: "2mb" }), async (req, res) =>
   }
 });
 
+app.post("/api/cv", express.raw({ type: "*/*", limit: "12mb" }), async (req, res) => {
+  const token = getToken(req);
+  if (!token) {
+    res.status(401).json({ error: "Missing authorization token." });
+    return;
+  }
+
+  try {
+    const contentType = req.headers["content-type"] ?? "";
+    const boundaryMatch = contentType.match(/boundary=(.+)$/);
+    if (!boundaryMatch) {
+      res.status(400).json({ error: "Expected multipart upload." });
+      return;
+    }
+
+    const buffer = req.body;
+    const parts = buffer.toString("binary").split(`--${boundaryMatch[1]}`);
+    let filename = `CV-${Date.now()}.pdf`;
+    let fileBuffer = null;
+
+    for (const part of parts) {
+      if (!part.includes('name="file"')) continue;
+      const headerEnd = part.indexOf("\r\n\r\n");
+      if (headerEnd === -1) continue;
+      const headers = part.slice(0, headerEnd);
+      const filenameMatch = headers.match(/filename="([^"]+)"/);
+      if (filenameMatch) filename = filenameMatch[1].replace(/[^a-zA-Z0-9._-]/g, "-");
+      const data = part.slice(headerEnd + 4).replace(/\r\n$/, "").replace(/\r\n--$/, "");
+      fileBuffer = Buffer.from(data, "binary");
+      break;
+    }
+
+    if (!fileBuffer) {
+      res.status(400).json({ error: "No file uploaded." });
+      return;
+    }
+
+    if (!filename.toLowerCase().endsWith(".pdf")) {
+      res.status(400).json({ error: "Only PDF files are allowed for CV upload." });
+      return;
+    }
+
+    const assetPath = `public/assets/cv/${Date.now()}-${filename}`;
+    await upsertFile(token, assetPath, fileBuffer, "Upload CV via Portfolio CMS");
+    res.json({ path: `/assets/cv/${assetPath.split("/").pop()}` });
+  } catch (err) {
+    res.status(err.status ?? 500).json({ error: err.message });
+  }
+});
+
 app.post("/api/media", express.raw({ type: "*/*", limit: "8mb" }), async (req, res) => {
   const token = getToken(req);
   if (!token) {

@@ -58,3 +58,15 @@ export async function uploadMedia(file: File): Promise<{ path: string }> {
   });
   return handleResponse<{ path: string }>(response);
 }
+
+export async function uploadCv(file: File): Promise<{ path: string }> {
+  const formData = new FormData();
+  formData.append("file", file);
+
+  const response = await fetch(apiUrl("/cv"), {
+    method: "POST",
+    headers: authHeaders(),
+    body: formData,
+  });
+  return handleResponse<{ path: string }>(response);
+}

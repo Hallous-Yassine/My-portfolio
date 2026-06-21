@@ -73,6 +73,7 @@ export interface HeroContent {
   tagline?: string;
   primaryCtaLabel?: string;
   secondaryCtaLabel?: string;
+  cvPath?: string;
 }
 
 export interface AboutBlock {
