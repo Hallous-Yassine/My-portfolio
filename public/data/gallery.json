@@ -397,6 +397,31 @@
         "/assets/tsyp 11/received_1528609294627429.jpeg",
         "/assets/tsyp 11/WhatsApp Image 2025-11-11 at 00.42.18.jpeg"
       ]
+    },
+    {
+      "id": 16,
+      "title": "🥈 2nd Place – Cyberbenders 3.0",
+      "image": "/assets/uploads/1782045581651-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
+      "location": "Sousse, Tunisia",
+      "date": "January 2026",
+      "caption": "Cyberbenders 3.0 was an incredible cybersecurity challenge that pushed our skills across cryptography, web exploitation, OSINT, and digital forensics. Proud to have secured 2nd place with Team Bitwi$e while learning, competing, and collaborating under pressure.",
+      "hashtags": [
+        "Cybersecurity",
+        "CTF",
+        "OSINT",
+        "Forensics",
+        "Cryptography"
+      ],
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "year": 2026,
+      "category": "Hackathons",
+      "album": "Cyberbenders",
+      "albumImages": [
+        "/assets/uploads/1782045585157-WhatsApp-Image-2026-06-21-at-13.31.58.jpeg",
+        "/assets/uploads/1782045588347-WhatsApp-Image-2026-06-21-at-13.31.59.jpeg"
+      ]
     }
   ]
 }
