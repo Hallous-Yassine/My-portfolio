@@ -1,4 +1,6 @@
 import { Plus, X } from "lucide-react";
+import ReorderButtons from "@/admin/components/ReorderButtons";
+import { moveArrayItem } from "@/admin/lib/reorder-array";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Badge } from "@/components/ui/badge";
@@ -23,6 +25,9 @@ export default function StringArrayInput({
     next[index] = value;
     onChange(next);
   };
+  const move = (index: number, direction: -1 | 1) => {
+    onChange(moveArrayItem(values, index, direction));
+  };
 
   return (
     <div className="space-y-2">
@@ -38,10 +43,19 @@ export default function StringArrayInput({
       ) : (
         <div className="space-y-2">
           {values.map((value, index) => (
-            <div key={index} className="flex gap-2">
+            <div key={`item-${index}`} className="flex items-center gap-2">
+              <span className="w-6 shrink-0 text-center text-xs font-mono text-muted-foreground">
+                {index + 1}
+              </span>
+              <ReorderButtons
+                index={index}
+                total={values.length}
+                onMove={(direction) => move(index, direction)}
+              />
               <Input
                 value={value}
                 placeholder={placeholder}
+                className="flex-1"
                 onChange={(e) => update(index, e.target.value)}
               />
               <Button type="button" variant="ghost" size="icon" onClick={() => remove(index)}>
@@ -50,6 +64,9 @@ export default function StringArrayInput({
             </div>
           ))}
         </div>
+      )}
+      {values.length > 1 && (
+        <p className="text-xs text-muted-foreground">Use ↑ ↓ to change display order on the site.</p>
       )}
       {values.length > 0 && (
         <div className="flex flex-wrap gap-1 pt-1">
