@@ -6,9 +6,28 @@
       "company": "Pwn & Patch",
       "location": "Menzah, Tunisia",
       "date": "February 2026 – May 2026",
-      "description": "",
-      "highlights": [],
-      "technologies": [],
+      "description": "Designed and developed an IoT Security Sandbox, a cybersecurity platform for simulating IoT environments, executing attack scenarios, evaluating defense mechanisms, and performing automated security audits.",
+      "highlights": [
+        "Designed and implemented an IoT Security Sandbox supporting virtual device deployment, attack execution, defense evaluation, and security auditing.",
+        "Developed a scalable backend using FastAPI, PostgreSQL, Celery, and Redis, with Docker and K3s orchestration for isolated IoT environments.",
+        "Integrated Suricata IDS, QEMU, Buildroot, Kali Linux containers, and Open vSwitch (OVS) to enable realistic IoT simulation, intrusion detection, and network monitoring."
+      ],
+      "technologies": [
+        "FastAPI",
+        "PostgreSQL",
+        "InfluxDB",
+        "ElasticSearch",
+        "Docker",
+        "K3s",
+        "Redis",
+        "Celery",
+        "React",
+        "Suricata IDS",
+        "QEMU",
+        "Buildroot",
+        "Kali Linux",
+        "Open vSwitch (OVS)"
+      ],
       "image": "/assets/uploads/1782043971136-sandbox.png"
     },
     {
