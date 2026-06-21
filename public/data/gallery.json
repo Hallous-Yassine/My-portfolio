@@ -372,6 +372,63 @@
         "/assets/tsyp 11/received_1528609294627429.jpeg",
         "/assets/tsyp 11/WhatsApp Image 2025-11-11 at 00.42.18.jpeg"
       ]
+    },
+    {
+      "id": 15,
+      "title": "",
+      "image": "",
+      "location": "",
+      "date": "",
+      "caption": "",
+      "hashtags": [],
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "year": 2026,
+      "category": "",
+      "album": "",
+      "albumImages": []
+    },
+    {
+      "id": 16,
+      "title": "🏆 1st Place – Municipal Hackathon 2026",
+      "image": "",
+      "location": "Sousse, Tunisia",
+      "date": "2026",
+      "caption": "An unforgettable 24-hour hackathon filled with collaboration, creativity, and problem-solving. Together with an amazing multidisciplinary team, we designed an innovative digital solution to address real municipal challenges, earning 1st place across FNCT District No. 3. Proud of what we accomplished and grateful for the experience!",
+      "hashtags": [],
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "year": 2026,
+      "category": "",
+      "album": "",
+      "albumImages": []
+    },
+    {
+      "id": 17,
+      "title": "🏆 1st Place – Municipal Hackathon 2026",
+      "image": "",
+      "location": "Sousse, Tunisia",
+      "date": "March 2026",
+      "caption": "An unforgettable 24-hour hackathon filled with collaboration, creativity, and problem-solving. Together with an amazing multidisciplinary team, we designed an innovative digital solution to address real municipal challenges, earning 1st place across FNCT District No. 3. Proud of what we accomplished and grateful for the experience!",
+      "hashtags": [
+        "Hackathon",
+        "Innovation",
+        "Teamwork",
+        "SmartCities",
+        "MunicipalTech"
+      ],
+      "likes": 0,
+      "comments": 0,
+      "shares": 0,
+      "year": 2026,
+      "category": "Hackathons",
+      "album": "",
+      "albumImages": [
+        "/assets/uploads/1782045454555-WhatsApp-Image-2026-06-21-at-13.29.03.jpeg",
+        "/assets/uploads/1782045457948-WhatsApp-Image-2026-06-21-at-13.29.03--1-.jpeg"
+      ]
     }
   ]
 }
