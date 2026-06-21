@@ -1,14 +1,14 @@
 {
   "sections": {
     "hero": {
-      "name": "Yassine kammoun",
+      "name": "Yassine Hallous",
       "roles": [
-        "Computer Engineering Student",
-        "AI/ML Developer",
-        "Backend & IoT Developer",
-        "Cybersecurity Learner"
+        "Computer Engineering",
+        "Software Developer",
+        "Cybersecurity Learner",
+        "AI/ML Developer"
       ],
-      "tagline": "Computer Engineering Student exploring IoT, AI, and backend engineering. Turning real-world challenges into smart, secure, and connected solutions.",
+      "tagline": "Computer Engineer passionate about cybersecurity, artificial intelligence, and IoT. Turning real-world challenges into secure and intelligent solutions.",
       "primaryCtaLabel": "Get In Touch",
       "secondaryCtaLabel": "Download CV"
     },
